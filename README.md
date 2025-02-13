@@ -99,6 +99,7 @@ Extracts meaningful text from the uploaded file using different parsing methods 
 
 ### 🧩 Chunks Generation
 Splits the extracted text into manageable chunks to optimize search and retrieval performance.
+<img src="https://github.com/christivn/oFiles/blob/main/img/text_splitter.png?raw=true" width="600px">
 
 <br>
 
