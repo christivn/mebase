@@ -9,6 +9,7 @@
 [![Korea](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/kr.png "Korea") 한국어](/readme/kr.md)
 
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![Langchain](https://img.shields.io/badge/Langchain-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white)
 ![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
 ![Supabase Vector](https://img.shields.io/badge/Supabase%20Vector%20DB-000?style=for-the-badge&logo=supabase&logoColor=white)
 ![Embedding](https://img.shields.io/badge/EMBEDDING-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black)
