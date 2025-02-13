@@ -5,7 +5,7 @@ def text_to_embedding(oFile, text):
     tokenizer = AutoTokenizer.from_pretrained(oFile.embeddingModel)
     model = AutoModel.from_pretrained(oFile.embeddingModel)
 
-    inputs = tokenizer(text, return_tensors="pt")
+    inputs = tokenizer(text, return_tensors="pt", truncation=True, max_length=512)
     outputs = model(**inputs)
     embedding = outputs.last_hidden_state.mean(dim=1)
     return embedding

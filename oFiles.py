@@ -1,5 +1,9 @@
-from modules.fileUpload import fileUpload
+import os
+from supabase import create_client, Client
+
+from modules.fileUpload import getTextFromPDF
 from modules.embbeding import text_to_embedding
+from modules.optimization import promptOptimization
 
 class oFiles:
     def __init__(self, SUPABASE_URL, SUPABASE_KEY):
@@ -8,25 +12,85 @@ class oFiles:
         self.SUPABASE_KEY = SUPABASE_KEY
 
         # Test conection
+        if self.check_supabase_connection():
+            supabase: Client = create_client(self.SUPABASE_URL, self.SUPABASE_KEY)
 
-        # File
-        self.complete_filename = ""
-        self.filename = ""
-        self.ext = ""
+            # Uploads
+            self.allowedFormats = [
+                ["txt", "md", "json", "xml", "yaml", "ini", "log", "bat", "py", "js", "java", "cpp", "html"],
+                ["pdf"],
+                ["csv"]
+            ]
+            self.uploadsPath = "uploads/"
 
-        # Chunking & Embedding
-        self.chunkSize = 800 #tokens
-        self.chunkOverlap = 300 #tokens
-        self.embeddingModel = "thenlper/gte-small"
-        self.maxChunksInContext = 20
+            # Chunking & Embedding
+            self.chunkSize = 512 #tokens
+            self.chunkDinamicOverlap = 300 #tokens
+            self.embeddingModel = "thenlper/gte-small"
+            self.maxChunksInContext = 20
 
-    def testConnection():
-        # self.SUPABASE_URL
-        # self.SUPABASE_KEY
-        return 0
+            # Output
+            self.prettify = False
+
+            # Debug
+            self.debugMode = True
+        else:
+            print("[X] Supabase connection error")
+
+
+    def check_supabase_connection(self):
+        try:
+            supabase: Client = create_client(self.SUPABASE_URL, self.SUPABASE_KEY)
+            response = supabase.auth.get_user()
+            return True is not None
+        except Exception as e:
+            return False
+
 
     def fileUpload(self, filepath):
-        return 0
+        # Check file extension
+        _, extension = os.path.splitext(filepath)
+        extension = extension.lstrip('.')
 
-    def embedding(self, text):
-        return text_to_embedding(self, text)
+        # Coming soon...
+        # Text files
+        # if extension in self.allowedFormats[0]:
+        #     chunks, chunkIndexes = getTextFromTXT(self, filepath)
+
+        # PDF files
+        if extension in self.allowedFormats[1]:
+            chunks, chunkIndexes = getTextFromPDF(self, filepath)
+
+        # Coming soon...
+        # CSV files
+        # if extension in self.allowedFormats[2]:
+        #     chunks, chunkIndexes = getTextFromCSV(self, filepath)
+
+        # Coming soon...
+        # Microsoft Office files
+        # if extension in self.allowedFormats[2]:
+        #     chunks, chunkIndexes = getTextFromMicrosoftOffice(self, filepath)
+
+        if(len(chunks) > 0):
+            if self.debugMode:
+                print("\033[33m[ DEBUG: chunkIndexes ]\033[0m")
+                for chunk_num, start, end in chunkIndexes:
+                    print(f"Chunk: {chunk_num} Start: {start} End: {end}")
+                print("\n", end="")
+
+            # Generate chunks embeddings
+            print("\033[34m[ GENERATING CHUNK EMBEDDINGS... ]\033[0m")
+            chunkEmbeddings = []
+            for chunk in chunks:
+                embedding = text_to_embedding(self, chunk.page_content)
+                print(f"Embedding: {embedding}")
+                chunkEmbeddings.append(embedding)
+            print(chunkEmbeddings)
+                
+        else:
+            print("[X] Empty file, no chunks found")
+
+
+    def promptOptimization(self):
+        # Divide el prompt de entrada en diferentes prompts si se necesita acceder a diferentes chunks para una consulta
+        return 0
