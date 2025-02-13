@@ -1,4 +1,4 @@
-# 🗃️✨ oFiles - Open Alternative to OpenAI `file_search`
+# 🗃️✨ memoryFiles - Open Alternative to OpenAI `file_search`
 
 [![US](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/us.png "Canada") English](/readme/en.md) -
 [![Spain](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/es.png "Spain") Español](/readme/es.md) -
@@ -103,7 +103,6 @@ Splits the extracted text into manageable chunks to optimize search and retrieva
 
 **Default Settings:**
 - 📏 **Chunk size:** 512 tokens
-- 🔄 **Default Chunk overlap:** 300 tokens
 - 🧠 **Embedding model:** `thenlper/gte-small` (384 dimensions)
 - 🔢 **Max chunks in context:** 20
 
