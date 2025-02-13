@@ -23,6 +23,7 @@ oFile is an open-source alternative to OpenAI's `file_search` tool, designed to 
 🔹 **Generate** chunks for efficient storage and retrieval
 🔹 **Embed** text data for semantic search
 🔹 **Store** and **query** embeddings using Supabase Vector DB
+🔹 **Multilingual support** for better accessibility across different languages
 
 ### Index
 
@@ -49,6 +50,7 @@ oFile is an open-source alternative to OpenAI's `file_search` tool, designed to 
 ⚡ **Fast & Scalable** - Uses Supabase Vector for high-performance retrieval.
 🔍 **Accurate Search** - Supports semantic search with embeddings.
 📂 **Flexible & Extensible** - Easily integrates with different file formats and databases.
+**🌐 Multilingual Support** - Process and retrieve information in multiple languages.
 
 <br>
 
