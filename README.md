@@ -1,4 +1,4 @@
-
+# 🗃️✨ oFiles - Open Alternative to OpenAI `file_search`
 
 [![US](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/us.png "Canada") English](/readme/en.md) -
 [![Spain](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/es.png "Spain") Español](/readme/es.md) -
@@ -16,7 +16,6 @@
 ![Embedding](https://img.shields.io/badge/OPEN%20EMBEDDINGS-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black)
 ![Pinecone Embedding](https://img.shields.io/badge/PINECONE%20CLOUD%20EMBEDDING-000?style=for-the-badge&logoColor=white)
 
-# 🗃️✨ oFiles - Open Alternative to OpenAI `file_search`
 
 ## 📖 About oFile
 
