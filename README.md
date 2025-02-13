@@ -101,8 +101,8 @@ Extracts meaningful text from the uploaded file using different parsing methods 
 Splits the extracted text into manageable chunks to optimize search and retrieval performance.
 
 **Default Settings:**
-- 📏 **Chunk size:** 800 tokens
-- 🔄 **Chunk overlap:** 300 tokens
+- 📏 **Chunk size:** 512 tokens
+- 🔄 **Default Chunk overlap:** 300 tokens
 - 🧠 **Embedding model:** `thenlper/gte-small` (384 dimensions)
 - 🔢 **Max chunks in context:** 20
 
