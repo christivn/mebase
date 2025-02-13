@@ -12,7 +12,8 @@
 ![Langchain](https://img.shields.io/badge/Langchain-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white)
 ![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
 ![Supabase Vector](https://img.shields.io/badge/Supabase%20Vector%20DB-000?style=for-the-badge&logo=supabase&logoColor=white)
-![Embedding](https://img.shields.io/badge/EMBEDDING-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black)
+![Embedding](https://img.shields.io/badge/OPEN%20EMBEDDINGS-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black)
+![Pinecone Embedding](https://img.shields.io/badge/PINECONE%20CLOUD%20EMBEDDING-000?style=for-the-badge&logoColor=white)
 
 # 🗃️✨ oFiles - Open Alternative to OpenAI `file_search`
 
