@@ -1,4 +1,4 @@
-# 🗃️✨ oFiles - Open Alternative to OpenAI `file_search`
+
 
 [![US](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/us.png "Canada") English](/readme/en.md) -
 [![Spain](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/es.png "Spain") Español](/readme/es.md) -
@@ -9,20 +9,22 @@
 [![Korea](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/kr.png "Korea") 한국어](/readme/kr.md)
 
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![Langchain](https://img.shields.io/badge/Langchain-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white)
 ![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
 ![Supabase Vector](https://img.shields.io/badge/Supabase%20Vector%20DB-000?style=for-the-badge&logo=supabase&logoColor=white)
 ![Embedding](https://img.shields.io/badge/EMBEDDING-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black)
 
-<br>
+# 🗃️✨ oFiles - Open Alternative to OpenAI `file_search`
 
 ## 📖 About oFile
 
 oFile is an open-source alternative to OpenAI's `file_search` tool, designed to efficiently process, store, and retrieve file-based information using Supabase and embeddings.
 
-🔹 **Extract** text from uploaded files
-🔹 **Generate** chunks for efficient storage and retrieval
-🔹 **Embed** text data for semantic search
-🔹 **Store** and **query** embeddings using Supabase Vector DB
+🔹 **Extract** text from uploaded files  
+🔹 **Generate** chunks for efficient storage and retrieval  
+🔹 **Embed** text data for semantic search  
+🔹 **Store** and **query** embeddings using Supabase Vector DB  
+🔹 **Multilingual support** for better accessibility across different languages  
 
 ### Index
 
@@ -45,10 +47,11 @@ oFile is an open-source alternative to OpenAI's `file_search` tool, designed to 
 
 ## 💡 Why Use oFile?
 
-💰 **Open-source & Cost-effective** - No reliance on proprietary APIs.
-⚡ **Fast & Scalable** - Uses Supabase Vector for high-performance retrieval.
-🔍 **Accurate Search** - Supports semantic search with embeddings.
-📂 **Flexible & Extensible** - Easily integrates with different file formats and databases.
+💰 **Open-source & Cost-effective** - No reliance on proprietary APIs.  
+⚡ **Fast & Scalable** - Uses Supabase Vector for high-performance retrieval.  
+🔍 **Accurate Search** - Supports semantic search with embeddings.  
+📂 **Flexible & Extensible** - Easily integrates with different file formats and databases.  
+🌐 **Multilingual Support** - Process and retrieve information in multiple languages.  
 
 <br>
 
