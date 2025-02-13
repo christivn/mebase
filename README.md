@@ -1,23 +1,91 @@
-# 🗃️✨ oFile
-Open Alternative - Openai File Search
+# 🗃️✨ oFile - Open Alternative to OpenAI `file_search`
+
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
+![Supabase Vector](https://img.shields.io/badge/Supabase%20Vector%20DB-000?style=for-the-badge&logo=supabase&logoColor=white)
+![Embedding](https://img.shields.io/badge/EMBEDDING-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black)
 
 <br>
 
-## OpenAI - `file_search`
-https://platform.openai.com/docs/assistants/tools/file-search/quickstart#how-it-works
+## 📖 About oFile
 
-The `file_search` tool implements several retrieval best practices out of the box to help you extract the right data from your files and augment the model’s responses. The `file_search` tool:
+oFile is an open-source alternative to OpenAI's `file_search` tool, designed to efficiently process, store, and retrieve file-based information using Supabase and embeddings.
 
-- Rewrites user queries to optimize them for search.
-- Breaks down complex user queries into multiple searches it can run in parallel.
-- Runs both keyword and semantic searches across both assistant and thread vector stores.
-- Reranks search results to pick the most relevant ones before generating the final response.
+🔹 **Extract** text from uploaded files
+🔹 **Generate** chunks for efficient storage and retrieval
+🔹 **Embed** text data for semantic search
+🔹 **Store** and **query** embeddings using Supabase Vector DB
 
-By default, the `file_search` tool uses the following settings but these can be configured to suit your needs:
+<br>
 
-- Chunk size: 800 tokens
-- Chunk overlap: 400 tokens
-- Embedding model: `text-embedding-3-large` at 256 dimensions
-- Maximum number of chunks added to context: 20 (could be fewer)
-- Ranker: `auto` (OpenAI will choose which ranker to use)
-- Score threshold: 0 minimum ranking score
+## 🚀 How It Works
+
+oFile follows a structured process to ensure high-quality search and retrieval:
+
+1. **Upload:** Accepts files and extracts text.
+2. **Chunking:** Splits text into overlapping segments for better context.
+3. **Embedding:** Converts text chunks into vector representations.
+4. **Storage:** Saves embeddings in a vector database.
+5. **Search & Retrieval:** Uses semantic search to find relevant information based on user queries.
+
+<br>
+
+## 📝 Documentation
+
+### ⬆️ Upload File
+Users can upload various file formats (e.g., `.pdf`, `.txt`, `.csv`). The system extracts text content for further processing.
+
+### 📄 Transform File to Text
+Extracts meaningful text from the uploaded file using different parsing methods based on file type.
+
+### 🧩 Chunks Generation
+Splits the extracted text into manageable chunks to optimize search and retrieval performance.
+
+### 🔗 Embedding the Chunks
+Each chunk is embedded using a powerful embedding model, allowing for efficient similarity-based search.
+
+### 🗄️ Upload to Supabase
+Stores the embedded chunks in Supabase's vector database for fast and accurate querying.
+
+<br>
+
+## 💡 Why Use oFile?
+
+💰 **Open-source & Cost-effective** - No reliance on proprietary APIs.
+⚡ **Fast & Scalable** - Uses Supabase Vector for high-performance retrieval.
+🔍 **Accurate Search** - Supports semantic search with embeddings.
+📂 **Flexible & Extensible** - Easily integrates with different file formats and databases.
+
+<br>
+
+## 🛠️ Installation & Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/your-repo/ofile.git
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Set up environment variables (Supabase keys, embedding model API keys, etc.)
+export SUPABASE_URL=your_supabase_url
+export SUPABASE_KEY=your_supabase_key
+
+# Run the application
+python main.py
+```
+
+<br>
+
+## 🤝 Contributing
+
+We welcome contributions! Feel free to open issues, submit pull requests, or suggest improvements.
+
+📩 **Contact:** Reach out via GitHub Issues or Discussions.
+
+<br>
+
+## 📜 License
+
+MIT License. See `LICENSE` for details.
+
