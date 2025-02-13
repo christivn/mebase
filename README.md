@@ -158,5 +158,5 @@ We welcome contributions! Feel free to open issues, submit pull requests, or sug
 
 ## 📜 License
 
-MIT License. See `LICENSE` for details.
+MIT License Copyright (c). See [LICENSE](https://github.com/christivn/oFiles/blob/main/LICENSE) for details.
 
