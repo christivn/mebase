@@ -18,6 +18,15 @@ oFile is an open-source alternative to OpenAI's `file_search` tool, designed to 
 
 <br>
 
+## 💡 Why Use oFile?
+
+💰 **Open-source & Cost-effective** - No reliance on proprietary APIs.
+⚡ **Fast & Scalable** - Uses Supabase Vector for high-performance retrieval.
+🔍 **Accurate Search** - Supports semantic search with embeddings.
+📂 **Flexible & Extensible** - Easily integrates with different file formats and databases.
+
+<br>
+
 ## 🚀 How It Works
 
 oFile follows a structured process to ensure high-quality search and retrieval:
@@ -27,6 +36,10 @@ oFile follows a structured process to ensure high-quality search and retrieval:
 3. **Embedding:** Converts text chunks into vector representations.
 4. **Storage:** Saves embeddings in a vector database.
 5. **Search & Retrieval:** Uses semantic search to find relevant information based on user queries.
+
+<br>
+
+---
 
 <br>
 
@@ -46,15 +59,6 @@ Each chunk is embedded using a powerful embedding model, allowing for efficient 
 
 ### 🗄️ Upload to Supabase
 Stores the embedded chunks in Supabase's vector database for fast and accurate querying.
-
-<br>
-
-## 💡 Why Use oFile?
-
-💰 **Open-source & Cost-effective** - No reliance on proprietary APIs.
-⚡ **Fast & Scalable** - Uses Supabase Vector for high-performance retrieval.
-🔍 **Accurate Search** - Supports semantic search with embeddings.
-📂 **Flexible & Extensible** - Easily integrates with different file formats and databases.
 
 <br>
 
