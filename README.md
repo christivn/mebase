@@ -100,6 +100,14 @@ Extracts meaningful text from the uploaded file using different parsing methods 
 ### 🧩 Chunks Generation
 Splits the extracted text into manageable chunks to optimize search and retrieval performance.
 
+**Default Settings:**
+- 📏 **Chunk size:** 512 tokens
+- 🔄 **Default Chunk overlap:** 300 tokens
+- 🧠 **Embedding model:** `thenlper/gte-small` (384 dimensions)
+- 🔢 **Max chunks in context:** 20
+
+<img src="https://github.com/christivn/oFiles/blob/main/img/text_splitter.png?raw=true" width="600px">
+
 <br>
 
 ### 🔗 Embedding the Chunks
