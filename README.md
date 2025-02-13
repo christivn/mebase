@@ -1,4 +1,4 @@
-# 🗃️✨ oFiles - Open Alternative to OpenAI `file_search`
+
 
 [![US](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/us.png "Canada") English](/readme/en.md) -
 [![Spain](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/es.png "Spain") Español](/readme/es.md) -
@@ -13,7 +13,7 @@
 ![Supabase Vector](https://img.shields.io/badge/Supabase%20Vector%20DB-000?style=for-the-badge&logo=supabase&logoColor=white)
 ![Embedding](https://img.shields.io/badge/EMBEDDING-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black)
 
-<br>
+# 🗃️✨ oFiles - Open Alternative to OpenAI `file_search`
 
 ## 📖 About oFile
 
