@@ -106,7 +106,7 @@ Splits the extracted text into manageable chunks to optimize search and retrieva
 - 🧠 **Embedding model:** `thenlper/gte-small` (384 dimensions)
 - 🔢 **Max chunks in context:** 20
 
-<img src="https://github.com/christivn/oFiles/blob/main/img/text_splitter.png?raw=true" width="600px">
+<img src="https://github.com/christivn/memoryFiles/blob/main/img/text_splitter.png?raw=true" width="600px">
 
 <br>
 
@@ -158,5 +158,5 @@ We welcome contributions! Feel free to open issues, submit pull requests, or sug
 
 ## 📜 License
 
-MIT License Copyright (c). See [LICENSE](https://github.com/christivn/oFiles/blob/main/LICENSE) for details.
+MIT License Copyright (c). See [LICENSE](https://github.com/christivn/memoryFiles/blob/main/LICENSE) for details.
 
