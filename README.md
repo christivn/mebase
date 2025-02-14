@@ -72,6 +72,11 @@ Mebase can be used in various applications that require efficient file-based inf
 
 ## 🛠️ Installation & Setup
 
+**Requisitos:**
+
+- Api Key de Openrouter
+- Supabase con `pgvector`
+
 ```bash
 # Clone the repository
 git clone https://github.com/christivn/mebase.git
