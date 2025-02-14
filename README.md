@@ -89,6 +89,12 @@ Mebase follows a structured process to ensure high-quality search and retrieval:
 
 ## 📝 Documentation
 
+### 💾 Database
+
+HNSW Index
+
+<br>
+
 ### ⬆️ Upload File
 Users can upload various file formats (e.g., `.pdf`, `.txt`, `.csv`). The system extracts text content for further processing.
 
