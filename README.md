@@ -88,31 +88,57 @@ Mebase follows a structured process to ensure high-quality search and retrieval:
 
 <br><br>
 
-## 📝 Documentation
+# 📝 Documentation
 
-### 💾 Database
+## 💾 Database
 
-Cosine distance operator `<=>`
+En este proyecto, utilizamos Supabase como base de datos para almacenar y gestionar los embeddings generados por un modelo de aprendizaje automático. Para facilitar la búsqueda eficiente de datos similares, implementamos un índice basado en el algoritmo HNSW (Hierarchical Navigable Small World) y utilizamos la similitud de coseno para medir la cercanía entre los vectores de embeddings.
 
-<img src="https://github.com/christivn/Mebase/blob/main/img/cosine-distance.png?raw=true" width="450px">
+**¿Por qué HNSW?**
 
-**HNSW Index ilustration:**
+HNSW (Hierarchical Navigable Small World) es un algoritmo de búsqueda eficiente de vecinos más cercanos en espacios de alta dimensión. Se utiliza para mejorar el tiempo de respuesta en la búsqueda de los embeddings más cercanos en grandes volúmenes de datos. En lugar de realizar una búsqueda exhaustiva a través de todos los vectores, HNSW organiza los datos en una estructura jerárquica, lo que permite realizar búsquedas rápidas con un número reducido de comparaciones.
 
 <img src="https://github.com/christivn/Mebase/blob/main/img/HNSW.png?raw=true" width="450px">
 
+**Ventajas de HNSW:**
+- **Búsqueda eficiente:** Reduce significativamente el tiempo de consulta en grandes volúmenes de datos.  
+- **Escalabilidad:** Es adecuado para trabajar con grandes bases de datos de embeddings sin comprometer mucho el rendimiento.  
+- **Precisión:** Ofrece resultados de alta calidad en la búsqueda de vecinos más cercanos, lo que es fundamental cuando se busca similitud entre embeddings.  
+
 <br>
 
-### ⬆️ Upload File
+**Similitud de Coseno**
+
+La similitud de coseno es una medida utilizada para calcular la similitud entre dos vectores en un espacio de alta dimensión. Se define como el coseno del ángulo entre dos vectores, lo cual indica qué tan similares son en términos de dirección, independientemente de su magnitud.
+
+La fórmula de la similitud de coseno es:
+
+<img src="https://github.com/christivn/Mebase/blob/main/img/cosine-distance.png?raw=true" width="450px">
+Donde:
+
+AA y BB son los vectores de los embeddings que estamos comparando.  
+∥A∥ y ∥B∥ son las normas (o longitudes) de los vectores.  
+
+Un valor de similitud de coseno cercano a 1 indica que los vectores son muy similares, mientras que un valor cercano a 0 indica que los vectores son muy diferentes.
+
+**Representación 3D simplificada (Similitud de Coseno de 2 embbedings):**
+
+<img src="https://github.com/christivn/Mebase/blob/main/img/cosine-similarity.png?raw=true" width="450px">
+
+
+<br>
+
+## ⬆️ Upload File
 Users can upload various file formats (e.g., `.pdf`, `.txt`, `.csv`). The system extracts text content for further processing.
 
 <br>
 
-### 📄 Transform File to Text
+## 📄 Transform File to Text
 Extracts meaningful text from the uploaded file using different parsing methods based on file type.
 
 <br>
 
-### 🧩 Chunks Generation
+## 🧩 Chunks Generation
 Splits the extracted text into manageable chunks to optimize search and retrieval performance.
 
 **Default Settings:**
@@ -124,17 +150,17 @@ Splits the extracted text into manageable chunks to optimize search and retrieva
 
 <br>
 
-### 🔗 Embedding the Chunks
+## 🔗 Embedding the Chunks
 Each chunk is embedded using a powerful embedding model, allowing for efficient similarity-based search.
 
 <br>
 
-### 🗄️ Upload to Supabase
+## 🗄️ Upload to Supabase
 Stores the embedded chunks in Supabase's vector database for fast and accurate querying.
 
 <br>
 
-### 🔎 Search & Retrieval
+## 🔎 Search & Retrieval
 Uses semantic search to find relevant information based on user queries.
 
 - **K-NN:** 2 (Default)
