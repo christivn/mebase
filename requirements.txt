@@ -2,3 +2,4 @@ supabase
 langchain
 langchain-community
 pypdf
+tqdm
