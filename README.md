@@ -6,8 +6,7 @@
 [![India](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/in.png "China") हिंदी](/readme/in.md) -
 [![Korea](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/kr.png "Korea") 한국어](/readme/kr.md)
 
-<img src="https://github.com/christivn/mebase/blob/main/img/github-header-image.png?raw=true">
-<img src="https://cdn.shopify.com/s/files/1/0558/6413/1764/files/10_Tips_To_Create_A_Good_3D_Logo_Design_11_1024x1024.png?v=1662651019">
+<img src="https://github.com/christivn/Mebase/blob/main/img/github-header-image.jpg?raw=true">
 
 **Languages, frameworks and technologies:**
 
