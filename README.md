@@ -12,6 +12,7 @@
 ![Langchain](https://img.shields.io/badge/Langchain-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white)
 ![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
 ![PgVector](https://img.shields.io/badge/PGVECTOR-000?style=for-the-badge&logo=supabase&logoColor=white)
+![Openrouter](https://img.shields.io/badge/OPENROUTER-858585?style=for-the-badge&logoColor=black)
 ![Embedding](https://img.shields.io/badge/OPEN%20SOURCE%20EMBEDDING-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black)
 
 ## 🗃️✨ Mebase - 🙌 Open Source Alternative to OpenAI `file_search`
