@@ -12,10 +12,7 @@
 ![Langchain](https://img.shields.io/badge/Langchain-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white)
 ![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
 ![Supabase Vector](https://img.shields.io/badge/Supabase%20Vector%20DB-000?style=for-the-badge&logo=supabase&logoColor=white)
-
 ![Embedding](https://img.shields.io/badge/OPEN%20EMBEDDINGS-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black)
-![Pinecone Embedding](https://img.shields.io/badge/PINECONE%20CLOUD%20EMBEDDING-000?style=for-the-badge&logoColor=white)
-
 
 ## 📖 About oFile
 
@@ -104,7 +101,6 @@ Splits the extracted text into manageable chunks to optimize search and retrieva
 **Default Settings:**
 - 📏 **Chunk size:** 512 tokens
 - 🧠 **Embedding model:** `thenlper/gte-small` (384 dimensions)
-- 🧠 **Pinecone Cloud Embedding model:** `multilingual-e5-large` (1024 dimensions)
 - 🔢 **Max chunks in context:** 20
 
 <img src="https://github.com/christivn/memoryFiles/blob/main/img/text_splitter.png?raw=true" width="600px">
