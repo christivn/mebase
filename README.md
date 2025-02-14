@@ -8,12 +8,21 @@
 
 <img src="https://github.com/christivn/mebase/blob/main/img/github-header-image.png?raw=true">
 
+**Languages, frameworks and technologies:**
+
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 ![Langchain](https://img.shields.io/badge/Langchain-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white)
 ![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
 ![PgVector](https://img.shields.io/badge/PGVECTOR-000?style=for-the-badge&logo=supabase&logoColor=white)
 ![Openrouter](https://img.shields.io/badge/OPENROUTER-858585?style=for-the-badge&logoColor=black)
 ![Embedding](https://img.shields.io/badge/OPEN%20SOURCE%20EMBEDDING-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black)
+
+**GUI & API:**
+
+![Flask](https://img.shields.io/badge/Flask-000?style=for-the-badge&logo=flask&logoColor=white)
+![fastapi](https://img.shields.io/badge/fastapi-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+
+<br>
 
 ## 🗃️✨ Mebase - 🙌 Open Source Alternative to OpenAI `file_search`
 
