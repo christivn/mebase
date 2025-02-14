@@ -104,6 +104,7 @@ Splits the extracted text into manageable chunks to optimize search and retrieva
 **Default Settings:**
 - 📏 **Chunk size:** 512 tokens
 - 🧠 **Embedding model:** `thenlper/gte-small` (384 dimensions)
+- 🧠 **Pinecone Cloud Embedding model:** `multilingual-e5-large` (1024 dimensions)
 - 🔢 **Max chunks in context:** 20
 
 <img src="https://github.com/christivn/memoryFiles/blob/main/img/text_splitter.png?raw=true" width="600px">
