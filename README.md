@@ -137,6 +137,8 @@ Splits the extracted text into manageable chunks to optimize search and retrieva
 ## 🔗 Embedding the Chunks
 Each chunk is embedded using a powerful embedding model, allowing for efficient similarity-based search.
 
+<img src="https://github.com/christivn/Mebase/blob/main/img/embedding.jpg?raw=true" width="450px">
+
 <br>
 
 ## 💾 Database
