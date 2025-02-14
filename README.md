@@ -39,7 +39,7 @@ Mebase is an open-source alternative to OpenAI's `file_search` tool, designed to
   - [🔗 Embedding the Chunks](#-embedding-the-chunks)  
   - [🗄️ Upload to Supabase](#-upload-to-supabase)  
   - [🔎 Search & Retrieval](#-search--retrieval)  
-- [🛠️ Installation & Setup](#-installation--setup)  
+- [🛠️ Installation & Setup](#%EF%B8%8F-installation--setup)  
 - [🤝 Contributing](#-contributing)  
 - [📜 License](#-license)  
 
