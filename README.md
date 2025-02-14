@@ -165,9 +165,12 @@ Un valor de similitud de coseno cercano a 1 indica que los vectores son muy simi
 ## 🔎 Search & Retrieval
 Uses semantic search to find relevant information based on user queries.
 
-- **K-NN:** 2 (Default)
-
 Always show in the chat the source file from which the information was obtained and the specific chunk.
+
+- **K-NN:** 2 (Default)
+- **Neighboring Chunks:** 1 (Default)
+
+<img src="https://github.com/christivn/Mebase/blob/main/img/chunks-strategies.jpg?raw=true" width="550px">
 
 <br><br>
 
