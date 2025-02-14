@@ -1,4 +1,4 @@
-
+# 🗃️✨ memoryFiles - Open Alternative to OpenAI `file_search`
 
 [![US](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/us.png "Canada") English](/readme/en.md) -
 [![Spain](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/es.png "Spain") Español](/readme/es.md) -
@@ -12,9 +12,10 @@
 ![Langchain](https://img.shields.io/badge/Langchain-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white)
 ![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
 ![Supabase Vector](https://img.shields.io/badge/Supabase%20Vector%20DB-000?style=for-the-badge&logo=supabase&logoColor=white)
-![Embedding](https://img.shields.io/badge/EMBEDDING-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black)
 
-# 🗃️✨ oFiles - Open Alternative to OpenAI `file_search`
+![Embedding](https://img.shields.io/badge/OPEN%20EMBEDDINGS-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black)
+![Pinecone Embedding](https://img.shields.io/badge/PINECONE%20CLOUD%20EMBEDDING-000?style=for-the-badge&logoColor=white)
+
 
 ## 📖 About oFile
 
@@ -102,11 +103,10 @@ Splits the extracted text into manageable chunks to optimize search and retrieva
 
 **Default Settings:**
 - 📏 **Chunk size:** 512 tokens
-- 🔄 **Default Chunk overlap:** 300 tokens
 - 🧠 **Embedding model:** `thenlper/gte-small` (384 dimensions)
 - 🔢 **Max chunks in context:** 20
 
-<img src="https://github.com/christivn/oFiles/blob/main/img/text_splitter.png?raw=true" width="600px">
+<img src="https://github.com/christivn/memoryFiles/blob/main/img/text_splitter.png?raw=true" width="600px">
 
 <br>
 
@@ -158,5 +158,5 @@ We welcome contributions! Feel free to open issues, submit pull requests, or sug
 
 ## 📜 License
 
-MIT License. See `LICENSE` for details.
+MIT License Copyright (c). See [LICENSE](https://github.com/christivn/memoryFiles/blob/main/LICENSE) for details.
 
