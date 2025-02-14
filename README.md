@@ -60,10 +60,13 @@ Mebase can be used in various applications that require efficient file-based inf
 📚 **AI-Powered Knowledge Bots** – Create AI assistants that can answer questions based on custom document databases.  
 🎯 **Recommendation Algorithms** – Build personalized recommendation systems using semantic search.  
 🔍 **Legal & Compliance Research** – Quickly retrieve relevant documents and case laws based on contextual search.  
-📖 **Academic & Research Tools** – Enable efficient searching through large collections of research papers and books.  
+📚 **Academic & Research Tools** – Enable efficient searching through large collections of research papers and books.  
 💼 **Enterprise Knowledge Management** – Organize and search internal company documentation with ease.  
 🤖 **Chatbot Integration** – Enhance chatbots with document-based memory for more informed responses.  
 📂 **Automated Data Extraction** – Process and analyze structured and unstructured text data from various file formats.  
+💬 **Predefined Response Bots** – Develop bots that provide predefined responses based on stored information.  
+📈 **Market Analysis & Trend Detection** – Analyze large datasets for market trends and insights.  
+🏢 **Customer Support Automation** – Streamline customer support by enabling automated query resolution.  
 
 <br>
 
