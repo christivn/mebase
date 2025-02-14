@@ -6,7 +6,7 @@
 [![India](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/in.png "China") हिंदी](/readme/in.md) -
 [![Korea](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/kr.png "Korea") 한국어](/readme/kr.md)
 
-<img src="https://github.com/christivn/memoryFiles/blob/main/img/github-header-image.png?raw=true">
+<img src="https://github.com/christivn/mebase/blob/main/img/github-header-image.png?raw=true">
 
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 ![Langchain](https://img.shields.io/badge/Langchain-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white)
@@ -14,9 +14,9 @@
 ![PgVector](https://img.shields.io/badge/PGVECTOR-000?style=for-the-badge&logo=supabase&logoColor=white)
 ![Embedding](https://img.shields.io/badge/OPEN%20SOURCE%20EMBEDDING-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black)
 
-## 🗃️✨ memoryFiles - 🙌 Open Source Alternative to OpenAI `file_search`
+## 🗃️✨ Mebase - 🙌 Open Source Alternative to OpenAI `file_search`
 
-memoryFiles is an open-source alternative to OpenAI's `file_search` tool, designed to efficiently process, store, and retrieve file-based information using Supabase and embeddings.
+Mebase is an open-source alternative to OpenAI's `file_search` tool, designed to efficiently process, store, and retrieve file-based information using Supabase and embeddings.
 
 🔹 **Extract** text from uploaded files  
 🔹 **Generate** chunks for efficient storage and retrieval  
@@ -26,8 +26,8 @@ memoryFiles is an open-source alternative to OpenAI's `file_search` tool, design
 
 ### Index
 
-- [📖 About memoryFiles](#-about-memoryfiles)  
-- [💡 Why Use memoryFiles?](#-why-use-memoryfiles)  
+- [📖 About Mebase](#-about-mebase)  
+- [💡 Why Use Mebase?](#-why-use-mebase)  
 - [🔧 Use Cases](#-use-cases)  
 - [🚀 How It Works](#-how-it-works)  
 - [📝 Documentation](#-documentation)  
@@ -43,7 +43,7 @@ memoryFiles is an open-source alternative to OpenAI's `file_search` tool, design
 
 <br>
 
-## 💡 Why Use memoryFiles?
+## 💡 Why Use Mebase?
 
 💰 **Open-source & Cost-effective** - No reliance on proprietary APIs.  
 ⚡ **Fast & Scalable** - Uses Supabase Vector for high-performance retrieval.  
@@ -55,7 +55,7 @@ memoryFiles is an open-source alternative to OpenAI's `file_search` tool, design
 
 ## 🔧 Use Cases
 
-memoryFiles can be used in various applications that require efficient file-based information retrieval and knowledge management:
+Mebase can be used in various applications that require efficient file-based information retrieval and knowledge management:
 
 📚 **AI-Powered Knowledge Bots** – Create AI assistants that can answer questions based on custom document databases.  
 🎯 **Recommendation Algorithms** – Build personalized recommendation systems using semantic search.  
@@ -69,7 +69,7 @@ memoryFiles can be used in various applications that require efficient file-base
 
 ## 🚀 How It Works
 
-memoryFiles follows a structured process to ensure high-quality search and retrieval:
+Mebase follows a structured process to ensure high-quality search and retrieval:
 
 1. **Upload:** Accepts files and extracts text.
 2. **Chunking:** Splits text into overlapping segments for better context.
@@ -103,7 +103,7 @@ Splits the extracted text into manageable chunks to optimize search and retrieva
 - 🧠 **Embedding model:** `thenlper/gte-small` (384 dimensions)
 - 🔢 **Max chunks in context:** 20
 
-<img src="https://github.com/christivn/memoryFiles/blob/main/img/text_splitter.png?raw=true" width="600px">
+<img src="https://github.com/christivn/mebase/blob/main/img/text_splitter.png?raw=true" width="600px">
 
 <br>
 
@@ -134,7 +134,7 @@ Always show in the chat the source file from which the information was obtained 
 
 ```bash
 # Clone the repository
-git clone https://github.com/christivn/memoryFiles.git
+git clone https://github.com/christivn/mebase.git
 
 # Install dependencies
 pip install -r requirements.txt
@@ -159,5 +159,5 @@ Welcome contributions! Feel free to open issues, submit pull requests, or sugges
 
 ## 📜 License
 
-MIT License Copyright (c) 2025 Christian Ramos. See [LICENSE](https://github.com/christivn/memoryFiles/blob/main/LICENSE) for details.
+MIT License Copyright (c) 2025 Christian Ramos. See [LICENSE](https://github.com/christivn/mebase/blob/main/LICENSE) for details.
 
