@@ -1,5 +1,3 @@
-# 🗃️✨ memoryFiles
-
 [![US](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/us.png "Canada") English](/readme/en.md) -
 [![Spain](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/es.png "Spain") Español](/readme/es.md) -
 [![France](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/fr.png "France") Français](/readme/fr.md) -
@@ -16,9 +14,7 @@
 ![PgVector](https://img.shields.io/badge/PGVECTOR-000?style=for-the-badge&logo=supabase&logoColor=white)
 ![Embedding](https://img.shields.io/badge/OPEN%20EMBEDDINGS-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black)
 
-## 🙌 Open Source Alternative to OpenAI `file_search`
-
-## 📖 About memoryFiles
+## 🗃️✨ memoryFiles - 🙌 Open Source Alternative to OpenAI `file_search`
 
 memoryFiles is an open-source alternative to OpenAI's `file_search` tool, designed to efficiently process, store, and retrieve file-based information using Supabase and embeddings.
 
