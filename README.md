@@ -93,6 +93,8 @@ Mebase follows a structured process to ensure high-quality search and retrieval:
 
 HNSW Index
 
+<img src="https://github.com/christivn/Mebase/blob/main/img/HNSW-example.jpg?raw=true" width="450px">
+
 <br>
 
 ### ⬆️ Upload File
