@@ -120,7 +120,9 @@ Stores the embedded chunks in Supabase's vector database for fast and accurate q
 ### 🔎 Search & Retrieval
 Uses semantic search to find relevant information based on user queries.
 
-- **K-NN:** 2 (Default) 
+- **K-NN:** 2 (Default)
+
+Always show in the chat the source file from which the information was obtained and the specific chunk.
 
 <br><br>
 
