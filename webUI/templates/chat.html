@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord-like Chat</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .icon-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .chat-bubble {
+            max-width: 80%;
+        }
+        .chat-input-container {
+            position: relative;
+            min-height: 40px;
+            max-height: 120px;
+        }
+        .chat-input {
+            resize: none;
+            overflow-y: auto;
+            padding-right: 40px; /* Space for the send button */
+        }
+        .send-button {
+            position: absolute;
+            right: 8px;
+            bottom: 8px;
+            background: none;
+            border: none;
+            color: #3b82f6; /* Blue-500 */
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .send-button:hover {
+            color: #2563eb; /* Blue-600 */
+        }
+    </style>
+</head>
+<body>
+    <div class="flex h-screen bg-gray-800 text-white">
+        <!-- Server list sidebar -->
+        <div class="w-18 bg-gray-900 p-3 flex flex-col items-center space-y-4">
+            <!-- Home button -->
+            <div class="h-12 w-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-indigo-500 hover:rounded-2xl transition-all duration-200 cursor-pointer icon-btn">
+                <i class="fas fa-home text-2xl"></i>
+            </div>
+            
+            <!-- Server divider -->
+            <div class="w-8 h-0.5 bg-gray-700 rounded-full mx-auto"></div>
+            
+            <!-- Server icons -->
+            <div class="h-12 w-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-indigo-500 hover:rounded-2xl transition-all duration-200 cursor-pointer">
+                A
+            </div>
+            <div class="h-12 w-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-indigo-500 hover:rounded-2xl transition-all duration-200 cursor-pointer">
+                B
+            </div>
+            <div class="h-12 w-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-indigo-500 hover:rounded-2xl transition-all duration-200 cursor-pointer">
+                C
+            </div>
+            <div class="h-12 w-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-indigo-500 hover:rounded-2xl transition-all duration-200 cursor-pointer">
+                D
+            </div>
+            
+            <!-- Add server button -->
+            <div class="h-12 w-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-500 hover:rounded-2xl transition-all duration-200 cursor-pointer icon-btn">
+                <i class="fas fa-plus text-2xl"></i>
+            </div>
+            
+            <!-- Explore public servers -->
+            <div class="h-12 w-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-500 hover:rounded-2xl transition-all duration-200 cursor-pointer icon-btn">
+                <i class="fas fa-compass text-2xl"></i>
+            </div>
+            
+            <!-- Download apps -->
+            <div class="mt-auto h-12 w-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-500 hover:rounded-2xl transition-all duration-200 cursor-pointer icon-btn">
+                <i class="fas fa-download text-2xl"></i>
+            </div>
+        </div>
+        
+        <!-- Channel list sidebar -->
+        <div class="w-60 bg-gray-800 flex flex-col">
+            <!-- Server name -->
+            <div class="h-12 px-4 flex items-center shadow-md">
+                Server Name
+            </div>
+            
+            <!-- Channel list -->
+            <div class="flex-1 overflow-y-auto">
+                <div class="px-2 pt-4">
+                    <div class="text-gray-500 px-2 mb-2 flex items-center justify-between">
+                        <span>Text Channels</span>
+                        <i class="fas fa-plus cursor-pointer text-sm"></i>
+                    </div>
+                    <div class="px-2 py-1 text-gray-400 hover:bg-gray-700 hover:text-white rounded cursor-pointer">
+                        # general
+                    </div>
+                    <div class="px-2 py-1 text-gray-400 hover:bg-gray-700 hover:text-white rounded cursor-pointer">
+                        # random
+                    </div>
+                    <div class="px-2 py-1 text-gray-400 hover:bg-gray-700 hover:text-white rounded cursor-pointer">
+                        # announcements
+                    </div>
+                </div>
+                <div class="px-2 pt-4">
+                    <div class="text-gray-500 px-2 mb-2 flex items-center justify-between">
+                        <span>Voice Channels</span>
+                        <i class="fas fa-plus cursor-pointer text-sm"></i>
+                    </div>
+                    <div class="px-2 py-1 text-gray-400 hover:bg-gray-700 hover:text-white rounded cursor-pointer flex items-center">
+                        <i class="fas fa-volume-up mr-1 text-xs"></i> General
+                    </div>
+                    <div class="px-2 py-1 text-gray-400 hover:bg-gray-700 hover:text-white rounded cursor-pointer flex items-center">
+                        <i class="fas fa-volume-up mr-1 text-xs"></i> Gaming
+                    </div>
+                    <div class="px-2 py-1 text-gray-400 hover:bg-gray-700 hover:text-white rounded cursor-pointer flex items-center">
+                        <i class="fas fa-volume-up mr-1 text-xs"></i> Music
+                    </div>
+                </div>
+            </div>
+            
+            <!-- User info -->
+            <div class="h-14 px-3 flex items-center bg-gray-900">
+                <div class="w-8 h-8 rounded-full bg-indigo-500 mr-3"></div>
+                <div>
+                    <div class="text-sm font-medium">Username</div>
+                    <div class="text-xs text-gray-400">#1234</div>
+                </div>
+                <i class="fas fa-cog ml-auto cursor-pointer"></i>
+            </div>
+        </div>
+
+        <!-- Chat area -->
+        <div class="flex-1 flex flex-col bg-gray-700">
+            <!-- Chat header -->
+            <div class="h-12 flex items-center px-4 border-b border-gray-600">
+                <span class="font-semibold text-lg"># general</span>
+            </div>
+
+            <!-- Chat messages -->
+            <div class="flex-1 overflow-y-auto p-4 space-y-4">
+                <!-- Message 1 -->
+                <div class="flex items-start">
+                    <div class="w-10 h-10 rounded-full bg-blue-500 flex-shrink-0"></div>
+                    <div class="ml-3">
+                        <div class="flex items-center">
+                            <span class="font-semibold text-white">User1</span>
+                            <span class="text-xs text-gray-400 ml-2">Today at 12:00 PM</span>
+                        </div>
+                        <div class="mt-1 text-gray-200 chat-bubble bg-gray-800 rounded-lg p-2">
+                            Hey everyone! How's it going?
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Message 2 -->
+                <div class="flex items-start">
+                    <div class="w-10 h-10 rounded-full bg-green-500 flex-shrink-0"></div>
+                    <div class="ml-3">
+                        <div class="flex items-center">
+                            <span class="font-semibold text-white">User2</span>
+                            <span class="text-xs text-gray-400 ml-2">Today at 12:05 PM</span>
+                        </div>
+                        <div class="mt-1 text-gray-200 chat-bubble bg-gray-800 rounded-lg p-2">
+                            Hi User1! Everything's great here. How about you?
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Message 3 -->
+                <div class="flex items-start">
+                    <div class="w-10 h-10 rounded-full bg-purple-500 flex-shrink-0"></div>
+                    <div class="ml-3">
+                        <div class="flex items-center">
+                            <span class="font-semibold text-white">User3</span>
+                            <span class="text-xs text-gray-400 ml-2">Today at 12:10 PM</span>
+                        </div>
+                        <div class="mt-1 text-gray-200 chat-bubble bg-gray-800 rounded-lg p-2">
+                            Hello everyone! I'm new here. Nice to meet you all!
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat input -->
+            <div class="px-4 py-2 border-t border-gray-600">
+                <div class="chat-input-container w-full bg-gray-800 rounded-md">
+                    <textarea 
+                        class="chat-input w-full bg-gray-800 text-white rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Message #general"
+                        rows="1"
+                    ></textarea>
+                    <button class="send-button">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const textarea = document.querySelector('.chat-input');
+        const sendButton = document.querySelector('.send-button');
+        
+        function adjustTextareaHeight() {
+            textarea.style.height = 'auto';
+            textarea.style.height = (textarea.scrollHeight) + 'px';
+            
+            // Limitar la altura máxima
+            const maxHeight = 120; // 120px, como definido en el CSS
+            if (textarea.scrollHeight > maxHeight) {
+                textarea.style.height = maxHeight + 'px';
+                textarea.style.overflowY = 'auto';
+            } else {
+                textarea.style.overflowY = 'hidden';
+            }
+
+            // Ajustar la posición del botón de enviar
+            const textareaHeight = textarea.offsetHeight;
+            sendButton.style.bottom = `${(textareaHeight - sendButton.offsetHeight) / 2}px`;
+        }
+
+        textarea.addEventListener('input', adjustTextareaHeight);
+        window.addEventListener('resize', adjustTextareaHeight);
+        
+        // Ajustar la altura inicial
+        adjustTextareaHeight();
+
+        // Manejar el envío del mensaje (puedes personalizar esto según tus necesidades)
+        sendButton.addEventListener('click', function() {
+            const message = textarea.value.trim();
+            if (message) {
+                console.log('Mensaje enviado:', message);
+                textarea.value = '';
+                adjustTextareaHeight();
+            }
+        });
+
+        // Permitir enviar con Enter, pero nueva línea con Shift+Enter
+        textarea.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendButton.click();
+            }
+        });
+    </script>
+</body>
+</html>
