@@ -1,4 +1,7 @@
-# 🗃️✨ memoryFiles - Open Alternative to OpenAI `file_search`
+# 🗃️✨ memoryFiles
+### memoryFiles - Open Source Alternative to OpenAI `file_search`
+
+<br>
 
 [![US](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/us.png "Canada") English](/readme/en.md) -
 [![Spain](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/es.png "Spain") Español](/readme/es.md) -
@@ -11,12 +14,12 @@
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 ![Langchain](https://img.shields.io/badge/Langchain-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white)
 ![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
-![Supabase Vector](https://img.shields.io/badge/Supabase%20Vector%20DB-000?style=for-the-badge&logo=supabase&logoColor=white)
+![PgVector](https://img.shields.io/badge/PGVECTOR-000?style=for-the-badge&logo=supabase&logoColor=white)
 ![Embedding](https://img.shields.io/badge/OPEN%20EMBEDDINGS-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black)
 
-## 📖 About oFile
+## 📖 About memoryFiles
 
-oFile is an open-source alternative to OpenAI's `file_search` tool, designed to efficiently process, store, and retrieve file-based information using Supabase and embeddings.
+memoryFiles is an open-source alternative to OpenAI's `file_search` tool, designed to efficiently process, store, and retrieve file-based information using Supabase and embeddings.
 
 🔹 **Extract** text from uploaded files  
 🔹 **Generate** chunks for efficient storage and retrieval  
@@ -26,8 +29,8 @@ oFile is an open-source alternative to OpenAI's `file_search` tool, designed to 
 
 ### Index
 
-- [📖 About oFile](#-about-ofile)  
-- [💡 Why Use oFile?](#-why-use-ofile)  
+- [📖 About memoryFiles](#-about-memoryfiles)  
+- [💡 Why Use memoryFiles?](#-why-use-memoryfiles)  
 - [🔧 Use Cases](#-use-cases)  
 - [🚀 How It Works](#-how-it-works)  
 - [📝 Documentation](#-documentation)  
@@ -43,7 +46,7 @@ oFile is an open-source alternative to OpenAI's `file_search` tool, designed to 
 
 <br>
 
-## 💡 Why Use oFile?
+## 💡 Why Use memoryFiles?
 
 💰 **Open-source & Cost-effective** - No reliance on proprietary APIs.  
 ⚡ **Fast & Scalable** - Uses Supabase Vector for high-performance retrieval.  
@@ -55,7 +58,7 @@ oFile is an open-source alternative to OpenAI's `file_search` tool, designed to 
 
 ## 🔧 Use Cases
 
-oFile can be used in various applications that require efficient file-based information retrieval and knowledge management:
+memoryFiles can be used in various applications that require efficient file-based information retrieval and knowledge management:
 
 📚 **AI-Powered Knowledge Bots** – Create AI assistants that can answer questions based on custom document databases.  
 🎯 **Recommendation Algorithms** – Build personalized recommendation systems using semantic search.  
@@ -69,7 +72,7 @@ oFile can be used in various applications that require efficient file-based info
 
 ## 🚀 How It Works
 
-oFile follows a structured process to ensure high-quality search and retrieval:
+memoryFiles follows a structured process to ensure high-quality search and retrieval:
 
 1. **Upload:** Accepts files and extracts text.
 2. **Chunking:** Splits text into overlapping segments for better context.
@@ -130,7 +133,7 @@ Uses semantic search to find relevant information based on user queries.
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-repo/ofile.git
+git clone https://github.com/christivn/memoryFiles.git
 
 # Install dependencies
 pip install -r requirements.txt
