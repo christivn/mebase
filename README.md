@@ -159,5 +159,5 @@ Welcome contributions! Feel free to open issues, submit pull requests, or sugges
 
 ## 📜 License
 
-MIT License Copyright (c). See [LICENSE](https://github.com/christivn/memoryFiles/blob/main/LICENSE) for details.
+MIT License Copyright (c) 2025 Christian Ramos. See [LICENSE](https://github.com/christivn/memoryFiles/blob/main/LICENSE) for details.
 
