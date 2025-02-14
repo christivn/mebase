@@ -31,12 +31,11 @@ Mebase is an open-source alternative to OpenAI's `file_search` tool, designed to
 - [💡 Why Use Mebase?](#-why-use-mebase)  
 - [🔧 Use Cases](#-use-cases)  
 - [📝 Documentation](#-documentation)
-  - [💾 Database](#-database)
   - [⬆️ Upload File](#️-upload-file)  
   - [📄 Transform File to Text](#-transform-file-to-text)  
   - [🧩 Chunks Generation](#-chunks-generation)  
   - [🔗 Embedding the Chunks](#-embedding-the-chunks)  
-  - [🗄️ Upload to Supabase](#-upload-to-supabase)  
+  - [💾 Database](#-database) 
   - [🔎 Search & Retrieval](#-search--retrieval)  
 - [🛠️ Installation & Setup](#%EF%B8%8F-installation--setup)  
 - [🤝 Contributing](#-contributing)  
@@ -99,6 +98,33 @@ Este proyecto abarca todo el proceso de gestión y búsqueda de embeddings a tra
 
 <br>
 
+## ⬆️ Upload File
+Users can upload various file formats (e.g., `.pdf`, `.txt`, `.csv`). The system extracts text content for further processing.
+
+<br>
+
+## 📄 Transform File to Text
+Extracts meaningful text from the uploaded file using different parsing methods based on file type.
+
+<br>
+
+## 🧩 Chunks Generation
+Splits the extracted text into manageable chunks to optimize search and retrieval performance.
+
+**Default Settings:**
+- 📏 **Chunk size:** 512 tokens
+- 🧠 **Embedding model:** `thenlper/gte-small` (384 dimensions)
+- 🔢 **Max chunks in context:** 20
+
+<img src="https://github.com/christivn/mebase/blob/main/img/text_splitter.png?raw=true" width="600px">
+
+<br>
+
+## 🔗 Embedding the Chunks
+Each chunk is embedded using a powerful embedding model, allowing for efficient similarity-based search.
+
+<br>
+
 ## 💾 Database
 
 En este proyecto, utilizamos Supabase como base de datos para almacenar y gestionar los embeddings generados por un modelo de aprendizaje automático. Para facilitar la búsqueda eficiente de datos similares, implementamos un índice basado en el algoritmo HNSW (Hierarchical Navigable Small World) y utilizamos la similitud de coseno para medir la cercanía entre los vectores de embeddings.
@@ -133,39 +159,6 @@ Un valor de similitud de coseno cercano a 1 indica que los vectores son muy simi
 **Representación 3D simplificada (Similitud de Coseno de 2 embbedings):**
 
 <img src="https://github.com/christivn/Mebase/blob/main/img/cosine-similarity.png?raw=true" width="450px">
-
-
-<br>
-
-## ⬆️ Upload File
-Users can upload various file formats (e.g., `.pdf`, `.txt`, `.csv`). The system extracts text content for further processing.
-
-<br>
-
-## 📄 Transform File to Text
-Extracts meaningful text from the uploaded file using different parsing methods based on file type.
-
-<br>
-
-## 🧩 Chunks Generation
-Splits the extracted text into manageable chunks to optimize search and retrieval performance.
-
-**Default Settings:**
-- 📏 **Chunk size:** 512 tokens
-- 🧠 **Embedding model:** `thenlper/gte-small` (384 dimensions)
-- 🔢 **Max chunks in context:** 20
-
-<img src="https://github.com/christivn/mebase/blob/main/img/text_splitter.png?raw=true" width="600px">
-
-<br>
-
-## 🔗 Embedding the Chunks
-Each chunk is embedded using a powerful embedding model, allowing for efficient similarity-based search.
-
-<br>
-
-## 🗄️ Upload to Supabase
-Stores the embedded chunks in Supabase's vector database for fast and accurate querying.
 
 <br>
 
