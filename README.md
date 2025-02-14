@@ -151,7 +151,7 @@ python main.py
 
 ## 🤝 Contributing
 
-We welcome contributions! Feel free to open issues, submit pull requests, or suggest improvements.
+Welcome contributions! Feel free to open issues, submit pull requests, or suggest improvements.
 
 📩 **Contact:** Reach out via GitHub Issues or Discussions.
 
