@@ -25,20 +25,13 @@ class memoryFiles:
             self.uploadsPath = "uploads/"
 
             # Chunking & Embedding
-            self.chunkSize = 512 #tokens
+            self.chunkSize = 512 #Tokens
+            self.chunkNeighbors = 1 #Number of chunks above and below, to improve the context
             self.embeddingModel = "thenlper/gte-small"
             self.maxChunksInContext = 20
 
-            # Pinecone Cloud Embedding
-            self.enableCloudEmbbeding = False
-            self.pineconeEmbeddingModel = "multilingual-e5-large"
-            self.pineconeApiKey = ""
-
             # Output
             self.prettify = False
-
-            # Debug
-            self.debugMode = True
         else:
             print("[X] Supabase connection error")
 
@@ -60,29 +53,23 @@ class memoryFiles:
         # Coming soon...
         # Text files
         # if extension in self.allowedFormats[0]:
-        #     chunks, chunkIndexes = getTextFromTXT(self, filepath)
+        #     chunks = getTextFromTXT(self, filepath)
 
         # PDF files
         if extension in self.allowedFormats[1]:
-            chunks, chunkIndexes = getTextFromPDF(self, filepath)
+            chunks = getTextFromPDF(self, filepath)
 
         # Coming soon...
         # CSV files
         # if extension in self.allowedFormats[2]:
-        #     chunks, chunkIndexes = getTextFromCSV(self, filepath)
+        #     chunks = getTextFromCSV(self, filepath)
 
         # Coming soon...
         # Microsoft Office files
         # if extension in self.allowedFormats[2]:
-        #     chunks, chunkIndexes = getTextFromMicrosoftOffice(self, filepath)
+        #     chunks = getTextFromMicrosoftOffice(self, filepath)
 
         if(len(chunks) > 0):
-            if self.debugMode:
-                print("\033[33m[ DEBUG: chunkIndexes ]\033[0m")
-                for chunk_num, start, end in chunkIndexes:
-                    print(f"Chunk: {chunk_num} Start: {start} End: {end}")
-                print("\n", end="")
-
             # Generate chunks embeddings
             print("\033[34m[ GENERATING CHUNK EMBEDDINGS... ]\033[0m")
             chunkEmbeddings = []
