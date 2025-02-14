@@ -19,14 +19,14 @@ def get_chunk_indexes(documents, chunks):
     return indixes
 
 
-def getTextFromPDF(oFiles, filepath):
+def getTextFromPDF(memoryFiles, filepath):
     try:
         # Cargar el PDF
-        loader = PyPDFLoader(oFiles.uploadsPath+filepath)
+        loader = PyPDFLoader(memoryFiles.uploadsPath+filepath)
         documents = loader.load()
 
         # Dividir el texto en fragmentos
-        splitter = CharacterTextSplitter(chunk_size=oFiles.chunkSize, chunk_overlap=0)
+        splitter = CharacterTextSplitter(chunk_size=memoryFiles.chunkSize, chunk_overlap=0)
         chunks = splitter.split_documents(documents)
 
         chunkIndexes = get_chunk_indexes(documents, chunks)
