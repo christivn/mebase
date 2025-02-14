@@ -94,6 +94,8 @@ Mebase follows a structured process to ensure high-quality search and retrieval:
 
 Cosine distance operator `<=>`
 
+<img src="https://github.com/christivn/Mebase/blob/main/img/cosine-distance.png?raw=true" width="450px">
+
 **HNSW Index ilustration:**
 
 <img src="https://github.com/christivn/Mebase/blob/main/img/HNSW.png?raw=true" width="450px">
