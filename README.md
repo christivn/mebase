@@ -1,4 +1,4 @@
-## 🗃️✨ Mebase - 🙌 Open Source Alternative to OpenAI `file_search`
+## 🗃️✨ Mebox - 🙌 Open Source Alternative to OpenAI `file_search`
 
 [![US](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/us.png "Canada") English](/readme/en.md) -
 [![Spain](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/es.png "Spain") Español](/readme/es.md) -
@@ -8,11 +8,11 @@
 [![India](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/in.png "China") हिंदी](/readme/in.md) -
 [![Korea](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/kr.png "Korea") 한국어](/readme/kr.md)
 
-<img src="https://github.com/christivn/Mebase/blob/main/img/github-header-image.jpg?raw=true">
+<img src="https://github.com/christivn/mebox/blob/main/img/github-header-image.jpg?raw=true">
 
 
 
-Mebase is an open-source alternative to OpenAI's `file_search` tool, designed to efficiently process, store, and retrieve file-based information using Supabase and embeddings.
+Mebox is an open-source alternative to OpenAI's `file_search` tool, designed to efficiently process, store, and retrieve file-based information using Supabase and embeddings.
 
 🔹 **Extract** text from uploaded files  
 🔹 **Generate** chunks for efficient storage and retrieval  
@@ -22,8 +22,8 @@ Mebase is an open-source alternative to OpenAI's `file_search` tool, designed to
 
 ### Index
 
-- [📖 About Mebase](#-about-mebase)  
-- [💡 Why Use Mebase?](#-why-use-mebase)  
+- [📖 About Mebox](#-about-mebox)  
+- [💡 Why Use Mebox?](#-why-use-mebox)  
 - [🔧 Use Cases](#-use-cases)  
 - [📝 Documentation](#-documentation)
   - [⬆️ Upload File](#️-upload-file)  
@@ -38,7 +38,7 @@ Mebase is an open-source alternative to OpenAI's `file_search` tool, designed to
 
 <br>
 
-## 💡 Why Use Mebase?
+## 💡 Why Use Mebox?
 
 💰 **Open-source & Cost-effective** - No reliance on proprietary APIs.  
 ⚡ **Fast & Scalable** - Uses Supabase Vector for high-performance retrieval.  
@@ -50,7 +50,7 @@ Mebase is an open-source alternative to OpenAI's `file_search` tool, designed to
 
 ## 🔧 Use Cases
 
-Mebase can be used in various applications that require efficient file-based information retrieval and knowledge management:
+Mebox can be used in various applications that require efficient file-based information retrieval and knowledge management:
 
 📚 **AI-Powered Knowledge Bots** – Create AI assistants that can answer questions based on custom document databases.  
 🎯 **Recommendation Algorithms** – Build personalized recommendation systems using semantic search.  
@@ -74,7 +74,7 @@ Mebase can be used in various applications that require efficient file-based inf
 
 ```bash
 # Clone the repository
-git clone https://github.com/christivn/mebase.git
+git clone https://github.com/christivn/mebox.git
 
 # Install dependencies
 pip install -r requirements.txt
@@ -116,14 +116,14 @@ Splits the extracted text into manageable chunks to optimize search and retrieva
 - 🧠 **Embedding model:** `thenlper/gte-small` (384 dimensions)
 - 🔢 **Max chunks in context:** 20
 
-<img src="https://github.com/christivn/mebase/blob/main/img/text_splitter.png?raw=true" width="600px">
+<img src="https://github.com/christivn/mebox/blob/main/img/text_splitter.png?raw=true" width="600px">
 
 <br>
 
 ## 🔗 Embedding the Chunks
 Each chunk is embedded using a powerful embedding model, allowing for efficient similarity-based search.
 
-<img src="https://github.com/christivn/Mebase/blob/main/img/embedding.jpg?raw=true" width="450px">
+<img src="https://github.com/christivn/mebox/blob/main/img/embedding.jpg?raw=true" width="450px">
 
 <br>
 
@@ -135,7 +135,7 @@ En este proyecto, utilizamos Supabase como base de datos para almacenar y gestio
 
 HNSW (Hierarchical Navigable Small World) es un algoritmo de búsqueda eficiente de vecinos más cercanos en espacios de alta dimensión. Se utiliza para mejorar el tiempo de respuesta en la búsqueda de los embeddings más cercanos en grandes volúmenes de datos. En lugar de realizar una búsqueda exhaustiva a través de todos los vectores, HNSW organiza los datos en una estructura jerárquica, lo que permite realizar búsquedas rápidas con un número reducido de comparaciones.
 
-<img src="https://github.com/christivn/Mebase/blob/main/img/HNSW.png?raw=true" width="450px">
+<img src="https://github.com/christivn/mebox/blob/main/img/HNSW.png?raw=true" width="450px">
 
 **Ventajas de HNSW:**
 - **Búsqueda eficiente:** Reduce significativamente el tiempo de consulta en grandes volúmenes de datos.  
@@ -150,7 +150,7 @@ La similitud de coseno es una medida utilizada para calcular la similitud entre 
 
 La fórmula de la similitud de coseno es:
 
-<img src="https://github.com/christivn/Mebase/blob/main/img/cosine-distance.png?raw=true" width="450px">
+<img src="https://github.com/christivn/mebox/blob/main/img/cosine-distance.png?raw=true" width="450px">
 Donde:
 
 AA y BB son los vectores de los embeddings que estamos comparando.  
@@ -160,7 +160,7 @@ Un valor de similitud de coseno cercano a 1 indica que los vectores son muy simi
 
 **Representación 3D simplificada (Similitud de Coseno de 2 embbedings):**
 
-<img src="https://github.com/christivn/Mebase/blob/main/img/cosine-similarity.png?raw=true" width="450px">
+<img src="https://github.com/christivn/mebox/blob/main/img/cosine-similarity.png?raw=true" width="450px">
 
 <br>
 
@@ -172,7 +172,7 @@ Always show in the chat the source file from which the information was obtained 
 - **K-NN:** 2 (Default)
 - **Neighboring Chunks:** 1 (Default)
 
-<img src="https://github.com/christivn/Mebase/blob/main/img/chunks-strategies.jpg?raw=true" width="550px">
+<img src="https://github.com/christivn/mebox/blob/main/img/chunks-strategies.jpg?raw=true" width="550px">
 
 <br><br>
 
@@ -190,5 +190,5 @@ Welcome contributions! Feel free to open issues, submit pull requests, or sugges
 
 ## 📜 License
 
-MIT License Copyright (c) 2025 Christian Ramos. See [LICENSE](https://github.com/christivn/mebase/blob/main/LICENSE) for details.
+MIT License Copyright (c) 2025 Christian Ramos. See [LICENSE](https://github.com/christivn/mebox/blob/main/LICENSE) for details.
 
