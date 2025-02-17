@@ -113,7 +113,6 @@ Splits the extracted text into manageable chunks to optimize search and retrieva
 
 **Default Settings:**
 - 📏 **Chunk size:** 512 tokens
-- 🧠 **Embedding model:** `thenlper/gte-small` (384 dimensions)
 - 🔢 **Max chunks in context:** 20
 
 <img src="https://github.com/christivn/mebox/blob/main/img/text_splitter.png?raw=true" width="600px">
@@ -124,6 +123,24 @@ Splits the extracted text into manageable chunks to optimize search and retrieva
 Each chunk is embedded using a powerful embedding model, allowing for efficient similarity-based search.
 
 <img src="https://github.com/christivn/mebox/blob/main/img/embedding.jpg?raw=true" width="450px">
+
+**Default Settings:**
+- 🧠 **Embedding model:** `thenlper/gte-small`
+- 📏 **Dimensions:** 384
+
+The GTE models are trained by **Alibaba DAMO Academy**. They are mainly based on the BERT framework and currently offer three different sizes of models, including GTE-large, GTE-base, and GTE-small. 
+
+| Model Name | Model Size (GB) | Dimension | Sequence Length | Average (56) | Clustering (11) | Pair Classification (3) | Reranking (4) | Retrieval (15) | STS (10) | Summarization (1) | Classification (12) |
+|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| [**gte-small**](https://huggingface.co/thenlper/gte-small) | **0.07** | **384** | **512** | **61.36** | **44.89** | **83.54** | **57.7** | **49.46** | **82.07** | **30.42** | **72.31** |
+
+**Comparison with other embedding models:**
+| Model Name | Model Size (GB) | Dimension | Sequence Length | Average (56) | Clustering (11) | Pair Classification (3) | Reranking (4) | Retrieval (15) | STS (10) | Summarization (1) | Classification (12) |
+|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| e5-large-v2 | 1.34 | 1024| 512 | 62.25 | 44.49 | 86.03 | 56.61 | 50.56 | 82.05 | 30.19 | 75.24 |
+| e5-base-v2 | 0.44 | 768 | 512 | 61.5 | 43.80 | 85.73 | 55.91 | 50.29 | 81.05 | 30.28 | 73.84 |
+| text-embedding-ada-002 | - | 1536 | 8192 | 60.99 | 45.9 | 84.89 | 56.32 | 49.25 | 80.97 | 30.8 | 70.93 |
+| e5-small-v2 | 0.13 | 384 | 512 | 59.93 | 39.92 | 84.67 | 54.32 | 49.04 | 80.39 | 31.16 | 72.94 |
 
 <br>
 
