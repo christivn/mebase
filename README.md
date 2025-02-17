@@ -190,6 +190,10 @@ Always show in the chat the source file from which the information was obtained 
 - **K-NN:** 2 (Default)
 - **Neighboring Chunks Pairs:** 1 (Default)
 
+**CSV & XLSX:**
+- **K-NN:** 20 (Default)
+- **Neighboring Chunks Pairs:** 0 (Default)
+
 <img src="https://github.com/christivn/mebox/blob/main/img/chunks-strategies.jpg?raw=true" width="550px">
 
 <br><br>
