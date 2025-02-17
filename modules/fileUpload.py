@@ -2,14 +2,14 @@ from langchain_community.document_loaders import PyPDFLoader
 from langchain.text_splitter import CharacterTextSplitter
 
 
-def getTextFromPDF(memoryFiles, filepath):
+def getTextFromPDF(mebox, filepath):
     try:
         # Cargar el PDF
-        loader = PyPDFLoader(memoryFiles.uploadsPath+filepath)
+        loader = PyPDFLoader(mebox.uploadsPath+filepath)
         documents = loader.load()
 
         # Dividir el texto en fragmentos
-        splitter = CharacterTextSplitter(chunk_size=memoryFiles.chunkSize, chunk_overlap=0)
+        splitter = CharacterTextSplitter(chunk_size=mebox.chunkSize, chunk_overlap=0)
         chunks = splitter.split_documents(documents)
 
         return chunks

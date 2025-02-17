@@ -6,7 +6,7 @@ from modules.fileUpload import getTextFromPDF
 from modules.embbeding import text_to_embedding
 from modules.optimization import promptOptimization
 
-class memoryFiles:
+class mebox:
     def __init__(self, SUPABASE_URL, SUPABASE_KEY):
         # Supabase conection
         self.SUPABASE_URL = SUPABASE_URL
@@ -18,9 +18,9 @@ class memoryFiles:
 
             # Uploads
             self.allowedFormats = [
-                ["txt", "md", "json", "xml", "yaml", "ini", "log", "bat", "py", "js", "java", "cpp", "html"],
+                ["txt", "md", "xml", "yaml", "ini", "log", "bat", "py", "js", "java", "cpp", "html"],
                 ["pdf"],
-                ["csv"]
+                ["json", "csv", "xlsx"]
             ]
             self.uploadsPath = "uploads/"
 
