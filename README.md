@@ -188,7 +188,7 @@ Uses semantic search to find relevant information based on user queries.
 Always show in the chat the source file from which the information was obtained and the specific chunk.
 
 - **K-NN:** 2 (Default)
-- **Neighboring Chunks:** 1 (Default)
+- **Neighboring Chunks Pairs:** 1 (Default)
 
 <img src="https://github.com/christivn/mebox/blob/main/img/chunks-strategies.jpg?raw=true" width="550px">
 
