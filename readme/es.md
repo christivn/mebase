@@ -14,14 +14,14 @@
 Mebox es una alternativa de código abierto a la herramienta `file_search` de OpenAI, diseñada para procesar, almacenar y recuperar de forma eficiente información basada en archivos utilizando Supabase e incrustaciones.   
 
 🔹 **Extraer** texto de los archivos cargados.  
-🔹 **Generar** trozos para un almacenamiento y recuperación eficientes  
+🔹 **Generar** chunks para un almacenamiento y recuperación eficientes  
 🔹 **Incorporar** datos de texto para la búsqueda semántica  
-🔹 **Almacenar** y **consultar** incrustaciones utilizando Supabase Vector DB.  
-🔹 **Soporte multilingüe** para una mejor accesibilidad en diferentes idiomas  
+🔹 **Almacenar** y **consultar** chunks utilizando Supabase Vector DB.  
+🔹 **Soporte multilingüe** para la subida de contenido en diferentes idiomas.   
 🔹 **Formatos de archivos soportados:** `pdf`, `json`, `csv`, `xlsx`, `txt`, `md`, `xml`, `yaml`, `ini`, `log`, `bat`, `py`, `js`, `java`, `cpp`, `html`   
 🔹 **Modelos de IA disponibles:** +300 modelos  
 
-### Index
+### Índice
 
 - [📖 About Mebox](#-about-mebox)  
 - [💡 Why Use Mebox?](#-why-use-mebox)  
