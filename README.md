@@ -16,9 +16,12 @@ Mebox is an open-source alternative to OpenAI's `file_search` tool, designed to 
 
 🔹 **Extract** text from uploaded files  
 🔹 **Generate** chunks for efficient storage and retrieval  
-🔹 **Embed** text data for semantic search  
+🔹 **Embedding** text data for semantic search  
 🔹 **Store** and **query** embeddings using Supabase Vector DB  
-🔹 **Multilingual support** for better accessibility across different languages  
+
+🔹 **Multiple file formats:** `pdf`, `json`, `csv`, `xlsx`, `txt`, `md`, `xml`, `yaml`, `ini`, `log`, `bat`, `py`, `js`, `java`, `cpp`, `html`  
+🔹 **Multilingual support:** +12 languages supported  
+🔹 **Multiple AI:** +300 models  
 
 ### Index
 
