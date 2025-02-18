@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mebox - ✨AI Agents</title>
+    <title>Mebox - AI Agents</title>
     <link rel="icon" type="image/png" href="static/img/mebox-favicon.png"/>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -51,6 +51,11 @@
             -moz-box-shadow: 0px 10px 42px 11px rgba(17,17,17,1);
             box-shadow: 0px 10px 42px 11px rgba(17,17,17,1);
         }
+        .ai-agent {
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
     </style>
 </head>
 <body>
@@ -66,17 +71,12 @@
             <div class="w-8 h-0.5 bg-[#22222b] rounded-full mx-auto"></div>
             
             <!-- Server icons -->
+            <div class="ai-agent h-12 w-12 bg-[#141316] font-bold rounded-full flex items-center justify-center hover:bg-amber-600 hover:rounded-2xl transition-all duration-100 cursor-pointer" style="background-image: url(https://api.dicebear.com/9.x/bottts-neutral/webp?seed={{ range(1, 100) | random }});"></div>
+            <div class="ai-agent h-12 w-12 bg-[#141316] font-bold rounded-full flex items-center justify-center hover:bg-amber-600 hover:rounded-2xl transition-all duration-100 cursor-pointer" style="background-image: url(https://api.dicebear.com/9.x/bottts-neutral/webp?seed={{ range(1, 100) | random }});"></div>
+            <div class="ai-agent h-12 w-12 bg-[#141316] font-bold rounded-full flex items-center justify-center hover:bg-amber-600 hover:rounded-2xl transition-all duration-100 cursor-pointer" style="background-image: url(https://api.dicebear.com/9.x/bottts-neutral/webp?seed={{ range(1, 100) | random }});"></div>
+            <div class="ai-agent h-12 w-12 bg-[#141316] font-bold rounded-full flex items-center justify-center hover:bg-amber-600 hover:rounded-2xl transition-all duration-100 cursor-pointer" style="background-image: url(https://api.dicebear.com/9.x/bottts-neutral/webp?seed={{ range(1, 100) | random }});"></div>
             <div class="h-12 w-12 bg-[#141316] font-bold rounded-full flex items-center justify-center hover:bg-amber-600 hover:rounded-2xl transition-all duration-100 cursor-pointer">
-                A
-            </div>
-            <div class="h-12 w-12 bg-[#141316] font-bold rounded-full flex items-center justify-center hover:bg-amber-600 hover:rounded-2xl transition-all duration-100 cursor-pointer">
-                B
-            </div>
-            <div class="h-12 w-12 bg-[#141316] font-bold rounded-full flex items-center justify-center hover:bg-amber-600 hover:rounded-2xl transition-all duration-100 cursor-pointer">
-                C
-            </div>
-            <div class="h-12 w-12 bg-[#141316] font-bold rounded-full flex items-center justify-center hover:bg-amber-600 hover:rounded-2xl transition-all duration-100 cursor-pointer">
-                D
+                <i class="fas fa-plus text-xl"></i>
             </div>
         
             <!-- Empujar los últimos tres elementos hacia abajo -->
@@ -84,17 +84,17 @@
         
             <!-- Add server button -->
             <div class="h-12 w-12 bg-[#141316] rounded-full flex items-center justify-center hover:bg-amber-600 hover:rounded-2xl transition-all duration-100 cursor-pointer icon-btn">
-                <i class="fas fa-info text-xl"></i>
+                <i class="fas fa-brands fa-github text-xl"></i>
             </div>
         
             <!-- Explore public servers -->
             <div class="h-12 w-12 bg-[#141316] rounded-full flex items-center justify-center hover:bg-amber-600 hover:rounded-2xl transition-all duration-100 cursor-pointer icon-btn">
-                <i class="fas fa-brands fa-github text-xl"></i>
+                <i class="fas fa-gear text-xl"></i>
             </div>
         
             <!-- Download apps -->
             <div class="h-12 w-12 bg-[#141316] rounded-full flex items-center justify-center hover:bg-amber-600 hover:rounded-2xl transition-all duration-100 cursor-pointer icon-btn">
-                <i class="fas fa-gears text-xl"></i>
+                <i class="fas fa-right-from-bracket text-xl"></i>
             </div>
         </div>
         

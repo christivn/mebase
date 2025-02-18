@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mebox - Login</title>
+    <link rel="icon" type="image/png" href="static/img/mebox-favicon.png"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @font-face {
+  font-family: "Geist";
+  src: url("https://assets.codepen.io/605876/GeistVF.ttf") format("truetype");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --size: 20px;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  background: hsl(0 0% 6%);
+}
+
+.el {
+  background: conic-gradient(from 180deg at 50% 70%,hsla(0,0%,98%,1) 0deg,#D97707 72.0000010728836deg,#ffffff 144.0000021457672deg,#D97707 216.00000858306885deg,#ffffff 288.0000042915344deg,hsla(0,0%,98%,1) 1turn);
+  width: 100%;
+  height: 100%;
+  mask:
+    radial-gradient(circle at 50% 50%, white 2px, transparent 2.5px) 50% 50% / var(--size) var(--size),
+    url("https://assets.codepen.io/605876/noise-mask.png") 256px 50% / 256px 256px;
+  mask-composite: intersect;
+  animation: flicker 20s infinite linear;
+  position: absolute;
+}
+
+@keyframes flicker {
+  to {
+    mask-position: 50% 50%, 0 50%;
+  }
+}
+    </style>
+</head>
+<body class="bg-[#111111] text-gray-200 flex items-center justify-center h-screen">
+    <div class="el"></div>
+    <div class="p-8 py-12 rounded-lg w-96 bg-[#111111] z-10 border-2 border-[#1c1c1c]">
+        <center>
+            <img src="static/img/mebox-white-favicon.png" alt="Mebox Logo" class="w-20 h-auto mb-8">
+        </center>
+        <form>
+            <div class="mb-4">
+                <label for="username-mebox" class="block text-sm font-medium mb-2">Username</label>
+                <input type="text" id="username" name="username-mebox" class="w-full px-3 py-2 bg-[#212121] rounded-md focus:outline-none focus:border-blue-500" required>
+            </div>
+            <div class="mb-6">
+                <label for="password-mebox" class="block text-sm font-medium mb-2">Password</label>
+                <input type="password" id="password" name="password-mebox" class="w-full px-3 py-2 bg-[#212121] rounded-md focus:outline-none focus:border-blue-500" required>
+            </div>
+            <button type="submit" class="w-full bg-amber-600 text-[#111111] font-bold py-2 px-4 rounded-md hover:bg-amber-600 focus:outline-none focus:bg-amber-700"><i class="fas fa-right-to-bracket"></i> Login</button>
+        </form>
+    </div>
+</body>
+</html>
