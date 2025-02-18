@@ -10,7 +10,11 @@
 
 <img src="https://github.com/christivn/mebox/blob/main/img/mebox.jpg?raw=true">
 
+| **ⓘ INFO** |
+|---------|
+| This repository is under development, it is likely that you will find bugs and incomplete parts. |
 
+<br>
 
 Mebox is an open-source alternative to OpenAI's `file_search` tool, designed to efficiently process, store, and retrieve file-based information using Supabase and embeddings.
 
@@ -109,6 +113,20 @@ Users can upload various file formats (e.g., `.pdf`, `.txt`, `.csv`). The system
 
 ## 📄 Transform File to Text
 Extracts meaningful text from the uploaded file using different parsing methods based on file type.
+
+**getTextFromWebpage:** `website URL`
+
+**getTextFromTXT:** `txt`, `md`, `xml`, `yaml`, `ini`, `log`, `bat`, `py`, `js`, `java`, `cpp`, `html`
+
+**getTextFromPDF:** `pdf`
+
+**getTextFromCSV:** `json`, `csv`, `xlsx`
+
+**getTextFromMicrosoftOffice:** `doc`, `docx`, `pptx`
+
+**getTextFromEmail:** `eml`
+
+**getTextFromUnstructured:** Load files of many types
 
 <br>
 
@@ -209,7 +227,7 @@ Always show in the chat the source file from which the information was obtained 
 - **K-NN:** 2 (Default)
 - **Neighboring Chunks Pairs:** 1 (Default)
 
-**CSV & XLSX:**
+**JSON, CSV & XLSX:**
 - **K-NN:** 20 (Default)
 - **Neighboring Chunks Pairs:** 0 (Default)
 <img src="https://github.com/christivn/mebox/blob/main/img/chunks-strategies.jpg?raw=true" width="550px">
