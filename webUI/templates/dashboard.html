@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discord-like Chat</title>
+    <title>Mebox - AI Agents</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -38,55 +38,73 @@
         .send-button:hover {
             color: #2563eb; /* Blue-600 */
         }
+        #sidebar {
+            background-color: #0a0a0c;
+        }
+        #second-sidebar {
+            background: #1b1b1b;
+            border-radius: 25px;
+            box-shadow: 0px 0px 15px 0px #1b1b1b;
+        }
+        #up-chat {
+            -webkit-box-shadow: 0px 10px 42px 11px rgba(17,17,17,1);
+            -moz-box-shadow: 0px 10px 42px 11px rgba(17,17,17,1);
+            box-shadow: 0px 10px 42px 11px rgba(17,17,17,1);
+        }
     </style>
 </head>
 <body>
-    <div class="flex h-screen bg-gray-800 text-white">
+    <div class="flex h-screen bg-[#111111] text-white">
         <!-- Server list sidebar -->
-        <div class="w-18 bg-gray-900 p-3 flex flex-col items-center space-y-4">
+        <div id="sidebar" class="w-18 p-3 flex flex-col items-center space-y-4 h-screen z-50">
             <!-- Home button -->
-            <div class="h-12 w-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-indigo-500 hover:rounded-2xl transition-all duration-200 cursor-pointer icon-btn">
+            <div class="h-12 w-12 flex items-center justify-center icon-btn">
                 <i class="fas fa-home text-2xl"></i>
             </div>
             
             <!-- Server divider -->
-            <div class="w-8 h-0.5 bg-gray-700 rounded-full mx-auto"></div>
+            <div class="w-8 h-0.5 bg-[#22222b] rounded-full mx-auto"></div>
             
             <!-- Server icons -->
-            <div class="h-12 w-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-indigo-500 hover:rounded-2xl transition-all duration-200 cursor-pointer">
+            <div class="h-12 w-12 bg-[#141316] rounded-full flex items-center justify-center hover:bg-amber-600 hover:rounded-2xl transition-all duration-100 cursor-pointer">
                 A
             </div>
-            <div class="h-12 w-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-indigo-500 hover:rounded-2xl transition-all duration-200 cursor-pointer">
+            <div class="h-12 w-12 bg-[#141316] rounded-full flex items-center justify-center hover:bg-amber-600 hover:rounded-2xl transition-all duration-100 cursor-pointer">
                 B
             </div>
-            <div class="h-12 w-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-indigo-500 hover:rounded-2xl transition-all duration-200 cursor-pointer">
+            <div class="h-12 w-12 bg-[#141316] rounded-full flex items-center justify-center hover:bg-amber-600 hover:rounded-2xl transition-all duration-100 cursor-pointer">
                 C
             </div>
-            <div class="h-12 w-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-indigo-500 hover:rounded-2xl transition-all duration-200 cursor-pointer">
+            <div class="h-12 w-12 bg-[#141316] rounded-full flex items-center justify-center hover:bg-amber-600 hover:rounded-2xl transition-all duration-100 cursor-pointer">
                 D
             </div>
-            
+        
+            <!-- Empujar los últimos tres elementos hacia abajo -->
+            <div class="flex-grow"></div>
+        
             <!-- Add server button -->
-            <div class="h-12 w-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-500 hover:rounded-2xl transition-all duration-200 cursor-pointer icon-btn">
-                <i class="fas fa-plus text-2xl"></i>
+            <div class="h-12 w-12 bg-[#141316] rounded-full flex items-center justify-center hover:bg-amber-600 hover:rounded-2xl transition-all duration-100 cursor-pointer icon-btn">
+                <i class="fas fa-plus text-xl"></i>
             </div>
-            
+        
             <!-- Explore public servers -->
-            <div class="h-12 w-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-500 hover:rounded-2xl transition-all duration-200 cursor-pointer icon-btn">
-                <i class="fas fa-compass text-2xl"></i>
+            <div class="h-12 w-12 bg-[#141316] rounded-full flex items-center justify-center hover:bg-amber-600 hover:rounded-2xl transition-all duration-100 cursor-pointer icon-btn">
+                <i class="fas fa-compass text-xl"></i>
             </div>
-            
+        
             <!-- Download apps -->
-            <div class="mt-auto h-12 w-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-500 hover:rounded-2xl transition-all duration-200 cursor-pointer icon-btn">
-                <i class="fas fa-download text-2xl"></i>
+            <div class="h-12 w-12 bg-[#141316] rounded-full flex items-center justify-center hover:bg-amber-600 hover:rounded-2xl transition-all duration-100 cursor-pointer icon-btn">
+                <i class="fas fa-download text-xl"></i>
             </div>
         </div>
         
         <!-- Channel list sidebar -->
-        <div class="w-60 bg-gray-800 flex flex-col">
+        <div id="second-sidebar" class="w-96 flex flex-col z-10 m-5">
             <!-- Server name -->
-            <div class="h-12 px-4 flex items-center shadow-md">
-                Server Name
+            <div class="h-12 m-3 px-4 flex items-center text-gray-100 bg-[#111111]" style="border-radius: 23px;">
+                <img class="w-7 h-7 rounded-full border border-gray-500 mr-2" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="Rounded avatar">
+                <b class="mr-2">AI Agent</b>
+                <img src="static/ai-box-white-ambar.png" alt="AI Agent Icon" class="w-6 h-6">
             </div>
             
             <!-- Channel list -->
@@ -124,34 +142,35 @@
             </div>
             
             <!-- User info -->
-            <div class="h-14 px-3 flex items-center bg-gray-900">
-                <div class="w-8 h-8 rounded-full bg-indigo-500 mr-3"></div>
+            <!--
+            <div class="h-14 px-3 flex items-center bg-[#0A0A0C]">
+                <div class="w-8 h-8 rounded-full bg-amber-600 mr-3"></div>
                 <div>
                     <div class="text-sm font-medium">Username</div>
                     <div class="text-xs text-gray-400">#1234</div>
                 </div>
                 <i class="fas fa-cog ml-auto cursor-pointer"></i>
             </div>
+            -->
         </div>
 
         <!-- Chat area -->
-        <div class="flex-1 flex flex-col bg-gray-700">
+        <div class="flex-1 flex flex-col" style="background-color: #111111;">
             <!-- Chat header -->
-            <div class="h-12 flex items-center px-4 border-b border-gray-600">
-                <span class="font-semibold text-lg"># general</span>
+            <div id="up-chat" class="flex items-centerborder-b border-gray-600 z-10">
             </div>
 
             <!-- Chat messages -->
-            <div class="flex-1 overflow-y-auto p-4 space-y-4">
+            <div class="flex-1 overflow-y-auto p-4 space-y-4 pt-8">
                 <!-- Message 1 -->
                 <div class="flex items-start">
-                    <div class="w-10 h-10 rounded-full bg-blue-500 flex-shrink-0"></div>
+                    <div class="w-10 h-10 rounded-full bg-amber-600 flex-shrink-0"></div>
                     <div class="ml-3">
                         <div class="flex items-center">
-                            <span class="font-semibold text-white">User1</span>
+                            <span class="font-semibold text-white">✨AI Agent</span>
                             <span class="text-xs text-gray-400 ml-2">Today at 12:00 PM</span>
                         </div>
-                        <div class="mt-1 text-gray-200 chat-bubble bg-gray-800 rounded-lg p-2">
+                        <div class="mt-1 text-gray-200 chat-bubble bg-[#212121] rounded-lg p-2">
                             Hey everyone! How's it going?
                         </div>
                     </div>
@@ -159,13 +178,13 @@
 
                 <!-- Message 2 -->
                 <div class="flex items-start">
-                    <div class="w-10 h-10 rounded-full bg-green-500 flex-shrink-0"></div>
+                    <div class="w-10 h-10 rounded-full bg-amber-600 flex-shrink-0"></div>
                     <div class="ml-3">
                         <div class="flex items-center">
-                            <span class="font-semibold text-white">User2</span>
+                            <span class="font-semibold text-white">✨AI Agent</span>
                             <span class="text-xs text-gray-400 ml-2">Today at 12:05 PM</span>
                         </div>
-                        <div class="mt-1 text-gray-200 chat-bubble bg-gray-800 rounded-lg p-2">
+                        <div class="mt-1 text-gray-200 chat-bubble bg-[#212121] rounded-lg p-2">
                             Hi User1! Everything's great here. How about you?
                         </div>
                     </div>
@@ -173,13 +192,13 @@
 
                 <!-- Message 3 -->
                 <div class="flex items-start">
-                    <div class="w-10 h-10 rounded-full bg-purple-500 flex-shrink-0"></div>
+                    <div class="w-10 h-10 rounded-full bg-amber-600 flex-shrink-0"></div>
                     <div class="ml-3">
                         <div class="flex items-center">
-                            <span class="font-semibold text-white">User3</span>
+                            <span class="font-semibold text-white">✨AI Agent</span>
                             <span class="text-xs text-gray-400 ml-2">Today at 12:10 PM</span>
                         </div>
-                        <div class="mt-1 text-gray-200 chat-bubble bg-gray-800 rounded-lg p-2">
+                        <div class="mt-1 text-gray-200 chat-bubble bg-[#212121] rounded-lg p-2">
                             Hello everyone! I'm new here. Nice to meet you all!
                         </div>
                     </div>
@@ -187,12 +206,12 @@
             </div>
 
             <!-- Chat input -->
-            <div class="px-4 py-2 border-t border-gray-600">
+            <div class="px-4 py-5">
                 <div class="chat-input-container w-full bg-gray-800 rounded-md">
                     <textarea 
                         class="chat-input w-full bg-gray-800 text-white rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                         placeholder="Message #general"
-                        rows="1"
+                        rows="3"
                     ></textarea>
                     <button class="send-button">
                         <i class="fas fa-paper-plane"></i>
