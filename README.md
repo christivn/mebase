@@ -27,7 +27,8 @@ Mebox is an open-source alternative to OpenAI's `file_search` tool, designed to 
 
 - [📖 About Mebox](#-about-mebox)  
 - [💡 Why Use Mebox?](#-why-use-mebox)  
-- [🔧 Use Cases](#-use-cases)  
+- [🔧 Use Cases](#-use-cases)
+- [🛠️ Installation & Setup](#%EF%B8%8F-installation--setup)  
 - [📝 Documentation](#-documentation)
   - [⬆️ Upload File](#️-upload-file)  
   - [📄 Transform File to Text](#-transform-file-to-text)  
@@ -35,7 +36,6 @@ Mebox is an open-source alternative to OpenAI's `file_search` tool, designed to 
   - [🔗 Embedding the Chunks](#-embedding-the-chunks)  
   - [💾 Database](#-database) 
   - [🔎 Search & Retrieval](#-search--retrieval)  
-- [🛠️ Installation & Setup](#%EF%B8%8F-installation--setup)  
 - [🤝 Contributing](#-contributing)  
 - [📜 License](#-license)  
 
