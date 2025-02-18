@@ -124,9 +124,7 @@ Extracts meaningful text from the uploaded file using different parsing methods 
 
 **getTextFromMicrosoftOffice:** `doc`, `docx`, `pptx`
 
-**getTextFromEmail:** `eml`
-
-**getTextFromUnstructured:** Load files of many types
+**getTextFromEmail:** `eml`, `eml/zip`
 
 <br>
 
