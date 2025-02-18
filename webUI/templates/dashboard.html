@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mebox - AI Agents</title>
+    <title>Mebox · AI Agents</title>
     <link rel="icon" type="image/png" href="static/img/mebox-favicon.png"/>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -102,7 +102,7 @@
         <div id="second-sidebar" class="w-96 flex flex-col z-10 m-5">
             <!-- Server name -->
             <div class="h-12 m-3 px-4 flex items-center text-gray-100 bg-[#060607]" style="border-radius: 23px;">
-                <img class="w-7 h-7 rounded-full border-2 border-gray-100 mr-2" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="Rounded avatar">
+                <img class="w-7 h-7 rounded-full border-2 border-amber-600 mr-2" src="https://api.dicebear.com/9.x/bottts-neutral/webp?seed={{ aiAgent_uuid }}" alt="Rounded avatar">
                 <b class="mr-2">AI Agent</b>
                 <img src="static/img/ai-box-white-ambar.png" alt="AI Agent Icon" class="w-6 h-6 ml-auto">
             </div>
@@ -164,7 +164,7 @@
             <div class="flex-1 overflow-y-auto pt-4 pb-4 pr-4 pl-2 space-y-4 pt-8">
                 <!-- Message 1 -->
                 <div class="flex items-start">
-                    <div class="w-10 h-10 rounded-full bg-amber-600 flex-shrink-0"></div>
+                    <div class="w-10 h-10 border-2 border-amber-600 rounded-full bg-amber-600 flex-shrink-0 ai-agent" style="background-image: url(https://api.dicebear.com/9.x/bottts-neutral/webp?seed={{ aiAgent_uuid }});"></div>
                     <div class="ml-3">
                         <div class="flex items-center">
                             <img src="static/img/ai-box-white-ambar.png" alt="AI Agent Icon" class="w-4 h-4 inline mr-1" style="margin-bottom: -2px;">
@@ -180,7 +180,7 @@
 
                 <!-- Message 2 -->
                 <div class="flex items-start">
-                    <div class="w-10 h-10 rounded-full bg-amber-600 flex-shrink-0"></div>
+                    <div class="w-10 h-10 border-2 border-amber-600 rounded-full bg-amber-600 flex-shrink-0 ai-agent" style="background-image: url(https://api.dicebear.com/9.x/bottts-neutral/webp?seed={{ aiAgent_uuid }});"></div>
                     <div class="ml-3">
                         <div class="flex items-center">
                             <img src="static/img/ai-box-white-ambar.png" alt="AI Agent Icon" class="w-4 h-4 inline mr-1" style="margin-bottom: -2px;">
@@ -196,7 +196,7 @@
 
                 <!-- Message 3 -->
                 <div class="flex items-start">
-                    <div class="w-10 h-10 rounded-full bg-amber-600 flex-shrink-0"></div>
+                    <div class="w-10 h-10 border-2 border-amber-600 rounded-full bg-amber-600 flex-shrink-0 ai-agent" style="background-image: url(https://api.dicebear.com/9.x/bottts-neutral/webp?seed={{ aiAgent_uuid }});"></div>
                     <div class="ml-3">
                         <div class="flex items-center">
                             <img src="static/img/ai-box-white-ambar.png" alt="AI Agent Icon" class="w-4 h-4 inline mr-1" style="margin-bottom: -2px;">
@@ -215,8 +215,8 @@
             <div class="pr-4 pl-2 py-4">
                 <div class="chat-input-container w-full rounded-md">
                     <textarea 
-                        class="chat-input w-full bg-[#1B1B1B] text-white rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        placeholder="Message #general"
+                        class="chat-input w-full bg-[#1B1B1B] text-white rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-amber-600"
+                        placeholder="Send your message to the AI agent"
                         rows="3"
                     ></textarea>
                     <button class="send-button text-2xl text-[#D97707]">
