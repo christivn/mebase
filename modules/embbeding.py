@@ -1,9 +1,9 @@
 from transformers import AutoTokenizer, AutoModel
 import torch
 
-def text_to_embedding(oFile, text):
-    tokenizer = AutoTokenizer.from_pretrained(oFile.embeddingModel)
-    model = AutoModel.from_pretrained(oFile.embeddingModel)
+def text_to_embedding(mebox, text):
+    tokenizer = mebox.embeddingTokenizer
+    model = mebox.embeddingModel
 
     inputs = tokenizer(text, return_tensors="pt", truncation=True, max_length=512)
     outputs = model(**inputs)

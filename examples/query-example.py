@@ -7,12 +7,12 @@ from mebox import mebox
 
 if __name__ == "__main__":  # 👈 Esto es obligatorio para evitar errores con ProcessPoolExecutor
     load_dotenv()
-
+    
     mebox = mebox(
         OPENROUTER_KEY = os.getenv("OPENROUTER_KEY"),
         SUPABASE_URL = os.getenv("SUPABASE_URL"),
         SUPABASE_KEY = os.getenv("SUPABASE_KEY")
     )
 
-    print("[·] UPLOAD FILE")
-    mebox.fileUpload("200-recetas-ultrarrapidas.pdf")
+    print("[·] MAKE QUERY")
+    mebox.querySearch("Receta de lomo de bacalao")
