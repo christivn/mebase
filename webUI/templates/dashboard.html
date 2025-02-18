@@ -44,7 +44,6 @@
         #second-sidebar {
             background: #1b1b1b;
             border-radius: 25px;
-            box-shadow: 0px 0px 15px 0px #1b1b1b;
         }
         #up-chat {
             -webkit-box-shadow: 0px 10px 42px 11px rgba(17,17,17,1);
@@ -59,7 +58,7 @@
         <div id="sidebar" class="w-18 p-3 flex flex-col items-center space-y-4 h-screen z-50">
             <!-- Home button -->
             <div class="h-12 w-12 flex items-center justify-center icon-btn">
-                <i class="fas fa-home text-2xl"></i>
+                <img src="static/mebox-white-favicon.png" alt="Mebox Logo" class="w-7 h-auto">
             </div>
             
             <!-- Server divider -->
@@ -206,10 +205,10 @@
             </div>
 
             <!-- Chat input -->
-            <div class="px-4 py-5">
-                <div class="chat-input-container w-full bg-gray-800 rounded-md">
+            <div class="px-4 py-4">
+                <div class="chat-input-container w-full rounded-md">
                     <textarea 
-                        class="chat-input w-full bg-gray-800 text-white rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        class="chat-input w-full bg-[#1B1B1B] text-white rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                         placeholder="Message #general"
                         rows="3"
                     ></textarea>
