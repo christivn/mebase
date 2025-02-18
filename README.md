@@ -12,7 +12,7 @@
 
 
 
-Mebox is an open-source alternative to OpenAI's file_search tool, designed to efficiently process, store, and retrieve file-based information using Supabase and embeddings.
+Mebox is an open-source alternative to OpenAI's `file_search` tool, designed to efficiently process, store, and retrieve file-based information using Supabase and embeddings.
 
 🔹 **Extract** text from uploaded files  
 🔹 **Generate** chunks for efficient storage and retrieval  
@@ -70,9 +70,9 @@ Mebox can be used in various applications that require efficient file-based info
 **Requisitos:**
 
 - Api Key de Openrouter
-- Supabase con pgvector
+- Supabase con `pgvector`
 
-bash
+```bash
 # Clone the repository
 git clone https://github.com/christivn/mebox.git
 
@@ -85,8 +85,7 @@ export SUPABASE_KEY=your_supabase_key
 
 # Run the application
 python main.py
-
-
+```
 
 <br><br>
 
@@ -101,7 +100,7 @@ Este proyecto abarca todo el proceso de gestión y búsqueda de embeddings a tra
 <br>
 
 ## ⬆️ Upload File
-Users can upload various file formats (e.g., .pdf, .txt, .csv). The system extracts text content for further processing.
+Users can upload various file formats (e.g., `.pdf`, `.txt`, `.csv`). The system extracts text content for further processing.
 
 <br>
 
@@ -127,7 +126,7 @@ Each chunk is embedded using a powerful embedding model, allowing for efficient 
 <img src="https://github.com/christivn/mebox/blob/main/img/embedding.jpg?raw=true" width="450px">
 
 **Default Settings:**
-- 🧠 **Embedding model:** thenlper/gte-small
+- 🧠 **Embedding model:** `thenlper/gte-small`
 - 📏 **Dimensions:** 384
 
 The GTE models are trained by **Alibaba DAMO Academy**. They are mainly based on the BERT framework and currently offer three different sizes of models, including GTE-large, GTE-base, and GTE-small. 
@@ -194,7 +193,6 @@ Always show in the chat the source file from which the information was obtained 
 **CSV & XLSX:**
 - **K-NN:** 20 (Default)
 - **Neighboring Chunks Pairs:** 0 (Default)
-
 <img src="https://github.com/christivn/mebox/blob/main/img/chunks-strategies.jpg?raw=true" width="550px">
 
 <br><br>
