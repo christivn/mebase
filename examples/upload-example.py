@@ -2,7 +2,6 @@ from dotenv import load_dotenv
 import sys, os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-print("[·] INITIALIZATION MEBOX")
 from mebox import mebox
 
 if __name__ == "__main__":  # 👈 Esto es obligatorio para evitar errores con ProcessPoolExecutor
@@ -14,5 +13,5 @@ if __name__ == "__main__":  # 👈 Esto es obligatorio para evitar errores con P
         SUPABASE_KEY = os.getenv("SUPABASE_KEY")
     )
 
-    print("[·] UPLOAD FILE")
+    print("\033[42m\033[01m [·] UPLOAD FILE \033[0m")
     mebox.fileUpload("200-recetas-ultrarrapidas.pdf")

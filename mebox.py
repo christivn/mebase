@@ -1,3 +1,13 @@
+print("""___  ___     _               
+|  \/  |    | |              
+| .  . | ___| |__   _____  __
+| |\/| |/ _ \ '_ \ / _ \ \/ /
+| |  | |  __/ |_) | (_) >  < 
+\_|  |_/\___|_.__/ \___/_/\_\\
+Christian Ramos  (@christivn)         
+""")
+print("\033[43m\033[01m [···] Initialize MEBOX \033[0m")
+
 import os
 from supabase import create_client, Client
 
@@ -177,26 +187,32 @@ class mebox:
 
     
     def promptTemplate(self, query, results):
-        windowContentPrompt = "Use this information to think about your answer:"
-        print(results)
-        return 0
+        windowContentPrompt = "Use this information to think about your answer:\n"
+
+        allStrData = ""
+        for result in results:
+            strData = ""
+            for x in result:
+                strData += x["content"]+" "
+            allStrData += strData+"\n"
+
+        return query+"\n\n"+windowContentPrompt+allStrData
 
     
     def querySearch(self, query):
         results = self.searchVectorsAndNeighbors(query)
-        prompt = promptTemplate(query, results)
+        prompt = self.promptTemplate(query, results)
 
-        #completion = self.aiClient.chat.completions.create(
-        #    extra_headers={
-        #        "X-Title": "Mebox",
-        #    },
-        #    model=self.basicModel,
-        #    messages=[
-        #        {
-        #        "role": "user",
-        #        "content": query
-        #        }
-        #    ]
-        #)
-        #print(completion.choices[0].message.content)
-        return 0
+        completion = self.aiClient.chat.completions.create(
+            extra_headers={
+                "X-Title": "Mebox",
+            },
+            model=self.basicModel,
+            messages=[
+                {
+                "role": "user",
+                "content": prompt
+                }
+            ]
+        )
+        return completion.choices[0].message.content
