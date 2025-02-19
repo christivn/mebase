@@ -74,10 +74,22 @@ Mebox can be used in various applications that require efficient file-based info
 <br>
 
 ## 👀 WebUI
+`Coming soon`
 
 <br>
 
 ## ⚡ API
+`Coming soon`
+
+- Create agent
+- Remove agent
+- Make a query to agent
+- Get list of uploaded agent filenames
+- Upload file into a agent
+
+**Stream API**
+
+`Coming soon`
 
 <br>
 
