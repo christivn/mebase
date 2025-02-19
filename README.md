@@ -32,6 +32,8 @@ Mebox is an open-source alternative to OpenAI's `file_search` tool, designed to 
 - [📖 About Mebox](#-about-mebox)  
 - [💡 Why Use Mebox?](#-why-use-mebox)  
 - [🔧 Use Cases](#-use-cases)
+- [👀 WebUI](#-webui)
+- [⚡ API](#-api)
 - [🛠️ Installation & Setup](#%EF%B8%8F-installation--setup)  
 - [📝 Documentation](#-documentation)
   - [📄 Transform File to Text](#-transform-file-to-text)  
@@ -68,6 +70,14 @@ Mebox can be used in various applications that require efficient file-based info
 💬 **Predefined Response Bots** – Develop bots that provide predefined responses based on stored information.  
 📈 **Market Analysis & Trend Detection** – Analyze large datasets for market trends and insights.  
 🏢 **Customer Support Automation** – Streamline customer support by enabling automated query resolution.  
+
+<br>
+
+## 👀 WebUI
+
+<br>
+
+## ⚡ API
 
 <br>
 
