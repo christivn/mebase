@@ -123,6 +123,8 @@ Extracts meaningful text from the uploaded file using different parsing methods 
 
 **getTextFromPDF:** `pdf`
 
+**getTextFromImage:** `jpg`, `jpge`, `png`
+
 **getTextFromCSV:** `csv`, `xlsx`
 
 **getTextFromMicrosoftOffice:** `doc`, `docx`, `pptx`
