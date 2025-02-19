@@ -10,18 +10,15 @@
 
 <img src="https://github.com/christivn/mebox/blob/main/img/mebox.jpg?raw=true">
 
-| **ⓘ INFO** |
-|---------|
-| This repository is under development, it is likely that you will find bugs and incomplete parts. |
-
-<br>
-
 Mebox is an open-source alternative to OpenAI's `file_search` tool, designed to efficiently process, store, and retrieve file-based information using Supabase and embeddings.
 
-🔹 **Extract** text from uploaded files  
-🔹 **Generate** chunks for efficient storage and retrieval  
-🔹 **Embedding** text data for semantic search  
-🔹 **Store** and **query** embeddings using Supabase Vector DB  
+### 💡 Why Use Mebox?
+
+💰 **Open-source & Cost-effective** - No reliance on proprietary APIs.  
+⚡ **Fast & Scalable** - Uses Supabase Vector for high-performance retrieval.  
+🔍 **Accurate Search** - Supports semantic search with embeddings.  
+📂 **Flexible & Extensible** - Easily integrates with different file formats and databases.  
+🌐 **Multilingual Support** - Process and retrieve information in multiple languages.  
 
 🔹 **Multiple file formats:** `pdf`, `json`, `csv`, `xlsx`, `txt`, `md`, `xml`, `yaml`, `ini`, `log`, `bat`, `py`, `js`, `java`, `cpp`, `html`  
 🔹 **Multilingual support:** +12 languages supported  
@@ -30,7 +27,6 @@ Mebox is an open-source alternative to OpenAI's `file_search` tool, designed to 
 ### Index
 
 - [📖 About Mebox](#-about-mebox)  
-- [💡 Why Use Mebox?](#-why-use-mebox)  
 - [🔧 Use Cases](#-use-cases)
 - [👀 WebUI](#-webui)
 - [⚡ API](#-api)
@@ -43,16 +39,6 @@ Mebox is an open-source alternative to OpenAI's `file_search` tool, designed to 
   - [🔎 Search & Retrieval](#-search--retrieval)  
 - [🤝 Contributing](#-contributing)  
 - [📜 License](#-license)  
-
-<br>
-
-## 💡 Why Use Mebox?
-
-💰 **Open-source & Cost-effective** - No reliance on proprietary APIs.  
-⚡ **Fast & Scalable** - Uses Supabase Vector for high-performance retrieval.  
-🔍 **Accurate Search** - Supports semantic search with embeddings.  
-📂 **Flexible & Extensible** - Easily integrates with different file formats and databases.  
-🌐 **Multilingual Support** - Process and retrieve information in multiple languages.  
 
 <br>
 
