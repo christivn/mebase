@@ -10,28 +10,23 @@
 
 <img src="https://github.com/christivn/mebox/blob/main/img/mebox.jpg?raw=true">
 
-| **ⓘ INFO** |
-|---------|
-| This repository is under development, it is likely that you will find bugs and incomplete parts. |
+Mebox es una plataforma **open-source** diseñada para simplificar la creación de agentes de inteligencia artificial (IA) que pueden interactuar de manera efectiva con información **personalizada**. A diferencia de otros sistemas de IA, Mebox te permite cargar tus propios documentos, ya sean informes, manuales, artículos o cualquier tipo de contenido relevante, y crear modelos de IA que pueden comprender y generar respuestas basadas específicamente en esa información.
 
-<br>
+### 💡 Why Use Mebox?
 
-Mebox is an open-source alternative to OpenAI's `file_search` tool, designed to efficiently process, store, and retrieve file-based information using Supabase and embeddings.
-
-🔹 **Extract** text from uploaded files  
-🔹 **Generate** chunks for efficient storage and retrieval  
-🔹 **Embedding** text data for semantic search  
-🔹 **Store** and **query** embeddings using Supabase Vector DB  
-
-🔹 **Multiple file formats:** `pdf`, `json`, `csv`, `xlsx`, `txt`, `md`, `xml`, `yaml`, `ini`, `log`, `bat`, `py`, `js`, `java`, `cpp`, `html`  
-🔹 **Multilingual support:** +12 languages supported  
+💰 **Open-source & Cost-effective** - Open source alternative.  
+⚡ **Fast & Scalable** - Uses Supabase Vector for high-performance retrieval.  
+🔍 **Accurate Search** - Supports semantic search with embeddings.  
+📂 **Multiple file formats:** `pdf`, `json`, `csv`, `xlsx`, `txt`, `md`, `xml`, `yaml`, `ini`, `log`, `bat`, `py`, `js`, `java`, `cpp`, `html`  
+🌐 **Multilingual support:** +12 languages supported  
 🔹 **Multiple AI:** +300 models  
 
 ### Index
 
 - [📖 About Mebox](#-about-mebox)  
-- [💡 Why Use Mebox?](#-why-use-mebox)  
 - [🔧 Use Cases](#-use-cases)
+- [👀 WebUI](#-webui)
+- [⚡ API](#-api)
 - [🛠️ Installation & Setup](#%EF%B8%8F-installation--setup)  
 - [📝 Documentation](#-documentation)
   - [📄 Transform File to Text](#-transform-file-to-text)  
@@ -41,16 +36,6 @@ Mebox is an open-source alternative to OpenAI's `file_search` tool, designed to 
   - [🔎 Search & Retrieval](#-search--retrieval)  
 - [🤝 Contributing](#-contributing)  
 - [📜 License](#-license)  
-
-<br>
-
-## 💡 Why Use Mebox?
-
-💰 **Open-source & Cost-effective** - No reliance on proprietary APIs.  
-⚡ **Fast & Scalable** - Uses Supabase Vector for high-performance retrieval.  
-🔍 **Accurate Search** - Supports semantic search with embeddings.  
-📂 **Flexible & Extensible** - Easily integrates with different file formats and databases.  
-🌐 **Multilingual Support** - Process and retrieve information in multiple languages.  
 
 <br>
 
@@ -68,6 +53,27 @@ Mebox can be used in various applications that require efficient file-based info
 💬 **Predefined Response Bots** – Develop bots that provide predefined responses based on stored information.  
 📈 **Market Analysis & Trend Detection** – Analyze large datasets for market trends and insights.  
 🏢 **Customer Support Automation** – Streamline customer support by enabling automated query resolution.  
+**And more...**
+
+<br>
+
+## 👀 WebUI
+`Coming soon`
+
+<br>
+
+## ⚡ API
+`Coming soon`
+
+- Create agent
+- Remove agent
+- Make a query to agent
+- Get list of uploaded agent filenames
+- Upload file into a agent
+
+**Stream API**
+
+`Coming soon`
 
 <br>
 
@@ -96,7 +102,6 @@ python main.py
 <br><br>
 
 ---
----
 
 <br><br>
 
@@ -114,6 +119,8 @@ Extracts meaningful text from the uploaded file using different parsing methods 
 
 **getTextFromPDF:** `pdf`
 
+**getTextFromImage:** `jpg`, `jpge`, `png`
+
 **getTextFromCSV:** `csv`, `xlsx`
 
 **getTextFromMicrosoftOffice:** `doc`, `docx`, `pptx`
@@ -123,9 +130,11 @@ Extracts meaningful text from the uploaded file using different parsing methods 
 <br>
 
 ## 🧩 Chunks Generation
-Splits the extracted text into manageable chunks to optimize search and retrieval performance.
+En el procesamiento de texto para modelos de lenguaje y recuperación de información, es común dividir documentos largos en fragmentos más pequeños denominados chunks. Esta segmentación facilita el análisis, mejora la precisión en la recuperación de información y permite manejar mejor las limitaciones de longitud.
 
-**Default Settings:**
+La siguiente imagen muestra un ejemplo de segmentación de texto en chunks con distintos tamaños y solapamiento. Cada chunk está resaltado con colores diferentes para visualizar su separación dentro del documento original. Este método es clave para optimizar tareas de búsqueda semántica y generación de texto basada en contexto.
+
+**Mebox Default Settings:**
 - 📏 **Chunk size:** 512 tokens
 - 🔢 **Max chunks in context:** 20
 
@@ -212,9 +221,26 @@ Un valor de similitud de coseno cercano a 1 indica que los vectores son muy simi
 <br>
 
 ## 🔎 Search & Retrieval
-Uses semantic search to find relevant information based on user queries.
 
-Always show in the chat the source file from which the information was obtained and the specific chunk.
+En los sistemas de recuperación aumentada de generación (Retrieval-Augmented Generation, RAG), es fundamental mejorar la calidad de la información recuperada para optimizar la generación de respuestas. Una estrategia clave es la segmentación de documentos en chunks y la posterior búsqueda basada en embeddings semánticos.
+
+La siguiente imagen ilustra el proceso de recuperación de chunks relevantes a partir de una consulta embebida, incorporando chunks vecinos para enriquecer el contexto. Este enfoque permite reducir la fragmentación del conocimiento y mejorar la coherencia de las respuestas generadas.
+
+<img src="https://github.com/christivn/mebox/blob/main/img/chunks-strategies.jpg?raw=true" width="550px">
+
+1. **Representación de la consulta como embedding**  
+   Se genera un vector de embedding a partir de la consulta del usuario utilizando un modelo de representación semántica (por ejemplo, un modelo basado en *transformers* como SBERT o OpenAI embeddings). Este embedding se emplea para realizar una búsqueda en una base de datos de *chunks* previamente indexados.  
+
+2. **Búsqueda en el índice de *chunks***  
+   El índice contiene múltiples *chunks* de documentos, cada uno con su embedding asociado. Se calcula la similitud entre el embedding de la consulta y los embeddings de los *chunks* en la base de datos (usualmente mediante *cosine similarity* o *dot product*). Los *chunks* más relevantes se seleccionan como candidatos.  
+
+3. **Incorporación de contexto con *chunks* vecinos**  
+   Para mitigar problemas de pérdida de contexto y mejorar la coherencia de la información recuperada, se incluyen *chunks* vecinos adyacentes a los más relevantes. Esto permite que el modelo tenga acceso a información contextual adicional.  
+
+4. **Generación de *chunks* enriquecidos**  
+   Los *chunks* seleccionados y sus vecinos se combinan para formar *context-enriched chunks*, los cuales son utilizados en etapas posteriores, como *prompting* en un modelo generativo (*e.g.*, GPT) o como entrada en un sistema de respuesta a preguntas.  
+
+Este enfoque mejora la precisión en la recuperación de información al proporcionar contexto adicional, reduciendo la fragmentación del conocimiento y optimizando la calidad de las respuestas generadas.
 
 - **K-NN:** 2 (Default)
 - **Neighboring Chunks Pairs:** 1 (Default)
@@ -222,7 +248,7 @@ Always show in the chat the source file from which the information was obtained 
 **CSV & XLSX:**
 - **K-NN:** 20 (Default)
 - **Neighboring Chunks Pairs:** 0 (Default)
-<img src="https://github.com/christivn/mebox/blob/main/img/chunks-strategies.jpg?raw=true" width="550px">
+
 
 <br><br>
 
