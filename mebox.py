@@ -20,6 +20,7 @@ import torch
 
 from openai import OpenAI
 
+
 class mebox:
     def __init__(self, OPENROUTER_KEY, SUPABASE_URL, SUPABASE_KEY):
 
