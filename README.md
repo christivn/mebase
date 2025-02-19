@@ -14,14 +14,11 @@ Mebox is an open-source alternative to OpenAI's `file_search` tool, designed to 
 
 ### 💡 Why Use Mebox?
 
-💰 **Open-source & Cost-effective** - No reliance on proprietary APIs.  
+💰 **Open-source & Cost-effective** - Open source alternative.  
 ⚡ **Fast & Scalable** - Uses Supabase Vector for high-performance retrieval.  
 🔍 **Accurate Search** - Supports semantic search with embeddings.  
-📂 **Flexible & Extensible** - Easily integrates with different file formats and databases.  
-🌐 **Multilingual Support** - Process and retrieve information in multiple languages.  
-
-🔹 **Multiple file formats:** `pdf`, `json`, `csv`, `xlsx`, `txt`, `md`, `xml`, `yaml`, `ini`, `log`, `bat`, `py`, `js`, `java`, `cpp`, `html`  
-🔹 **Multilingual support:** +12 languages supported  
+📂 **Multiple file formats:** `pdf`, `json`, `csv`, `xlsx`, `txt`, `md`, `xml`, `yaml`, `ini`, `log`, `bat`, `py`, `js`, `java`, `cpp`, `html`  
+🌐 **Multilingual support:** +12 languages supported  
 🔹 **Multiple AI:** +300 models  
 
 ### Index
@@ -56,6 +53,7 @@ Mebox can be used in various applications that require efficient file-based info
 💬 **Predefined Response Bots** – Develop bots that provide predefined responses based on stored information.  
 📈 **Market Analysis & Trend Detection** – Analyze large datasets for market trends and insights.  
 🏢 **Customer Support Automation** – Streamline customer support by enabling automated query resolution.  
+**And more...**
 
 <br>
 
