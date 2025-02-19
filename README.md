@@ -235,9 +235,26 @@ Un valor de similitud de coseno cercano a 1 indica que los vectores son muy simi
 <br>
 
 ## 🔎 Search & Retrieval
-Uses semantic search to find relevant information based on user queries.
 
-Always show in the chat the source file from which the information was obtained and the specific chunk.
+En los sistemas de recuperación aumentada de generación (Retrieval-Augmented Generation, RAG), es fundamental mejorar la calidad de la información recuperada para optimizar la generación de respuestas. Una estrategia clave es la segmentación de documentos en chunks y la posterior búsqueda basada en embeddings semánticos.
+
+La siguiente imagen ilustra el proceso de recuperación de chunks relevantes a partir de una consulta embebida, incorporando chunks vecinos para enriquecer el contexto. Este enfoque permite reducir la fragmentación del conocimiento y mejorar la coherencia de las respuestas generadas.
+
+<img src="https://github.com/christivn/mebox/blob/main/img/chunks-strategies.jpg?raw=true" width="550px">
+
+1. **Representación de la consulta como embedding**  
+   Se genera un vector de embedding a partir de la consulta del usuario utilizando un modelo de representación semántica (por ejemplo, un modelo basado en *transformers* como SBERT o OpenAI embeddings). Este embedding se emplea para realizar una búsqueda en una base de datos de *chunks* previamente indexados.  
+
+2. **Búsqueda en el índice de *chunks***  
+   El índice contiene múltiples *chunks* de documentos, cada uno con su embedding asociado. Se calcula la similitud entre el embedding de la consulta y los embeddings de los *chunks* en la base de datos (usualmente mediante *cosine similarity* o *dot product*). Los *chunks* más relevantes se seleccionan como candidatos.  
+
+3. **Incorporación de contexto con *chunks* vecinos**  
+   Para mitigar problemas de pérdida de contexto y mejorar la coherencia de la información recuperada, se incluyen *chunks* vecinos adyacentes a los más relevantes. Esto permite que el modelo tenga acceso a información contextual adicional.  
+
+4. **Generación de *chunks* enriquecidos**  
+   Los *chunks* seleccionados y sus vecinos se combinan para formar *context-enriched chunks*, los cuales son utilizados en etapas posteriores, como *prompting* en un modelo generativo (*e.g.*, GPT) o como entrada en un sistema de respuesta a preguntas.  
+
+Este enfoque mejora la precisión en la recuperación de información al proporcionar contexto adicional, reduciendo la fragmentación del conocimiento y optimizando la calidad de las respuestas generadas.
 
 - **K-NN:** 2 (Default)
 - **Neighboring Chunks Pairs:** 1 (Default)
@@ -245,7 +262,7 @@ Always show in the chat the source file from which the information was obtained 
 **CSV & XLSX:**
 - **K-NN:** 20 (Default)
 - **Neighboring Chunks Pairs:** 0 (Default)
-<img src="https://github.com/christivn/mebox/blob/main/img/chunks-strategies.jpg?raw=true" width="550px">
+
 
 <br><br>
 
