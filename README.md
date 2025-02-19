@@ -10,7 +10,7 @@
 
 <img src="https://github.com/christivn/mebox/blob/main/img/mebox.jpg?raw=true">
 
-Mebox is an open-source alternative to OpenAI's `file_search` tool, designed to efficiently process, store, and retrieve file-based information using Supabase and embeddings.
+Mebox es una plataforma **open-source** diseñada para simplificar la creación de agentes de inteligencia artificial (IA) que pueden interactuar de manera efectiva con información **personalizada**. A diferencia de otros sistemas de IA, Mebox te permite cargar tus propios documentos, ya sean informes, manuales, artículos o cualquier tipo de contenido relevante, y crear modelos de IA que pueden comprender y generar respuestas basadas específicamente en esa información.
 
 ### 💡 Why Use Mebox?
 
