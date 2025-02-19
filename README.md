@@ -146,9 +146,11 @@ Extracts meaningful text from the uploaded file using different parsing methods 
 <br>
 
 ## 🧩 Chunks Generation
-Splits the extracted text into manageable chunks to optimize search and retrieval performance.
+En el procesamiento de texto para modelos de lenguaje y recuperación de información, es común dividir documentos largos en fragmentos más pequeños denominados chunks. Esta segmentación facilita el análisis, mejora la precisión en la recuperación de información y permite manejar mejor las limitaciones de longitud.
 
-**Default Settings:**
+La siguiente imagen muestra un ejemplo de segmentación de texto en chunks con distintos tamaños y solapamiento. Cada chunk está resaltado con colores diferentes para visualizar su separación dentro del documento original. Este método es clave para optimizar tareas de búsqueda semántica y generación de texto basada en contexto.
+
+**Mebox Default Settings:**
 - 📏 **Chunk size:** 512 tokens
 - 🔢 **Max chunks in context:** 20
 
