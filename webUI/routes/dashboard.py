@@ -13,9 +13,3 @@ def chat():
     return render_template(
         'chat.html'
     )
-
-@app.route("/blank")
-def blank():
-    return render_template(
-        'blank.html'
-    )
