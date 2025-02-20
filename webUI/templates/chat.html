@@ -81,8 +81,6 @@
             background-position: center;
             background-size: cover;
         }
-    </style>
-    <style>
         .chat-container {
             opacity: 0;
             transform: translateY(20px);
@@ -97,6 +95,44 @@
             pointer-events: none;
             z-index: 10;
         }
+        .el {
+            background: conic-gradient(from 180deg at 50% 70%,hsla(0,0%,98%,1) 0deg,#D97707 72.0000010728836deg,#D97707 144.0000021457672deg,#D97707 216.00000858306885deg,#D97707 288.0000042915344deg,hsla(0,0%,98%,1) 1turn);
+            width: 100%;
+            height: 100%;
+            mask:
+                radial-gradient(circle at 50% 50%, white 2px, transparent 4px) 50% 50% / 10px 10px,
+                url("static/img/noise-mask.webp") 256px 50% / 256px 256px;
+            mask-composite: intersect;
+            animation: flicker 20s infinite linear;
+            position: relative;
+        }
+        .el-white {
+            background: conic-gradient(from 180deg at 50% 70%,hsla(0,0%,98%,1) 0deg,#ffffff 72.0000010728836deg,#ffffff 144.0000021457672deg,#ffffff 216.00000858306885deg,#ffffff 288.0000042915344deg,hsla(0,0%,98%,1) 1turn);
+            width: 100%;
+            height: 100%;
+            mask:
+                radial-gradient(circle at 50% 50%, white 2px, transparent 4px) 50% 50% / 10px 10px,
+                url("static/img/noise-mask.webp") 256px 50% / 256px 256px;
+            mask-composite: intersect;
+            animation: flicker 20s infinite linear;
+            position: relative;
+        }
+        .el2 {
+            /* background: linear-gradient(0deg, rgba(17, 17, 17, 1) 0%, rgba(17, 17, 17, 0.7) 30%, rgba(17, 17, 17, 0.2) 100%); */
+            background: linear-gradient(0deg, rgba(17, 17, 17, 1) 0%, rgba(17, 17, 17, 0.7) 30%, rgba(17, 17, 17, 0.2) 100%);
+            z-index: 10;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        @keyframes flicker {
+        to {
+            mask-position: 50% 50%, 0 50%;
+        }
+        }
+    </style>
+    <style>
+
         .dropdown-content {
             display: none;
             position: absolute;
@@ -231,11 +267,37 @@
             <div class="flex-1 overflow-y-auto">
                 <div class="h-96 mx-3 mb-3 px-4 flex items-center text-gray-100 bg-[#272727]" style="border-radius: 23px;"></div>
 
-                <div class="mx-3 mb-3 px-4 flex items-center text-gray-100 bg-[#272727]" style="border-radius: 23px;height: 30vh;"></div>
-    
+                <div class="mx-3 mb-3 py-1 text-gray-100 bg-[#272727]" style="border-radius: 23px;height: 30vh;">
+                    <div class="h-12 m-3 px-4 flex items-center text-gray-100 bg-[#1B1B1B]" style="border-radius: 23px;">
+                        <i class="fas fa-magnifying-glass w-6 h-6 mr-2 mt-2 text-gray-400"></i>
+                        <input type="text" class="text-sm font-medium text-gray-300 h-full w-full bg-transparent focus:outline-none focus:ring-0" placeholder="Search for a model"/>
+                    </div>
+                </div>
+
                 <div class="flex justify-between">
-                    <div class="h-40 w-full ml-3 mr-2 mb-3 px-4 flex items-center text-gray-100 bg-[#272727]" style="border-radius: 23px;"></div>
-                    <div class="h-40 w-full mr-3 ml-2 mb-3 px-4 flex items-center text-gray-100 bg-[#272727]" style="border-radius: 23px;"></div>
+                    <div class="ai-button cursor-pointer h-40 w-full ml-3 mr-2 mb-3 flex items-center text-gray-100 bg-[#272727] relative transition-all duration-100 ease-in-out border-amber-600 hover:border" style="border-radius: 23px;">
+                        <div class="el-white" style="border-radius: 23px;">
+                            <div class="el2 px-4" style="border-radius: 23px;"></div>
+                        </div>
+                        <div class="absolute p-4">
+                            <div class="flex flex-col">
+                                <span class="text-xl font-bold text-gray-200 mb-3">View all<br>AI models</span>
+                                <img src="static/img/ai-chat-white-ambar.png" alt="AI Agents" class="w-10 h-10">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="ai-button cursor-pointer h-40 w-full mr-3 ml-2 mb-3 flex items-center text-gray-100 bg-[#272727] relative transition-all duration-100 ease-in-out border-amber-600 hover:border" style="border-radius: 23px;">
+                        <div class="el" style="border-radius: 23px;">
+                            <div class="el2 px-4" style="border-radius: 23px;"></div>
+                        </div>
+                        <div class="absolute p-4">
+                            <div class="flex flex-col">
+                                <span class="text-xl font-bold text-gray-200 mb-3">Create<br>AI Agent</span>
+                                <img src="static/img/ai-box-white-ambar.png" alt="AI Agents" class="w-10 h-10">
+                            </div>
+                        </div>
+                    </div>
                 </div>                
             </div>
 
@@ -472,5 +534,27 @@ document.querySelectorAll('.navicon2').forEach(element => {
     });
   });
 });
+</script>
+
+<script>
+    document.querySelectorAll('.ai-button').forEach(element => {
+      element.addEventListener('mouseover', () => {
+        anime({
+          targets: element,
+          scale: 0.97,
+          easing: 'easeOutQuad',
+          duration: 100
+        });
+      });
+    
+      element.addEventListener('mouseleave', () => {
+        anime({
+          targets: element,
+          scale: 1,
+          easing: 'easeOutQuad',
+          duration: 300
+        });
+      });
+    });
 </script>
 </html>
