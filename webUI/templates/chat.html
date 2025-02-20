@@ -9,6 +9,26 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* width */
+        ::-webkit-scrollbar {
+        width: 7px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+        border-radius: 10px;
+        }
+        
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+        background: #232323; 
+        border-radius: 10px;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+        background: #1a1919; 
+        }
         html, body {
             overflow: hidden; /* Esto desactiva la barra de desplazamiento en toda la página */
             height: 100vh; /* Asegura que el contenido no sobrepase el tamaño de la ventana */
@@ -155,7 +175,7 @@
 <body>
     <div class="flex h-screen bg-[#111111] text-white">
         <!-- Server list sidebar -->
-        <div id="sidebar" class="w-18 p-3 flex flex-col items-center space-y-4 h-screen z-50">
+        <div id="sidebar" class="w-18 p-3 flex flex-col items-center space-y-4 h-screen z-50 shadow-md">
             <!-- Home button -->
             <div class="h-12 w-12 flex items-center justify-center icon-btn">
                 <img src="static/img/mebox-white-favicon.png" alt="Mebox Logo" class="w-7 h-auto">
@@ -198,7 +218,7 @@
         </div>
         
         <!-- Channel list sidebar -->
-        <div id="second-sidebar" class="w-96 flex flex-col z-10 m-5">
+        <div id="second-sidebar" class="w-96 flex flex-col z-10 m-5 shadow-md">
             <!-- Server name -->
             <div class="h-12 m-3 px-4 flex items-center text-gray-100 bg-[#060607]" style="border-radius: 23px;">
                 <img class="w-7 h-7 p-1 bg-white rounded-full border-2 border-amber-600 mr-2" src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://ai.meta.com/&size=256" alt="Rounded avatar">
@@ -260,8 +280,8 @@
         <div class="flex-1 flex flex-col" style="background-color: #111111;">
 
 
-            <div id="chatContainer" class="chat-container w-full">
-                <div class="relative h-[calc(100vh-200px)] min-h-[400px]">
+            <div id="chatContainer" class="chat-container w-full h-full">
+                <div class="relative h-[calc(100vh-130px)] min-h-[400px]">
                     <div class="gradient-overlay"></div>
                     <div id="chatMessages" class="h-full overflow-y-auto p-4 space-y-4 pt-9"></div>
                 </div>
