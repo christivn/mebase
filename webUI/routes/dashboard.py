@@ -4,12 +4,12 @@ from server import app
 @app.route("/")
 def index():
     return render_template(
-        'dashboard.html',
+        'chat.html',
         aiAgent_uuid="123456789"
     )
 
-@app.route("/chat")
-def chat():
+@app.route("/agent/<agent_uuid>")
+def agent(agent_uuid):
     return render_template(
-        'chat.html'
+        'agent.html'
     )
