@@ -7,3 +7,15 @@ def index():
         'dashboard.html',
         aiAgent_uuid="123456789"
     )
+
+@app.route("/chat")
+def chat():
+    return render_template(
+        'chat.html'
+    )
+
+@app.route("/blank")
+def blank():
+    return render_template(
+        'blank.html'
+    )

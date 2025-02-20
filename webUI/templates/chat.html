@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Animado con Tooltips</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        .chat-container {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .gradient-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background: linear-gradient(to bottom, #111111 0%, rgba(243,244,246,0) 100%);
+            pointer-events: none;
+            z-index: 10;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            right: 0;
+            top: 100%;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        .show {
+            display: block;
+        }
+        /* Estilos para los tooltips */
+        [data-tooltip] {
+            position: relative;
+            cursor: pointer;
+        }
+        [data-tooltip]:before,
+        [data-tooltip]:after {
+            position: absolute;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+            transform: translate3d(0, 0, 0);
+            pointer-events: none;
+        }
+        [data-tooltip]:hover:before,
+        [data-tooltip]:hover:after {
+            visibility: visible;
+            opacity: 1;
+        }
+        [data-tooltip]:before {
+            content: '';
+            z-index: 1001;
+            border: 6px solid transparent;
+            background: transparent;
+            border-top-color: #000;
+            margin-bottom: -12px;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        [data-tooltip]:after {
+            content: attr(data-tooltip);
+            z-index: 1000;
+            padding: 8px;
+            min-width: 80px;
+            background-color: #000;
+            background-color: hsla(0, 0%, 20%, 0.9);
+            color: #fff;
+            text-align: center;
+            font-size: 14px;
+            line-height: 1.2;
+            border-radius: 3px;
+            bottom: 100%;
+            left: 50%;
+            margin-bottom: -6px;
+            transform: translateX(-50%);
+        }
+        [data-tooltip]:hover:before,
+        [data-tooltip]:hover:after {
+            transform: translateX(-50%) translateY(-8px);
+        }
+    </style>
+</head>
+<body class="bg-[#111111] flex flex-col items-center min-h-screen">
+    <div id="chatContainer" class="chat-container w-full">
+        <div class="relative h-[calc(100vh-200px)] min-h-[400px]">
+            <div class="gradient-overlay"></div>
+            <div id="chatMessages" class="h-full overflow-y-auto p-4 space-y-4 pt-9"></div>
+        </div>
+    </div>
+    
+    <div id="textInput" class="w-full mt-4 relative">
+        <textarea id="userInput" rows="3" class="w-full p-2 text-white bg-[#1B1B1B] border-2 border-[#0f0f0f] rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-amber-600 focus:border-amber-600 pr-12 resize-none" placeholder="Escribe tu mensaje aquí..."></textarea>
+        <button id="sendButton" class="absolute bottom-4 right-4 bg-amber-600 text-white w-10 h-10 flex items-center justify-center rounded-full hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-amber-500">
+            <i class="fas fa-paper-plane"></i>
+        </button>
+    </div>
+
+    <script>
+        const chatContainer = document.getElementById('chatContainer');
+        const chatMessages = document.getElementById('chatMessages');
+        const userInput = document.getElementById('userInput');
+        const sendButton = document.getElementById('sendButton');
+
+        let isChatVisible = false;
+
+        function showChat() {
+            if (!isChatVisible) {
+                anime({
+                    targets: chatContainer,
+                    opacity: 1,
+                    translateY: 0,
+                    duration: 800,
+                    easing: 'easeOutElastic(1, .8)'
+                });
+                isChatVisible = true;
+            }
+        }
+
+        function addMessage(text, isUser) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `flex ${isUser ? 'justify-end' : 'justify-start'} mb-4`;
+            
+            const timestamp = new Date().toLocaleString('es-ES', { hour: '2-digit', minute: '2-digit' });
+            
+            messageDiv.innerHTML = `
+                <div class="flex ${isUser ? 'flex-row-reverse' : 'flex-row'} items-end">
+                    <img src="https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg" alt="Avatar" class="w-10 h-10 rounded-full mb-5 ${isUser ? 'ml-3' : 'mr-3'}">
+                    <div class="flex flex-col ${isUser ? 'items-end' : 'items-start'}">
+                        <div class="max-w-xl px-4 py-2 ${isUser ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800'} rounded-lg">
+                            <span>${text}</span>
+                        </div>
+                        <div class="flex items-center mt-1 text-xs text-gray-500">
+                            <span>${timestamp}</span>
+                            <button class="ml-2 text-gray-500 hover:text-gray-700 focus:outline-none copy-btn" data-tooltip="Copiar mensaje">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                            <button class="ml-2 text-gray-500 hover:text-gray-700 focus:outline-none refresh-btn" data-tooltip="Refrescar">
+                                <i class="fas fa-sync-alt"></i>
+                            </button>
+                            <div class="dropdown ml-2 relative">
+                                <button class="dropbtn text-gray-500 hover:text-gray-700 focus:outline-none" data-tooltip="Más opciones">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                </button>
+                                <div class="dropdown-content">
+                                    <a href="#" class="delete-message">Eliminar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            messageDiv.style.opacity = 0;
+            messageDiv.style.transform = 'translateY(20px)';
+            
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            anime({
+                targets: messageDiv,
+                opacity: 1,
+                translateY: 0,
+                duration: 500,
+                easing: 'easeOutCubic'
+            });
+
+            // Event listeners for dropdown
+            const dropBtn = messageDiv.querySelector('.dropbtn');
+            const dropContent = messageDiv.querySelector('.dropdown-content');
+            dropBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                dropContent.classList.toggle('show');
+            });
+
+            // Close dropdown when clicking outside
+            window.addEventListener('click', () => {
+                if (dropContent.classList.contains('show')) {
+                    dropContent.classList.remove('show');
+                }
+            });
+
+            // Copy text functionality
+            const copyBtn = messageDiv.querySelector('.copy-btn');
+            copyBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                navigator.clipboard.writeText(text).then(() => {
+                    alert('Texto copiado al portapapeles');
+                });
+            });
+
+            // Refresh functionality (placeholder)
+            const refreshBtn = messageDiv.querySelector('.refresh-btn');
+            refreshBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                alert('Función de refrescar: a implementar');
+            });
+
+            // Delete message functionality
+            const deleteBtn = messageDiv.querySelector('.delete-message');
+            deleteBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                messageDiv.remove();
+            });
+        }
+
+        function handleSend() {
+            const message = userInput.value.trim();
+            if (message) {
+                showChat();
+                addMessage(message, true);
+                userInput.value = '';
+                
+                // Simular respuesta del bot
+                setTimeout(() => {
+                    addMessage("Gracias por tu mensaje. Esta es una respuesta simulada del bot.", false);
+                }, 1000);
+            }
+        }
+
+        sendButton.addEventListener('click', handleSend);
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                handleSend();
+            }
+        });
+    </script>
+</body>
+</html>
