@@ -5,6 +5,7 @@ os.system('cls' if os.name == 'nt' else 'clear')
 from mebox import mebox
 
 from flask import Flask
+from supabase import create_client, Client
 
 # inicializar Mebox
 load_dotenv()
@@ -20,6 +21,8 @@ app = Flask(__name__)
 app._static_folder = "static"
 app.secret_key = '32412fb5aa7d2a0e737afe3b5325935b0a9d0a27'
 app.config['MEBOX'] = mebox
+
+app.config['supabase']: Client = create_client(os.getenv("SUPABASE_URL"), os.getenv("SUPABASE_KEY"))
 
 # Deshabilitar Console Logs
 import logging

@@ -2,3 +2,5 @@ supabase
 langchain
 langchain-community
 pypdf
+urllib3
+requests_html
