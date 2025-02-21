@@ -34,7 +34,7 @@ authorsUrls = {
     "alpindale": "https://www.alpindale.com",
     "xwin-lm": "https://www.xwin-lm.com",
     "mancer": "https://www.mancer.ai",
-    "jondurbin": "https://www.jondurbin.com",
+    "jondurbin": "https://huggingface.co/jondurbin",
     "pygmalionai": "https://www.pygmalion.ai",
     "infermatic": "https://www.infermatic.com",
     "nothingiisreal": "https://www.nothingiisreal.com",
@@ -68,17 +68,19 @@ def update_models(privateToken):
                 "context": model["context_length"],
                 "input_token_pricing": model["pricing"]["prompt"],
                 "output_token_pricing": model["pricing"]["completion"],
-                "create_data": model["created"],
+                "create_at": model["created"],
                 "author_website": authorsUrls.get(model["id"].split("/")[0]),
-                "status": "ACTIVE"
+                "modality": model["architecture"]["modality"],
+                "active": True
             }
-            try:
-                app.config['supabase'].table("models").insert(data).execute()
-            except:
+            if model["id"].split("/")[0]!="openrouter":
                 try:
-                    app.config['supabase'].from_("models").update(data).eq("model", model["id"]).execute()
-                except Exception as e:
-                    print("ERROR 'update_model': "+e)
+                    app.config['supabase'].table("models").insert(data).execute()
+                except:
+                    try:
+                        app.config['supabase'].from_("models").update(data).eq("model", model["id"]).execute()
+                    except Exception as e:
+                        print("ERROR 'update_model': "+str(e))
 
         return {"status": "complete"}
 
@@ -109,3 +111,23 @@ def update_models(privateToken):
     }
 }
 '''
+
+@app.route("/get-models", methods=['GET'])
+def get_models():
+    try:
+        response = app.config['supabase'].table("models").select("*").execute()
+
+        # Formatear valores de punto flotante
+        formatted_data = []
+        for model in response.data:
+            if "input_token_pricing" in model and isinstance(model["input_token_pricing"], float):
+                model["input_token_pricing"] = format(model["input_token_pricing"], ".10f")
+            if "output_token_pricing" in model and isinstance(model["output_token_pricing"], float):
+                model["output_token_pricing"] = format(model["output_token_pricing"], ".10f")
+            
+            formatted_data.append(model)
+
+        return formatted_data
+    except Exception as e:
+        print("Error fetching models:", e)
+        return None
