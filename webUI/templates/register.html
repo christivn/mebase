@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mebox · Register</title>
+    <link rel="icon" type="image/png" href="static/img/mebox-favicon.png"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --size: 18px;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  background: hsl(0 0% 6%);
+}
+
+.el {
+  background: conic-gradient(from 180deg at 50% 70%,hsla(0,0%,98%,1) 0deg,#D97707 72.0000010728836deg,#ffffff 144.0000021457672deg,#D97707 216.00000858306885deg,#ffffff 288.0000042915344deg,hsla(0,0%,98%,1) 1turn);
+  width: 100%;
+  height: 100%;
+  mask:
+    radial-gradient(circle at 50% 50%, white 2px, transparent 2.5px) 50% 50% / var(--size) var(--size),
+    url("static/img/noise-mask.webp") 256px 50% / 256px 256px;
+  mask-composite: intersect;
+  animation: flicker 20s infinite linear;
+  position: absolute;
+}
+
+.el2 {
+  background: linear-gradient(0deg, rgba(17, 17, 17, 1) 0%, rgba(17, 17, 17, 0.7) 30%, rgba(17, 17, 17, 0.2) 100%);
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+@keyframes flicker {
+  to {
+    mask-position: 50% 50%, 0 50%;
+  }
+}
+    </style>
+</head>
+<body class="bg-[#111111] text-gray-200 flex items-center justify-center h-screen">
+    <div class="el"></div>
+    <div class="el2"></div>
+    <div class="p-8 py-12 rounded-lg w-96 bg-[#111111] z-20 border-2 border-[#1c1c1c]">
+        <center>
+            <img src="static/img/mebox-white-favicon.png" alt="Mebox Logo" class="w-12 h-auto mb-8">
+        </center>
+        <form>
+            <div class="mb-4">
+                <label for="email" class="block text-sm font-medium mb-2">Email</label>
+                <input type="email" id="email" name="email" class="w-full px-3 py-2 bg-[#212121] rounded-md focus:outline-none focus:border-blue-500" placeholder="Enter email address" required>
+            </div>
+            <div class="mb-6 relative">
+                <label for="password" class="block text-sm font-medium mb-2">Password</label>
+                <input type="password" id="password" name="password" class="w-full px-3 py-2 bg-[#212121] rounded-md focus:outline-none focus:border-blue-500 pr-10" placeholder="Enter password" required>
+                <i id="togglePassword" class="fas fa-eye absolute right-3 top-10 cursor-pointer text-gray-400" onclick="togglePassword('password', 'togglePassword')"></i>
+            </div>
+            <div class="mb-6 relative">
+                <label for="password-repeat" class="block text-sm font-medium mb-2">Repeat Password</label>
+                <input type="password" id="password-repeat" name="password-repeat" class="w-full px-3 py-2 bg-[#212121] rounded-md focus:outline-none focus:border-blue-500 pr-10" placeholder="Repeat password" required>
+                <i id="togglePasswordRepeat" class="fas fa-eye absolute right-3 top-10 cursor-pointer text-gray-400" onclick="togglePassword('password-repeat', 'togglePasswordRepeat')"></i>
+            </div>
+            <button type="submit" class="w-full bg-amber-600 text-[#111111] font-bold py-2 px-4 rounded-md hover:bg-amber-700 focus:outline-none focus:bg-amber-700"><i class="fa-solid fa-user-plus"></i> Register</button>
+            <div class="mt-2 text-center">
+                <a class="text-[#716e6e] hover:text-[#adadad]" href="/login"><i class="fa-solid fa-arrow-left text-sm"></i> Back to login</a>
+            </div>
+        </form>
+    </div>
+</body>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector("form");
+    const emailInput = document.getElementById("email");
+    const passwordInput = document.getElementById("password");
+    const passwordRepeatInput = document.getElementById("password-repeat");
+    const messageDiv = document.createElement("div");
+    messageDiv.style.color = "red";
+    messageDiv.style.marginBottom = "10px";
+    form.insertBefore(messageDiv, form.firstChild);
+
+    form.addEventListener("submit", function (event) {
+        let isValid = true;
+        messageDiv.innerHTML = "";
+        
+        // Validación de email
+        if (!validateEmail(emailInput.value)) {
+            messageDiv.innerHTML += "<p class='text-xs'>- Por favor, introduce un email válido.</p>";
+            isValid = false;
+        }
+        
+        // Validación de contraseña (mínimo 6 caracteres)
+        if (passwordInput.value.length < 6) {
+            messageDiv.innerHTML += "<p class='text-xs'>- La contraseña debe tener al menos 6 caracteres.</p>";
+            isValid = false;
+        }
+        
+        // Verificar que ambas contraseñas coincidan
+        if (passwordInput.value !== passwordRepeatInput.value) {
+            messageDiv.innerHTML += "<p class='text-xs'>- Las contraseñas no coinciden.</p>";
+            isValid = false;
+        }
+        
+        if (!isValid) {
+            event.preventDefault(); // Evita que el formulario se envíe si hay errores
+        } else {
+            event.preventDefault(); // Evita el envío predeterminado
+            fetch("/register-form", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    email: emailInput.value,
+                    password: passwordInput.value
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                messageDiv.style.color = "green";
+                messageDiv.innerHTML = "<p>Registro exitoso.</p>";
+            })
+            .catch(error => {
+                console.error("Error en la petición:", error);
+                messageDiv.innerHTML = "<p>Error en el registro.</p>";
+            });
+        }
+    });
+
+    function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    }
+});
+</script>
+<script>
+    function togglePassword(id, iconId) {
+        const passwordField = document.getElementById(id);
+        const icon = document.getElementById(iconId);
+        if (passwordField.type === "password") {
+            passwordField.type = "text";
+            icon.classList.remove("fa-eye");
+            icon.classList.add("fa-eye-slash");
+        } else {
+            passwordField.type = "password";
+            icon.classList.remove("fa-eye-slash");
+            icon.classList.add("fa-eye");
+        }
+    }
+</script>
+</html>

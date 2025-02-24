@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mebox · AI Agents · Login</title>
+    <title>Mebox · Login</title>
     <link rel="icon" type="image/png" href="static/img/mebox-favicon.png"/>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -59,15 +59,32 @@ body {
         </center>
         <form>
             <div class="mb-4">
-                <label for="username-mebox" class="block text-sm font-medium mb-2">Username</label>
-                <input type="text" id="username" name="username-mebox" class="w-full px-3 py-2 bg-[#212121] rounded-md focus:outline-none focus:border-blue-500" required>
+                <label for="email" class="block text-sm font-medium mb-2">Email</label>
+                <input type="email" id="email" name="email" class="w-full px-3 py-2 bg-[#212121] rounded-md focus:outline-none focus:border-blue-500" placeholder="Enter email" required>
             </div>
-            <div class="mb-6">
-                <label for="password-mebox" class="block text-sm font-medium mb-2">Password</label>
-                <input type="password" id="password" name="password-mebox" class="w-full px-3 py-2 bg-[#212121] rounded-md focus:outline-none focus:border-blue-500" required>
+            <div class="mb-6 relative">
+              <label for="password" class="block text-sm font-medium mb-2">Password</label>
+              <input type="password" id="password" name="password" class="w-full px-3 py-2 bg-[#212121] rounded-md focus:outline-none focus:border-blue-500 pr-10" placeholder="Enter password" required>
+              <i id="togglePassword" class="fas fa-eye absolute right-3 top-10 cursor-pointer text-gray-400" onclick="togglePassword('password', 'togglePassword')"></i>
             </div>
-            <button type="submit" class="w-full bg-amber-600 text-[#111111] font-bold py-2 px-4 rounded-md hover:bg-amber-600 focus:outline-none focus:bg-amber-700"><i class="fas fa-right-to-bracket"></i> Login</button>
+            <button type="submit" class="w-full bg-amber-600 text-[#111111] font-bold py-2 px-4 rounded-md hover:bg-amber-700 focus:outline-none focus:bg-amber-700"><i class="fas fa-right-to-bracket"></i> Login</button>
+            <button onclick="window.location.href = '/register'" class="w-full mt-3 bg-gray-100 text-[#111111] font-bold py-2 px-4 rounded-md hover:bg-gray-200 focus:outline-none focus:bg-gray-200"><i class="fa-solid fa-user-plus"></i> Register</button>
         </form>
     </div>
 </body>
+<script>
+  function togglePassword(id, iconId) {
+      const passwordField = document.getElementById(id);
+      const icon = document.getElementById(iconId);
+      if (passwordField.type === "password") {
+          passwordField.type = "text";
+          icon.classList.remove("fa-eye");
+          icon.classList.add("fa-eye-slash");
+      } else {
+          passwordField.type = "password";
+          icon.classList.remove("fa-eye-slash");
+          icon.classList.add("fa-eye");
+      }
+  }
+</script>
 </html>
