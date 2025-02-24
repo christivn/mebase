@@ -138,6 +138,9 @@
             max-height: 28vh;
             overflow-y: auto;
         }
+        .modelsList:hover {
+            background: linear-gradient(to right, #464646 0%, #272727 100%);
+        }
         .modelsBox-bottomGradient {
             bottom: 0;
             background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
@@ -520,7 +523,7 @@
             // Simular respuesta del bot
             setTimeout(() => {
                 addMessage("Gracias por tu mensaje. Esta es una respuesta simulada del bot.", false);
-            }, 1000);
+            }, 500);
         }
     }
 
@@ -624,7 +627,7 @@ const modelsBox = document.getElementById("modelsBox");
 let htmlContent = "";
 for (const model of allModels) {
     htmlContent += `
-    <div onclick="window.location.href = '/`+model.model_uuid+`'" class="cursor-pointer mx-5 py-2 px-2 flex border-b border-[#3D3D3D] hover:bg-[#393838]" id="modelsList">
+    <div onclick="window.location.href = '/`+model.model_uuid+`'" class="cursor-pointer mx-5 py-2 px-2 flex border-b border-[#3D3D3D] modelsList">
         <img class="w-5 h-5 bg-white rounded-full mr-2 border" src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=`+model.author_website+`&size=256" alt="Rounded avatar">
         <span class="mr-2 text-sm text-gray-300 block">`+model.display_name+`</span>
         <i class="fa-regular fa-star text-xs ml-auto cursor-pointer text-[#5d5a5a] hover:text-gray-400"></i>
