@@ -4,11 +4,13 @@ from server import app
 @app.route("/")
 def chat():
     return render_template(
-        'chat.html'
+        'chat.html',
+        modelDisplayName = "MeboxAI"
     )
 
 @app.route("/<model>")
 def chat_model(model):
     return render_template(
-        'chat.html'
+        'chat.html',
+        modelDisplayName = "???"
     )
