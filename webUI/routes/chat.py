@@ -4,13 +4,12 @@ from server import app
 @app.route("/")
 def chat():
     return render_template(
-        'chat.html',
-        aiAgent_uuid="123456789"
+        'chat.html'
     )
 
 @app.route("/<model_uuid>")
 def chat_model(model_uuid):
     return render_template(
         'chat.html',
-        aiAgent_uuid="123456789"
+        model_uuid=model_uuid
     )

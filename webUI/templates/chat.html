@@ -8,6 +8,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- LOAD AI MODELS -->
+    <script src="static/js/models.js"></script>
+
     <style>
         /* width */
         ::-webkit-scrollbar {
@@ -129,6 +133,25 @@
         to {
             mask-position: 50% 50%, 0 50%;
         }
+        }
+        #modelsBox {
+            max-height: 28vh;
+            overflow-y: auto;
+        }
+        /* Opcional: Personalización de la barra de scroll */
+        #modelsBox::-webkit-scrollbar {
+            width: 4px;
+        }
+        #modelsBox::-webkit-scrollbar-thumb {
+            background-color: #3d3d3d;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        #modelsBox::-webkit-scrollbar-thumb:hover {
+            background: #4e4e4e; 
+        }
+        #modelsBox::-webkit-scrollbar-track {
+            background: transparent;
         }
     </style>
     <style>
@@ -286,16 +309,20 @@
                 </div>
 
                 <div class="mx-3 mb-3 py-1 text-gray-100 bg-[#272727]" style="border-radius: 23px;height: 36vh;">
-                    <div class="h-10 m-3 px-4 flex items-center text-gray-100 bg-[#1B1B1B]" style="border-radius: 23px;">
+                    <div class="h-10 m-3 mb-1 px-4 flex items-center text-gray-100 bg-[#1B1B1B]" style="border-radius: 23px;">
                         <i class="fas fa-magnifying-glass w-6 h-6 mr-2 mt-2 text-gray-400"></i>
                         <input type="text" class="text-sm font-medium text-gray-300 h-full w-full bg-transparent focus:outline-none focus:ring-0" placeholder="Search for a model"/>
                     </div>
 
-                    <div class="mx-3 mb-3 px-4 text-gray-100" style="border-radius: 23px;">
-                        <span class="mr-2 text-sm font-medium text-[#a9a9a9]"><i class="fa-solid fa-star text-xs"></i> Favorites models</span>
-                        <div class="block w-full mt-2 pt-2 border-t-2 border-[#3d3d3d]">
-                            <span class="mr-2 text-sm text-gray-300 block">You don't have any favorite models</span>
+                    <div id="modelsBox">
+                        <!--
+                        <div class="mx-3 mb-3 px-4 text-gray-100" style="border-radius: 23px;">
+                            <span class="mr-2 text-sm font-medium text-[#a9a9a9]"><i class="fa-solid fa-star text-xs"></i> Favorites models</span>
+                            <div class="block w-full mt-2 pt-2 border-t-2 border-[#3d3d3d]">
+                                <span class="mr-2 text-sm text-gray-300 block">You don't have any favorite models</span>
+                            </div>
                         </div>
+                        -->
                     </div>
                 </div>
 
@@ -579,5 +606,26 @@ document.querySelectorAll('.navicon2').forEach(element => {
         });
       });
     });
+</script>
+
+<!-- Pintar modelos -->
+<script>
+const allModels =  getStoredModelsJSON().data;
+
+
+const modelsBox = document.getElementById("modelsBox");
+let htmlContent = "";
+for (const model of allModels) {
+    console.log(model);
+    htmlContent += `
+    <div class="mx-5 py-2 flex border-b border-[#3D3D3D]" id="modelsList">
+        <img class="w-5 h-5 bg-white rounded-full mr-2 border" src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=`+model.author_website+`&size=256" alt="Rounded avatar">
+        <span class="mr-2 text-sm text-gray-300 block">`+model.display_name+`</span>
+        <i class="fa-regular fa-star text-xs ml-auto cursor-pointer text-[#5d5a5a] hover:text-gray-400"></i>
+    </div>
+    `
+}
+modelsBox.innerHTML = htmlContent;
+
 </script>
 </html>
