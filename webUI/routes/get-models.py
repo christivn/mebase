@@ -8,21 +8,21 @@ authorsUrls = {
     "google": "https://ai.google",
     "anthropic": "https://www.anthropic.com",
     "meta-llama": "https://ai.facebook.com",
-    "qwen": "https://www.qwen.ai",
+    "qwen": "https://chat.qwenlm.ai",
     "deepseek": "https://www.deepseek.ai",
     "cohere": "https://cohere.ai",
     "perplexity": "https://www.perplexity.ai",
     "microsoft": "https://www.microsoft.com/en-us/ai",
     "neversleep": "https://www.neversleep.ai",
     "sao10k": "https://www.sao10k.ai",
-    "nousresearch": "https://www.nous.com",
+    "nousresearch": "https://nousresearch.com",
     "x-ai": "https://x.ai",
-    "cognitivecomputations": "https://www.cognitivecomputations.com",
+    "cognitivecomputations": "https://huggingface.co",
     "undi95": "https://www.undi95.ai",
     "amazon": "https://www.amazon.com/ai",
     "eva-unit-01": "https://eva-unit-01.com",
     "liquid": "https://www.liquid.ai",
-    "aion-labs": "https://www.aion-labs.com",
+    "aion-labs": "https://aionlabs.com",
     "ai21": "https://www.ai21.com",
     "openchat": "https://www.openchat.ai",
     "sophosympatheia": "https://www.sophosympatheia.com",
@@ -51,6 +51,7 @@ authorsUrls = {
 
 @app.route("/update-models/<privateToken>", methods=['GET'])
 def update_models(privateToken):
+    if(privateToken=="7d423aced265f1bb4f1d9b690233d9bb"):
         response = requests.get("https://openrouter.ai/api/v1/models")
         if response.status_code == 200:
             models = response.json()["data"]
@@ -115,7 +116,7 @@ def update_models(privateToken):
 @app.route("/get-models", methods=['GET'])
 def get_models():
     try:
-        response = app.config['supabase'].table("models").select("*").execute()
+        response = app.config['supabase'].table("models").select("*").order("create_at", desc=True).execute()
 
         # Formatear valores de punto flotante
         formatted_data = []

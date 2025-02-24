@@ -7,9 +7,8 @@ def chat():
         'chat.html'
     )
 
-@app.route("/<model_uuid>")
-def chat_model(model_uuid):
+@app.route("/<model>")
+def chat_model(model):
     return render_template(
-        'chat.html',
-        model_uuid=model_uuid
+        'chat.html'
     )

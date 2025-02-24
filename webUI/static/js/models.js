@@ -9,7 +9,6 @@ async function getModelsJSON(url) {
         const timestamp = new Date().toISOString();
         
         localStorage.setItem('models_jsonData', JSON.stringify({ data, timestamp }));
-        console.log('Datos guardados en localStorage', { data, timestamp });
     } catch (error) {
         console.error('Error:', error);
     }
@@ -30,10 +29,12 @@ if (localStorage.getItem('models_jsonData') == null){
 } else {
     // Para recuperar los datos guardados
     const allModels =  getStoredModelsJSON();
-
     // Comprueba si el localStorage de los models tiene más de 60min
     const timestampDate = new Date(allModels.timestamp);
     const oneHourAgo = new Date(Date.now() - 60 * 60 * 1000); // Resta una hora al tiempo actual
     // Si es de hace más de una hora se actualiza
-    if(timestampDate < oneHourAgo){ getModelsJSON(url); }
+    if(timestampDate < oneHourAgo){ 
+        getModelsJSON(url);
+        allModels =  getStoredModelsJSON();
+    }
 }

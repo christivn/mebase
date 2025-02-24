@@ -138,6 +138,10 @@
             max-height: 28vh;
             overflow-y: auto;
         }
+        .modelsBox-bottomGradient {
+            bottom: 0;
+            background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+        }
         /* Opcional: Personalización de la barra de scroll */
         #modelsBox::-webkit-scrollbar {
             width: 4px;
@@ -608,17 +612,15 @@ document.querySelectorAll('.navicon2').forEach(element => {
     });
 </script>
 
-<!-- Pintar modelos -->
+<!-- Render models list -->
 <script>
 const allModels =  getStoredModelsJSON().data;
-
 
 const modelsBox = document.getElementById("modelsBox");
 let htmlContent = "";
 for (const model of allModels) {
-    console.log(model);
     htmlContent += `
-    <div class="mx-5 py-2 flex border-b border-[#3D3D3D]" id="modelsList">
+    <div class="cursor-pointer mx-5 py-2 px-2 flex border-b border-[#3D3D3D] hover:bg-[#393838]" id="modelsList">
         <img class="w-5 h-5 bg-white rounded-full mr-2 border" src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=`+model.author_website+`&size=256" alt="Rounded avatar">
         <span class="mr-2 text-sm text-gray-300 block">`+model.display_name+`</span>
         <i class="fa-regular fa-star text-xs ml-auto cursor-pointer text-[#5d5a5a] hover:text-gray-400"></i>
@@ -626,6 +628,5 @@ for (const model of allModels) {
     `
 }
 modelsBox.innerHTML = htmlContent;
-
 </script>
 </html>
