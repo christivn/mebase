@@ -37,37 +37,6 @@
             overflow: hidden; /* Esto desactiva la barra de desplazamiento en toda la página */
             height: 100vh; /* Asegura que el contenido no sobrepase el tamaño de la ventana */
         }
-        .icon-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .chat-bubble {
-            max-width: 80%;
-        }
-        .chat-input-container {
-            position: relative;
-            min-height: 40px;
-            max-height: 120px;
-        }
-        .chat-input {
-            resize: none;
-            overflow-y: auto;
-            padding-right: 40px; /* Space for the send button */
-        }
-        .send-button {
-            position: absolute;
-            right: 8px;
-            bottom: 8px;
-            background: none;
-            border: none;
-            color: #3b82f6; /* Blue-500 */
-            cursor: pointer;
-            transition: color 0.2s;
-        }
-        .send-button:hover {
-            color: #2563eb; /* Blue-600 */
-        }
         #sidebar {
             background-color: #060607;
         }
@@ -87,7 +56,15 @@
         }
         .chat-container {
             opacity: 0;
+            overflow-x: hidden;
             transform: translateY(20px);
+        }
+        #chatMessages {
+            overflow-x: hidden;
+            word-wrap: break-word;
+        }
+        #userInput {
+            resize: none;
         }
         .gradient-overlay {
             position: absolute;
@@ -393,41 +370,40 @@
             -->
         </div>
 
+
         <!-- Chat area -->
         <div class="flex-1 flex flex-col ml-3" style="background-color: #111111;">
-
 
             <div id="chatContainer" class="chat-container w-full h-full">
                 <div class="relative h-[calc(100vh-150px)] min-h-[400px]">
                     <div class="gradient-overlay"></div>
                     <div id="chatMessages" class="h-full overflow-y-auto p-4 space-y-4 pt-9"></div>
+                    <div id="emptyState"></div>
                 </div>
             </div>
             
             <!-- Chat input -->
             <div id="chat-input" class="pr-4 pl-2 py-4">
                 <div class="chat-input-container w-full">
-                    <textarea id="userInput"
-                        class="chat-input pr-16 w-full bg-[#212121] text-gray-100 rounded-2xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#633B12]"
-                        placeholder="Send your message to the AI"
-                        rows="4"
-                    ></textarea>
-                    <button id="sendButton" class="absolute bottom-4 right-3 bg-amber-600 text-white w-10 h-10 flex items-center justify-center rounded-full hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-amber-500">
+                    <textarea id="userInput" rows="4" class="pr-16 w-full bg-[#212121] text-gray-100 rounded-2xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#633B12]" placeholder="Send your message to the AI"></textarea>
+                    <button id="sendButton" class="absolute bottom-10 right-8 bg-amber-600 text-white w-10 h-10 flex items-center justify-center rounded-full hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-amber-500">
                         <i class="fas fa-arrow-up"></i>
                     </button>
                 </div>
             </div>
 
-        </div>
+
     </div>
 </body>
 <script>
     const chatContainer = document.getElementById('chatContainer');
     const chatMessages = document.getElementById('chatMessages');
+    const emptyState = document.getElementById('emptyState');
     const userInput = document.getElementById('userInput');
     const sendButton = document.getElementById('sendButton');
 
     let isChatVisible = false;
+    let messageCount = 0;
 
     function showChat() {
         if (!isChatVisible) {
@@ -443,33 +419,46 @@
     }
 
     function addMessage(text, isUser) {
+        messageCount++;
+        if (messageCount === 1) {
+            emptyState.style.display = 'none';
+        }
+
         const messageDiv = document.createElement('div');
         messageDiv.className = `flex ${isUser ? 'justify-end' : 'justify-start'} mb-4`;
         
-        const timestamp = new Date().toLocaleString('es-ES', { hour: '2-digit', minute: '2-digit' });
+        const timestamp = new Date().toLocaleString('es-ES', { hour: '2-digit', minute: '2-digit', day: '2-digit', month: '2-digit', year: 'numeric' });
+        const name = isUser ? 'Tú' : 'Bot';
         
         messageDiv.innerHTML = `
-            <div class="flex ${isUser ? 'flex-row-reverse' : 'flex-row'} items-end">
-                <img src="https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg" alt="Avatar" class="w-10 h-10 rounded-full mb-5 ${isUser ? 'ml-3' : 'mr-3'}">
-                <div class="flex flex-col ${isUser ? 'items-end' : 'items-start'}">
-                    <div class="max-w-2xl px-4 py-2 bg-[#232323] break-words whitespace-normal text-gray-200 rounded-lg">
-                        <span>${text}</span>
+            <div class="flex flex-col ${isUser ? 'items-end' : 'items-start'} max-w-3xl">
+                <div class="flex items-center mb-1 ${isUser ? 'flex-row-reverse' : 'flex-row'} w-full">
+                    <img src="https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg" alt="Avatar" class="w-6 h-6 rounded-lg ${isUser ? 'ml-2' : 'mr-2'} flex-shrink-0">
+                    <div class="flex flex-col ${isUser ? 'items-end' : 'items-start'} min-w-0">
+                        <span class="font-semibold text-sm truncate">${name}</span>
+                        <span class="text-xs text-gray-100 truncate">
+                            Perplexity: R1 1776
+                            <span class="mx-1">·</span>
+                            <span class="text-xs text-gray-400 truncate"> ${timestamp}</span>
+                        </span>
                     </div>
-                    <div class="flex items-center mt-1 text-xs text-gray-500">
-                        <span>${timestamp}</span>
-                        <button class="ml-2 text-gray-500 hover:text-gray-700 focus:outline-none copy-btn" data-tooltip="Copiar mensaje">
-                            <i class="fas fa-copy"></i>
+                </div>
+                <div class="max-w-full px-4 py-2 ${isUser ? 'bg-[#222222] text-gray-100' : 'bg-[#222222] text-gray-100'} rounded-lg break-words whitespace-normal">
+                    <span>${text}</span>
+                </div>
+                <div class="flex items-center mt-1 text-xs text-gray-500 ${isUser ? 'justify-end' : 'justify-start'}">
+                    <button class="mr-2 text-gray-500 hover:text-gray-700 focus:outline-none copy-btn" data-tooltip="Copiar mensaje">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                    <button class="mr-2 text-gray-500 hover:text-gray-700 focus:outline-none refresh-btn" data-tooltip="Refrescar">
+                        <i class="fas fa-sync-alt"></i>
+                    </button>
+                    <div class="dropdown relative">
+                        <button class="dropbtn text-gray-500 hover:text-gray-700 focus:outline-none" data-tooltip="Más opciones">
+                            <i class="fas fa-ellipsis-h"></i>
                         </button>
-                        <button class="ml-2 text-gray-500 hover:text-gray-700 focus:outline-none refresh-btn" data-tooltip="Refrescar">
-                            <i class="fas fa-sync-alt"></i>
-                        </button>
-                        <div class="dropdown ml-2 relative">
-                            <button class="dropbtn text-gray-500 hover:text-gray-700 focus:outline-none" data-tooltip="Más opciones">
-                                <i class="fas fa-ellipsis-h"></i>
-                            </button>
-                            <div class="dropdown-content">
-                                <a href="#" class="delete-message">Eliminar</a>
-                            </div>
+                        <div class="dropdown-content">
+                            <a href="#" class="delete-message">Eliminar</a>
                         </div>
                     </div>
                 </div>
@@ -526,6 +515,10 @@
         deleteBtn.addEventListener('click', (e) => {
             e.preventDefault();
             messageDiv.remove();
+            messageCount--;
+            if (messageCount === 0) {
+                emptyState.style.display = 'flex';
+            }
         });
     }
 
@@ -539,11 +532,25 @@
             // Simular respuesta del bot
             setTimeout(() => {
                 addMessage("Gracias por tu mensaje. Esta es una respuesta simulada del bot.", false);
-            }, 500);
+            }, 1000);
         }
     }
 
     sendButton.addEventListener('click', handleSend);
+    userInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            handleSend();
+        }
+    });
+
+    // Efecto de degradado al hacer scroll
+    chatMessages.addEventListener('scroll', function() {
+        const scrollTop = this.scrollTop;
+        const gradientOverlay = this.previousElementSibling;
+        const opacity = Math.min(scrollTop / 50, 1);
+        gradientOverlay.style.opacity = opacity;
+    });
 </script>
 
 <script>
