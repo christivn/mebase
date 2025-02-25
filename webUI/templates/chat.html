@@ -166,6 +166,7 @@
         [data-tooltip] {
             position: relative;
             cursor: pointer;
+            z-index: 90;
         }
         [data-tooltip]:after {
             content: attr(data-tooltip);
@@ -428,16 +429,16 @@
         messageDiv.className = `flex ${isUser ? 'justify-end' : 'justify-start'} mb-4`;
         
         const timestamp = new Date().toLocaleString('es-ES', { hour: '2-digit', minute: '2-digit', day: '2-digit', month: '2-digit', year: 'numeric' });
-        const name = isUser ? 'Tú' : 'Bot';
+        const name = isUser ? 'Tú' : 'Perplexity: R1 1776';
         
         messageDiv.innerHTML = `
             <div class="flex flex-col ${isUser ? 'items-end' : 'items-start'} max-w-3xl">
                 <div class="flex items-center mb-1 ${isUser ? 'flex-row-reverse' : 'flex-row'} w-full">
-                    <img src="https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg" alt="Avatar" class="w-7 h-7 rounded-lg ${isUser ? 'ml-2' : 'mr-2'} flex-shrink-0">
+                    <img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://www.perplexity.ai&size=256" alt="Avatar" class="w-8 h-8 rounded-lg ${isUser ? 'ml-2' : 'mr-2'} flex-shrink-0 border border-gray-600">
                     <div class="flex flex-col ${isUser ? 'items-end' : 'items-start'} min-w-0">
                         <span class="font-semibold text-sm truncate">${name}</span>
                         <span class="text-xs text-gray-100 truncate">
-                            Perplexity: R1 1776
+                            perplexity/r1-1776
                             <span class="mx-1">·</span>
                             <span class="text-xs text-gray-400 truncate"> ${timestamp}</span>
                         </span>
@@ -447,14 +448,14 @@
                     <span>${text}</span>
                 </div>
                 <div class="flex items-center mt-1 text-xs text-gray-500 ${isUser ? 'justify-end' : 'justify-start'}">
-                    <button class="mr-2 text-gray-500 hover:text-gray-700 focus:outline-none copy-btn" data-tooltip="Copiar mensaje">
+                    <button class="mr-2 text-[#4b4b4b] hover:text-gray-700 focus:outline-none copy-btn" data-tooltip="Copy">
                         <i class="fas fa-copy"></i>
                     </button>
-                    <button class="mr-2 text-gray-500 hover:text-gray-700 focus:outline-none refresh-btn" data-tooltip="Refrescar">
+                    <button class="mr-2 text-[#4b4b4b] hover:text-gray-700 focus:outline-none refresh-btn" data-tooltip="Refresh">
                         <i class="fas fa-sync-alt"></i>
                     </button>
                     <div class="dropdown relative">
-                        <button class="dropbtn text-gray-500 hover:text-gray-700 focus:outline-none" data-tooltip="Más opciones">
+                        <button class="dropbtn text-[#4b4b4b] hover:text-gray-700 focus:outline-none" data-tooltip="Options">
                             <i class="fas fa-ellipsis-h"></i>
                         </button>
                         <div class="dropdown-content">
