@@ -316,7 +316,7 @@
                 <div class="mx-3 py-1 text-gray-100 bg-[#272727]" style="border-radius: 23px;height: 39vh;">
                     <div class="h-10 m-3 mb-1 px-4 flex items-center text-gray-100 bg-[#1B1B1B]" style="border-radius: 23px;">
                         <i class="fas fa-magnifying-glass w-6 h-6 mr-2 mt-2 text-gray-400"></i>
-                        <input type="text" class="text-sm font-medium text-gray-300 h-full w-full bg-transparent focus:outline-none focus:ring-0" placeholder="Search for a model"/>
+                        <input type="text" class="text-sm font-medium text-gray-300 h-full w-full bg-transparent focus:outline-none focus:ring-0" placeholder="Select a model for new chat"/>
                     </div>
 
                     <div id="modelsBox">
@@ -653,7 +653,7 @@ const allModels =  getStoredModelsJSON().data;
 
 const modelsBox = document.getElementById("modelsBox");
 let htmlContent = `
-    <div class="cursor-pointer mx-5 py-2 px-2 flex border-b border-[#373535] modelsList">
+    <div onclick="window.location.href='/chat/create" model="mebox/meboxai" class="cursor-pointer mx-5 py-2 px-2 flex border-b border-[#373535] modelsList">
         <img class="w-5 h-5 bg-white rounded-full mr-2 border" src="static/img/mebox-favicon.png" alt="Rounded avatar">
         <span class="mr-2 text-sm text-gray-300 block">MeboxAI</span>
         <span class="ml-auto text-[#7b7b7b] text-xs rounded-full">Default</span>
@@ -661,7 +661,7 @@ let htmlContent = `
     `;
 for (const model of allModels) {
     htmlContent += `
-    <div onclick="window.location.href = '/`+model.model_uuid+`'" class="cursor-pointer mx-5 py-2 px-2 flex border-b border-[#373535] modelsList">
+    <div onclick="window.location.href = '/chat/create'" model="`+model.model+`" class="cursor-pointer mx-5 py-2 px-2 flex border-b border-[#373535] modelsList">
         <img class="w-5 h-5 bg-white rounded-full mr-2 border" src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=`+model.author_website+`&size=256" alt="Rounded avatar">
         <span class="mr-2 text-sm text-gray-300 block">`+model.display_name+`</span>
         <i class="fa-regular fa-star text-xs ml-auto cursor-pointer text-[#5d5a5a] hover:text-gray-400"></i>
