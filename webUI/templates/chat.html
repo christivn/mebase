@@ -774,12 +774,7 @@ document.addEventListener('click', function(event) {
     if (!sidebar.contains(event.target)) {
         anime({
             targets: '#model-sidebar',
-            translateX: ['0%', '-110%'],
-            duration: 400,
-            easing: 'easeOutQuad'
-        });
-        anime({
-            targets: '#model-sidebar',
+            translateX: ['0%', '-100%'],
             opacity: [1, 0],
             duration: 400,
             easing: 'easeOutQuad'
