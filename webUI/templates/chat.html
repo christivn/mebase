@@ -40,7 +40,7 @@
         #sidebar {
             background-color: #060607;
         }
-        #second-sidebar {
+        #second-sidebar, #model-sidebar {
             background: #1b1b1b;
             border-radius: 25px;
         }
@@ -374,6 +374,13 @@
             -->
         </div>
 
+        <div id="model-sidebar" class="w-96 flex flex-col z-9 my-5 ml-5 shadow-md hidden">
+            <div class="flex-1 overflow-y-auto">
+                <div class="m-3 px-4 py-2 text-gray-100 bg-[#272727]" style="border-radius: 23px;height:47vh;">
+                </div>
+            </div>
+        </div>
+
 
         <!-- Chat area -->
         <div class="flex-1 flex flex-col ml-3" style="background-color: #111111;">
@@ -653,7 +660,7 @@ const allModels =  getStoredModelsJSON().data;
 
 const modelsBox = document.getElementById("modelsBox");
 let htmlContent = `
-    <div onclick="window.location.href='/chat/create" model="mebox/meboxai" class="cursor-pointer mx-5 py-2 px-2 flex border-b border-[#373535] modelsList">
+    <div onclick="showModelSidebar()" model="mebox/meboxai" class="cursor-pointer mx-5 py-2 px-2 flex border-b border-[#373535] modelsList">
         <img class="w-5 h-5 bg-white rounded-full mr-2 border" src="static/img/mebox-favicon.png" alt="Rounded avatar">
         <span class="mr-2 text-sm text-gray-300 block">MeboxAI</span>
         <span class="ml-auto text-[#7b7b7b] text-xs rounded-full">Default</span>
@@ -669,5 +676,21 @@ for (const model of allModels) {
     `
 }
 modelsBox.innerHTML = htmlContent;
+</script>
+
+<script>
+function showModelSidebar() {
+    const sidebar = document.getElementById("model-sidebar");
+    if (sidebar) {
+        sidebar.classList.remove("hidden");
+        anime({
+            targets: '#model-sidebar',
+            translateX: ['-100%', '0%'], // Mueve el elemento de izquierda a derecha
+            opacity: [0, 1], // Desaparece y aparece
+            duration: 400, // Duración de la animación en milisegundos
+            easing: 'easeOutQuad' // Efecto de suavizado
+        });
+    }
+}
 </script>
 </html>
