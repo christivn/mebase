@@ -376,13 +376,24 @@
 
         <div id="model-sidebar" class="w-96 flex flex-col z-9 my-5 ml-5 shadow-md hidden" style="left:24.5vw">
             <div class="flex-1 overflow-y-auto">
-                <div class="m-3 px-4 py-2 text-gray-100 bg-[#272727]" style="border-radius: 23px;height:47vh;">
+                <div class="h-12 m-3 px-4 flex items-center text-gray-100 bg-[#272727]" style="border-radius: 23px;">
+                    <img class="w-7 h-7 p-1 bg-white rounded-full border-2 border-amber-600 mr-2" src="static/img/mebox-favicon.png" alt="Rounded avatar">
+                    <span class="mr-2 text-sm font-medium">{{modelDisplayName}}</span>
+                    <i class="fa-regular fa-star text-sm text-[#393939] cursor-pointer hover:text-[#7d7d7d]"></i>
+                    <img src="static/img/ai-white-ambar.png" alt="AI Agent Icon" class="w-6 h-6 ml-auto">
                 </div>
 
-                <div class="cursor-pointer h-12 m-3 px-4 flex items-center text-black bg-[#f3f4f6]" style="border-radius: 23px;">
+                <div class="m-3 px-4 py-2 text-gray-100 bg-[#272727]" style="border-radius: 23px;height:25vh;">
+                    <div style="overflow-y: auto; overflow-x: hidden;overflow-wrap: break-word;word-break: break-word;">
+                        <span class="mr-2 mx-2 text-sm font-medium text-[#a9a9a9]"><i class="fa-solid fa-align-left text-xs"></i> Description</span>
+                        <p id="model-description" class="text-gray-200 text-sm px-2 mt-1 text-justify"></p>
+                    </div>
+                </div>
+
+                <div class="cursor-pointer h-12 m-3 px-4 flex items-center text-black bg-[#ededed]" style="border-radius: 23px;">
                     <i class="fa-regular fa-plus text-md mr-2"></i>
                     <span class="mr-2 text-md font-medium">Create new chat</span>
-                    <img src="static/img/ai-chat-white-ambar.png" alt="AI Chat Icon" class="w-6 h-6 ml-auto">
+                    <img src="static/img/ai-chat-black-ambar.png" alt="AI Chat Icon" class="w-6 h-6 ml-auto">
                 </div>
             </div>
         </div>
@@ -688,7 +699,18 @@ modelsBox.innerHTML = htmlContent;
 function showModelSidebar(event) {
     const modelClick = event.currentTarget.getAttribute("model");
     const sidebar = document.getElementById("model-sidebar");
-    if (sidebar) {
+
+    const modelDescription = document.getElementById("model-description");
+    if(sidebar) {
+        if(modelClick=="mebox/meboxai"){
+            modelData = {
+                "author": "mebox",
+                "description": "R1 1776 is a version of DeepSeek-R1 that has been post-trained to remove censorship constraints related to topics restricted by the Chinese government. The model retains its original reasoning capabilities while providing direct responses to a wider range of queries. R1 1776 is an offline chat model that does not use the perplexity search subsystem.\n\nThe model was tested on a multilingual dataset of over 1,000 examples covering sensitive topics to measure its likelihood of refusal or overly filtered responses. [Evaluation Results](https://cdn-uploads.huggingface.co/production/uploads/675c8332d01f593dc90817f5/GiN2VqC5hawUgAGJ6oHla.png) Its performance on math and reasoning benchmarks remains similar to the base R1 model. [Reasoning Performance](https://cdn-uploads.huggingface.co/production/uploads/675c8332d01f593dc90817f5/n4Z9Byqp2S7sKUvCvI40R.png)\n\nRead more on the [Blog Post](https://perplexity.ai/hub/blog/open-sourcing-r1-1776)",
+                "display_name": "MeboxAI",
+                "model": "mebox/meboxai"
+            };
+            modelDescription.innerText = modelData.description;
+        }
         sidebar.classList.remove("hidden");
         anime({
             targets: '#model-sidebar',
