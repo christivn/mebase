@@ -290,7 +290,7 @@
             <!-- Channel list -->
              
             <div class="flex-1 overflow-y-auto">
-                <div class="h-96 mx-3 mb-3 px-4 py-2 text-gray-100 bg-[#272727]" style="border-radius: 23px;">
+                <div class="mx-3 mb-3 px-4 py-2 text-gray-100 bg-[#272727]" style="border-radius: 23px;height:47vh;">
                     <span class="mr-2 mx-2 text-sm font-medium text-[#a9a9a9]"><i class="fa-solid fa-clock-rotate-left text-xs"></i> Chat history</span>
                     <div class="block w-full mt-2"></div>
 
@@ -313,7 +313,7 @@
                     </div>
                 </div>
 
-                <div class="mx-3 mb-4 py-1 text-gray-100 bg-[#272727]" style="border-radius: 23px;height: 36vh;">
+                <div class="mx-3 py-1 text-gray-100 bg-[#272727]" style="border-radius: 23px;height: 39vh;">
                     <div class="h-10 m-3 mb-1 px-4 flex items-center text-gray-100 bg-[#1B1B1B]" style="border-radius: 23px;">
                         <i class="fas fa-magnifying-glass w-6 h-6 mr-2 mt-2 text-gray-400"></i>
                         <input type="text" class="text-sm font-medium text-gray-300 h-full w-full bg-transparent focus:outline-none focus:ring-0" placeholder="Search for a model"/>
@@ -331,20 +331,9 @@
                     </div>
                 </div>
 
+                <!--
                 <div class="flex justify-between">
-                    <div class="ai-button cursor-pointer h-24 w-full ml-3 mr-2 mb-3 flex items-center text-gray-100 bg-[#272727] relative" style="border-radius: 23px;">
-                        <div class="el" style="border-radius: 23px;">
-                            <div class="el2 px-4" style="border-radius: 23px;"></div>
-                        </div>
-                        <div class="absolute p-4">
-                            <div class="flex">
-                                <img src="static/img/ai-chat-white-ambar.png" alt="AI Agents" class="w-8 h-8 mr-2">
-                                <span class="text-xl font-bold text-gray-200 mb-3">Create new chat</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--
+                    
                     <div class="ai-button cursor-pointer h-40 w-full ml-3 mr-2 mb-3 flex items-center text-gray-100 bg-[#272727] relative" style="border-radius: 23px;">
                         <div class="el-white" style="border-radius: 23px;">
                             <div class="el2 px-4" style="border-radius: 23px;"></div>
@@ -368,8 +357,8 @@
                             </div>
                         </div>
                     </div>
-                    -->
-                </div>                
+                </div>  
+                -->              
             </div>
 
             <!-- User info -->
@@ -663,7 +652,13 @@ document.querySelectorAll('.navicon2').forEach(element => {
 const allModels =  getStoredModelsJSON().data;
 
 const modelsBox = document.getElementById("modelsBox");
-let htmlContent = "";
+let htmlContent = `
+    <div class="cursor-pointer mx-5 py-2 px-2 flex border-b border-[#373535] modelsList">
+        <img class="w-5 h-5 bg-white rounded-full mr-2 border" src="static/img/mebox-favicon.png" alt="Rounded avatar">
+        <span class="mr-2 text-sm text-gray-300 block">MeboxAI</span>
+        <span class="ml-auto text-[#7b7b7b] text-xs rounded-full">Default</span>
+    </div>
+    `;
 for (const model of allModels) {
     htmlContent += `
     <div onclick="window.location.href = '/`+model.model_uuid+`'" class="cursor-pointer mx-5 py-2 px-2 flex border-b border-[#373535] modelsList">
