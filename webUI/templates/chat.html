@@ -391,10 +391,10 @@
         </div>
 
         <div id="model-sidebar" class="w-96 flex flex-col z-9 my-5 ml-5 shadow-md hidden" style="left:24.5vw">
-            <div class="flex-1 overflow-y-auto">
+            <div class="flex-1 overflow-y-auto relative">
                 <div class="h-12 m-3 px-4 flex items-center text-gray-100 bg-[#272727]" style="border-radius: 23px;">
                     <img class="w-7 h-7 p-1 bg-white rounded-full border-2 border-amber-600 mr-2" src="static/img/mebox-favicon.png" alt="Rounded avatar">
-                    <span class="mr-2 text-sm font-medium">{{modelDisplayName}}</span>
+                    <span id="model-displayName" class="mr-2 text-sm font-medium"></span>
                     <i class="fa-regular fa-star text-sm text-[#393939] cursor-pointer hover:text-[#7d7d7d]"></i>
                     <img src="static/img/ai-white-ambar.png" alt="AI Agent Icon" class="w-6 h-6 ml-auto">
                 </div>
@@ -406,10 +406,17 @@
                     </div>
                 </div>
 
-                <div class="cursor-pointer h-12 m-3 px-4 flex items-center text-black bg-[#ededed]" style="border-radius: 23px;">
-                    <i class="fa-regular fa-plus text-md mr-2"></i>
-                    <span class="mr-2 text-md font-medium">Create new chat</span>
-                    <img src="static/img/ai-chat-black-ambar.png" alt="AI Chat Icon" class="w-6 h-6 ml-auto">
+                <div class="mx-3 mt-3 py-2 text-gray-100 bg-[#272727]" style="border-radius: 23px;height:10vh;">
+                    <span class="m-4 px-3 mx-2 text-sm font-medium text-[#a9a9a9]"><i class="fa-solid fa-money-bill-wave text-xs"></i> Pricing</span>
+                    <p id="model-pricing" class="text-gray-300 text-sm text-justify px-5"></p>
+                </div>
+
+                <div class="absolute bottom-0 w-full pr-6">
+                    <div class="w-full cursor-pointer h-12 m-3 px-4 flex items-center text-black bg-[#ededed]" style="border-radius: 23px;">
+                        <i class="fa-regular fa-plus text-md mr-2"></i>
+                        <span class="mr-2 text-md font-medium">Create new chat</span>
+                        <img src="static/img/ai-chat-black-ambar.png" alt="AI Chat Icon" class="w-6 h-6 ml-auto">
+                    </div>
                 </div>
             </div>
         </div>
@@ -717,6 +724,8 @@ function showModelSidebar(event) {
     const sidebar = document.getElementById("model-sidebar");
 
     const modelDescription = document.getElementById("model-description");
+    const modelPricing = document.getElementById("model-pricing");
+    const modelDisplayName = document.getElementById("model-displayName");
     if(sidebar) {
         if(modelClick=="mebox/meboxai"){
             modelData = {
@@ -725,7 +734,11 @@ function showModelSidebar(event) {
                 "display_name": "MeboxAI",
                 "model": "mebox/meboxai"
             };
+            modelDisplayName.innerText = "MeboxAI"
             modelDescription.innerHTML = modelData.description;
+            modelPricing.innerHTML = `
+            <p class="mt-1 text-gray-300 text-sm">The price in MeboxAI depends on the model used for each prompt.</p>
+            `
         }
         sidebar.classList.remove("hidden");
         anime({
