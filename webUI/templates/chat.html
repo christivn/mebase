@@ -422,7 +422,7 @@
                 <div class="mx-3 mt-3 py-2 text-gray-100 bg-[#272727]" style="border-radius: 23px;height:8vh;">
                     <span class="m-4 px-3 mx-2 text-sm font-medium text-[#a9a9a9]"><i class="fa-solid fa-code text-xs"></i> Model</span>
                     <p id="model-author" class="mt-2 text-gray-300 text-sm text-justify px-5">
-                        <span class="mr-2 text-sm text-gray-300 block">mebox/meboxai</span>
+                        <span class="inline-flex items-center rounded-md px-2 py-1 text-xs font-medium bg-gray-200/5 text-gray-300 ring-1 ring-gray-300/10 ring-inset">mebox/meboxai</span>
                     </p>
                 </div>
 
@@ -723,7 +723,7 @@ let htmlContent = `
     `;
 for (const model of allModels) {
     htmlContent += `
-    <div onclick="window.location.href = '/chat/create'" model="`+model.model+`" class="cursor-pointer mx-5 py-2 px-2 flex border-b border-[#373535] modelsList">
+    <div onclick="showModelSidebar(event)" model="`+model.model+`" class="cursor-pointer mx-5 py-2 px-2 flex border-b border-[#373535] modelsList">
         <img class="w-5 h-5 bg-white rounded-full mr-2 border" src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=`+model.author_website+`&size=256" alt="Rounded avatar">
         <span class="mr-2 text-sm text-gray-300 block">`+model.display_name+`</span>
         <i class="fa-regular fa-star text-xs ml-auto cursor-pointer text-[#5d5a5a] hover:text-gray-400"></i>
