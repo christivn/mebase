@@ -137,6 +137,22 @@
         #modelsBox::-webkit-scrollbar-track {
             background: transparent;
         }
+        
+        /* Opcional: Personalización de la barra de scroll */
+        #model-description-container::-webkit-scrollbar {
+            width: 4px;
+        }
+        #model-description-container::-webkit-scrollbar-thumb {
+            background-color: #3d3d3d;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        #model-description-container::-webkit-scrollbar-thumb:hover {
+            background: #4e4e4e; 
+        }
+        #model-description-container::-webkit-scrollbar-track {
+            background: transparent;
+        }
     </style>
     <style>
 
@@ -383,10 +399,10 @@
                     <img src="static/img/ai-white-ambar.png" alt="AI Agent Icon" class="w-6 h-6 ml-auto">
                 </div>
 
-                <div class="m-3 px-4 py-2 text-gray-100 bg-[#272727]" style="border-radius: 23px;height:25vh;">
-                    <div style="overflow-y: auto; overflow-x: hidden;overflow-wrap: break-word;word-break: break-word;">
-                        <span class="mr-2 mx-2 text-sm font-medium text-[#a9a9a9]"><i class="fa-solid fa-align-left text-xs"></i> Description</span>
-                        <p id="model-description" class="text-gray-200 text-sm px-2 mt-1 text-justify"></p>
+                <div class="py-2 text-gray-100 bg-[#272727]" style="border-radius: 23px;height:25vh;">
+                    <span class="m-4 px-3 mx-2 text-sm font-medium text-[#a9a9a9]"><i class="fa-solid fa-align-left text-xs"></i> Description</span>
+                    <div id="model-description-container" class="px-5 mt-1 w-full" style="height:21.5vh;overflow-y: auto; overflow-x: hidden;overflow-wrap: break-word;word-break: break-word;">
+                        <p id="model-description" class="text-gray-300 text-sm text-justify pb-5"></p>
                     </div>
                 </div>
 
@@ -705,11 +721,11 @@ function showModelSidebar(event) {
         if(modelClick=="mebox/meboxai"){
             modelData = {
                 "author": "mebox",
-                "description": "R1 1776 is a version of DeepSeek-R1 that has been post-trained to remove censorship constraints related to topics restricted by the Chinese government. The model retains its original reasoning capabilities while providing direct responses to a wider range of queries. R1 1776 is an offline chat model that does not use the perplexity search subsystem.\n\nThe model was tested on a multilingual dataset of over 1,000 examples covering sensitive topics to measure its likelihood of refusal or overly filtered responses. [Evaluation Results](https://cdn-uploads.huggingface.co/production/uploads/675c8332d01f593dc90817f5/GiN2VqC5hawUgAGJ6oHla.png) Its performance on math and reasoning benchmarks remains similar to the base R1 model. [Reasoning Performance](https://cdn-uploads.huggingface.co/production/uploads/675c8332d01f593dc90817f5/n4Z9Byqp2S7sKUvCvI40R.png)\n\nRead more on the [Blog Post](https://perplexity.ai/hub/blog/open-sourcing-r1-1776)",
+                "description": "<b>MeboxAI</b> is an innovative smart router designed to automatically select the most suitable artificial intelligence model to respond to your query. <br><br>Through a sophisticated analysis system, MeboxAI evaluates your request and, based on a series of parameters, chooses from a wide range of available models, ensuring that the most accurate and efficient technology is used to provide you with an optimal response. <br><br>This process not only improves the speed and accuracy of responses but also guarantees a personalized experience tailored to the specific needs of each user.",
                 "display_name": "MeboxAI",
                 "model": "mebox/meboxai"
             };
-            modelDescription.innerText = modelData.description;
+            modelDescription.innerHTML = modelData.description;
         }
         sidebar.classList.remove("hidden");
         anime({
