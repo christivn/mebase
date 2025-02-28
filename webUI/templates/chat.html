@@ -297,7 +297,7 @@
         <div id="second-sidebar" class="w-96 flex flex-col z-10 my-5 ml-5 shadow-md">
             <!-- Server name -->
             <div class="h-12 m-3 px-4 flex items-center text-gray-100 bg-[#060607]" style="border-radius: 23px;">
-                <img class="w-7 h-7 p-1 bg-white rounded-full border-2 border-amber-600 mr-2" src="static/img/mebox-favicon.png" alt="Rounded avatar">
+                <img class="w-7 h-7 bg-white rounded-full border-2 border-amber-600 mr-2" style="padding:3px" src="static/img/mebox-favicon.png" alt="Rounded avatar">
                 <span class="mr-2 text-sm font-medium">{{modelDisplayName}}</span>
                 <i class="fa-regular fa-star text-sm text-[#393939] cursor-pointer hover:text-[#7d7d7d]"></i>
                 <img src="static/img/ai-white-ambar.png" alt="AI Agent Icon" class="w-6 h-6 ml-auto">
@@ -393,7 +393,7 @@
         <div id="model-sidebar" class="w-96 flex flex-col z-9 my-5 ml-5 shadow-md hidden" style="left:24.5vw">
             <div class="flex-1 overflow-y-auto relative">
                 <div class="h-12 m-3 px-4 flex items-center text-gray-100 bg-[#272727]" style="border-radius: 23px;">
-                    <img class="w-7 h-7 p-1 bg-white rounded-full border-2 border-amber-600 mr-2" src="static/img/mebox-favicon.png" alt="Rounded avatar">
+                    <img id="model-displayAvatar" class="w-7 h-7 bg-white rounded-full border-2 border-amber-600 mr-2" style="padding:3px" src="" alt="Rounded avatar">
                     <span id="model-displayName" class="mr-2 text-sm font-medium"></span>
                     <i class="fa-regular fa-star text-sm text-[#393939] cursor-pointer hover:text-[#7d7d7d]"></i>
                     <img src="static/img/ai-white-ambar.png" alt="AI Agent Icon" class="w-6 h-6 ml-auto">
@@ -406,6 +406,11 @@
                     </div>
                 </div>
 
+                <div id="model-info-container" class="mx-3 mt-3 py-2 text-gray-100 bg-[#272727] h-fit pb-4" style="border-radius: 23px;">
+                    <span class="m-4 px-3 mx-2 text-sm font-medium text-[#a9a9a9]"><i class="fa-solid fa-circle-info text-xs"></i> Info</span>
+                    <p id="model-info" class="mt-2 text-gray-300 text-sm text-justify px-5"></p>
+                </div>
+
                 <div class="mx-3 mt-3 py-2 text-gray-100 bg-[#272727] h-fit pb-4" style="border-radius: 23px;">
                     <span class="m-4 px-3 mx-2 text-sm font-medium text-[#a9a9a9]"><i class="fa-solid fa-money-bill-wave text-xs"></i> Pricing</span>
                     <p id="model-pricing" class="text-gray-300 mt-1 text-sm text-justify px-5"></p>
@@ -413,17 +418,17 @@
 
                 <div class="mx-3 mt-3 py-2 text-gray-100 bg-[#272727] h-fit pb-4" style="border-radius: 23px;">
                     <span class="m-4 px-3 mx-2 text-sm font-medium text-[#a9a9a9]"><i class="fa-solid fa-user text-xs"></i> Author</span>
-                    <p id="model-author" class="mt-2 text-gray-300 text-sm text-justify px-5 flex">
-                        <img class="w-5 h-5 bg-white rounded-md mr-2 border border-gray-500" src="static/img/mebox-favicon.png" alt="Rounded avatar">
-                        <span class="mr-2 text-sm text-gray-300 block">Mebox</span>
-                    </p>
+                    <p id="model-author" class="mt-2 text-gray-300 text-sm text-justify px-5 flex"></p>
                 </div>
 
                 <div class="mx-3 mt-3 py-2 text-gray-100 bg-[#272727] h-fit pb-4" style="border-radius: 23px;">
                     <span class="m-4 px-3 mx-2 text-sm font-medium text-[#a9a9a9]"><i class="fa-solid fa-code text-xs"></i> Model</span>
-                    <p id="model-author" class="mt-2 text-gray-300 text-sm text-justify px-5">
-                        <span class="inline-flex items-center rounded-md px-2 py-1 text-xs font-medium bg-gray-200/5 text-gray-300 ring-1 ring-gray-300/10 ring-inset">mebox/meboxai</span>
-                    </p>
+                    <p id="model-id" class="mt-2 text-gray-300 text-sm text-justify px-5"></p>
+                </div>
+
+                <div id="model-create-date-container" class="mx-3 mt-3 py-2 text-gray-100 bg-[#272727] h-fit pb-4" style="border-radius: 23px;">
+                    <span class="m-4 px-3 mx-2 text-sm font-medium text-[#a9a9a9]"><i class="fa-solid fa-calendar text-xs"></i> Create date</span>
+                    <p id="model-create-date" class="mt-2 text-gray-300 text-sm text-justify px-5"></p>
                 </div>
 
                 <div class="absolute bottom-0 w-full pr-6">
@@ -738,23 +743,74 @@ function showModelSidebar(event) {
     const modelClick = event.currentTarget.getAttribute("model");
     const sidebar = document.getElementById("model-sidebar");
 
-    const modelDescription = document.getElementById("model-description");
-    const modelPricing = document.getElementById("model-pricing");
+    const modelDisplayAvatar = document.getElementById("model-displayAvatar");
     const modelDisplayName = document.getElementById("model-displayName");
+    const modelDescription = document.getElementById("model-description");
+    const modelInfo = document.getElementById("model-info");
+    const modelPricing = document.getElementById("model-pricing");
+    const modelAuthor = document.getElementById("model-author");
+    const modelId = document.getElementById("model-id");
+    const modelCreateDate = document.getElementById("model-create-date");
+
+    const modelInfoContainer = document.getElementById("model-info-container");
+    const modelCreateDateContainer = document.getElementById("model-create-date-container");
+
     if(sidebar) {
         if(modelClick=="mebox/meboxai"){
-            modelData = {
-                "author": "mebox",
-                "description": "<b>MeboxAI</b> is an innovative smart router designed to automatically select the most suitable artificial intelligence model to respond to your query. <br><br>Through a sophisticated analysis system, MeboxAI evaluates your request and, based on a series of parameters, chooses from a wide range of available models, ensuring that the most accurate and efficient technology is used to provide you with an optimal response. <br><br>This process not only improves the speed and accuracy of responses but also guarantees a personalized experience tailored to the specific needs of each user.",
-                "display_name": "MeboxAI",
-                "model": "mebox/meboxai"
-            };
+            modelInfoContainer.classList.add("hidden");
+            modelCreateDateContainer.classList.add("hidden");
+
+            modelDisplayAvatar.src = "static/img/mebox-favicon.png"
             modelDisplayName.innerText = "MeboxAI"
-            modelDescription.innerHTML = modelData.description;
+            modelDescription.innerHTML = "<b>MeboxAI</b> is an innovative smart router designed to automatically select the most suitable artificial intelligence model to respond to your query. <br><br>Through a sophisticated analysis system, MeboxAI evaluates your request and, based on a series of parameters, chooses from a wide range of available models, ensuring that the most accurate and efficient technology is used to provide you with an optimal response. <br><br>This process not only improves the speed and accuracy of responses but also guarantees a personalized experience tailored to the specific needs of each user.";
             modelPricing.innerHTML = `
             <p class="mt-1 text-gray-300 text-sm">The price in MeboxAI depends on the model used for each prompt.</p>
             `
+            modelAuthor.innerHTML = `
+            <img class="w-5 h-5 bg-white rounded-md mr-2 border border-gray-500" src="static/img/mebox-favicon.png" alt="Rounded avatar">
+            <span class="mr-2 text-sm text-gray-300 block">Mebox</span>
+            `
+            modelId.innerHTML = `
+            <span class="inline-flex items-center rounded-md px-2 py-1 text-xs font-medium bg-gray-200/5 text-gray-300 ring-1 ring-gray-300/10 ring-inset">mebox/meboxai</span>
+            `
+        } else {
+            const selectedModel = allModels.find(item => item.model === modelClick) || null;
+
+            if(modelInfoContainer.classList.contains("hidden")) {
+                modelInfoContainer.classList.remove("hidden");
+            }
+            if(modelCreateDateContainer.classList.contains("hidden")) {
+                modelCreateDateContainer.classList.remove("hidden");
+            }
+
+            modelDisplayAvatar.src = "https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url="+selectedModel.author_website+"&size=256"
+            modelDisplayName.innerText = selectedModel.display_name;
+            modelDescription.innerHTML = selectedModel.description;
+            modelInfo.innerHTML = `
+            <p class="mt-1 text-gray-300 text-sm">
+                <b>Context:</b> <span class="text-[#a9a9a9]">`+selectedModel.context+` tokens</span><br>
+                <b>Modality:</b> <span class="text-[#a9a9a9]">`+selectedModel.modality+`</span>
+            </p>
+            `
+            modelPricing.innerHTML = `
+            <p class="mt-1 text-gray-300 text-sm">
+                <b>Input:</b> <span class="text-[#a9a9a9]">`+selectedModel.input_token_pricing+`$ per token</span><br>
+                <b>Ouput:</b> <span class="text-[#a9a9a9]">`+selectedModel.output_token_pricing+`$ per token</span>
+            </p>
+            `
+            modelAuthor.innerHTML = `
+            <img class="w-5 h-5 bg-white rounded-md mr-2 border border-gray-500" src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=`+selectedModel.author_website+`&size=256" alt="Rounded avatar">
+            <span class="mr-2 text-sm text-gray-300 block">`+selectedModel.author+`</span>
+            `
+            modelId.innerHTML = `
+            <span class="inline-flex items-center rounded-md px-2 py-1 text-xs font-medium bg-gray-200/5 text-gray-300 ring-1 ring-gray-300/10 ring-inset">`+modelClick+`</span>
+            `
+            const createDate = new Date(selectedModel.create_at * 1000);
+            modelCreateDate.innerHTML = `
+            <p class="mt-1 text-gray-300 text-sm">`+createDate.toLocaleDateString();+`</p>
+            `
         }
+
         sidebar.classList.remove("hidden");
         anime({
             targets: '#model-sidebar',
